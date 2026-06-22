@@ -1,0 +1,136 @@
+@use "./TopBar.mobile.scss";
+
+$primary: #33d7d1;
+$navy: #1e293b;
+$bg-light: #f8fafc;
+
+.topBar {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  padding: 15px 40px; 
+  background: var(--bg-main);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  border-bottom: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+
+  .leftActions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+  }
+
+  .mobileMenuBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 38px;
+    height: 38px;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--bg-main);
+      color: var(--primary);
+    }
+  }
+
+  .searchBox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card);
+    padding: 10px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    width: 350px;
+    transition: 0.3s;
+
+    &:focus-within {
+      background: var(--bg-main);
+      border-color: $primary;
+      box-shadow: 0 0 0 2px rgba($primary, 0.1);
+      width: 400px;
+    }
+
+    svg { color: var(--text-muted); }
+    input {
+      border: none;
+      outline: none;
+      background: none;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      &::placeholder { color: var(--text-muted); }
+    }
+  }
+
+  .topbarActions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .iconBtn {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      cursor: pointer;
+      position: relative;
+      transition: 0.3s;
+
+      &:hover {
+        background: var(--bg-main);
+        color: $primary;
+        border-color: rgba($primary, 0.2);
+      }
+
+      .notiDot {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 8px;
+        height: 8px;
+        background: #f43f5e;
+        border: 2px solid var(--bg-main);
+        border-radius: 50%;
+      }
+    }
+
+    .btnCreate {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: $primary;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba($primary, 0.2);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba($primary, 0.3);
+      }
+    }
+  }
+}
+
+@include TopBar.mobile-styles();

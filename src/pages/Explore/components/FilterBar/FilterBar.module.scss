@@ -1,0 +1,166 @@
+@use "./FilterBar.mobile.scss";
+
+.filterBar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 28px;
+  box-shadow: 0 15px 50px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 50;
+
+  // Cấu hình lại để CustomDropdown component hiển thị tốt trong thanh lọc
+  :global(.dropdownContainer) {
+    min-width: 160px;
+    
+    :global(.dropdownHeader) {
+      padding: 10px 16px;
+      background: #f8fafc;
+      border-radius: 16px;
+      border-color: transparent;
+
+      &:hover {
+        background: #f1f5f9;
+        border-color: rgba(51, 215, 209, 0.3);
+      }
+
+      :global(.selectedContent) {
+        gap: 8px;
+        
+        :global(.icon) {
+          font-size: 1.1rem;
+        }
+
+        :global(.value) {
+          font-size: 0.875rem;
+          color: #334155;
+        }
+      }
+
+      :global(.arrow) {
+        width: 14px;
+        height: 14px;
+      }
+    }
+
+    :global(.optionsList) {
+      width: 220px;
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+    }
+  }
+}
+
+.mainFilters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.searchSide {
+  flex: 1;
+  max-width: 400px;
+  position: relative;
+  transition: all 0.3s ease;
+
+  &:focus-within {
+    transform: translateY(-2px);
+    
+    :global(.searchInputWrap) {
+       box-shadow: 0 10px 30px rgba(51, 215, 209, 0.2);
+    }
+    
+    :global(.searchInput) {
+      border-color: rgba(51, 215, 209, 0.5);
+      background: white;
+    }
+  }
+
+  .aiBadge {
+    position: absolute;
+    top: -10px;
+    right: 15px;
+    background: linear-gradient(135deg, #33d7d1, #2dd4bf);
+    color: white;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(51, 215, 209, 0.3);
+    z-index: 2;
+    pointer-events: none;
+    animation: bounce 2s infinite;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.quickTagsSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+
+  .tagLabel {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    white-space: nowrap;
+  }
+
+  .tagsContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .tagBtn {
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1.5px solid #f1f5f9;
+    background: white;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      border-color: var(--tag-color);
+      color: var(--tag-color);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    &.active {
+      background: var(--tag-color);
+      border-color: var(--tag-color);
+      color: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.selectSide {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 2;
+  justify-content: flex-end;
+}
+
+@include FilterBar.mobile-styles();

@@ -1,0 +1,43 @@
+@use "./Profile.mobile.scss";
+
+$bg-cream: #f0fbfb;
+$primary: #33d7d1;
+
+.profilePage {
+  background-color: $bg-cream;
+  min-height: 100vh;
+  padding: 0 0 80px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-top: 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+  margin-top: 50px;
+}
+
+.profileGrid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@include Profile.mobile-styles();
+
+.loadingContainer {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

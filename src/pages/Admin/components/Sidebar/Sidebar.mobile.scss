@@ -1,0 +1,17 @@
+@mixin mobile-styles {
+  // Mobile Responsive for Sidebar
+  @media (max-width: 1024px) {
+    .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      
+      &.open {
+        transform: translateX(0);
+      }
+    }
+
+    .sidebarLogo {
+      padding: 30px 24px;
+    }
+  }
+}

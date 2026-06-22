@@ -1,0 +1,49 @@
+@mixin mobile-styles {
+  .filterBar {
+    @media (max-width: 768px) {
+      padding: 18px;
+      gap: 15px;
+    }
+  }
+
+  .selectSide {
+    .customSelect {
+      @media (max-width: 768px) {
+        min-width: calc(50% - 7px);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .filterBar {
+      padding: 15px;
+    }
+
+    .searchSide {
+      width: 100%;
+      min-width: 0;
+      .inputGroup {
+        max-width: 100%;
+        padding: 10px 14px;
+      }
+    }
+
+    .selectSide {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+
+      .customSelect,
+      .btnAdvance {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .btnAdvance {
+        grid-column: span 1;
+        justify-content: center;
+      }
+    }
+  }
+}

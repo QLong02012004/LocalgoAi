@@ -1,0 +1,9 @@
+@mixin mobile-styles {
+  .topBar {
+    .mobileMenuBtn {
+      @media (max-width: 1024px) {
+        display: block;
+      }
+    }
+  }
+}

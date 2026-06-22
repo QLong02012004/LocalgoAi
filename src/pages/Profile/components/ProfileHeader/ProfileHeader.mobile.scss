@@ -1,0 +1,54 @@
+@mixin mobile-styles {
+  /* ====================
+     Profile Header Responsive
+  ==================== */
+  @media (max-width: 992px) {
+    .headerContent {
+      flex-direction: column;
+      padding: 0 24px 30px;
+      gap: 0;
+      align-items: center;
+      text-align: center;
+    }
+
+    .avatarContainer {
+      margin-top: -80px;
+      margin-bottom: 20px;
+    }
+
+    .mainInfo {
+      padding-top: 0;
+      width: 100%;
+    }
+
+    .titleRow {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .actions {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .metaRow {
+      justify-content: center;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .actions {
+      .shareBtn {
+        padding: 10px 12px;
+      }
+    }
+
+    .metaRow {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+  }
+}

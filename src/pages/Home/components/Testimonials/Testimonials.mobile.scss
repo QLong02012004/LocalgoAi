@@ -1,0 +1,7 @@
+@mixin mobile-styles {
+  .testimonialsGrid {
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

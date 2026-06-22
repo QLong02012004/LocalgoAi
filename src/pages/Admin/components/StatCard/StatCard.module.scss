@@ -1,0 +1,135 @@
+// ─── Sky & Horizon Tokens ───────────────────────────────────────────────────
+$bg-main: #F8FAFC;
+$text-main: #1E293B; // Dark Blue Gray
+$text-sub: #64748B;
+$accent-sky: #38BDF8;
+$accent-deep: #0EA5E9;
+
+// ─── StatCard ─────────────────────────────────────────────────────────────────
+.statCard {
+  background: white;
+  padding: 28px;
+  border-radius: 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  
+  &.clickable {
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.05);
+      border-color: #cbd5e1;
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+
+  &.activeCard {
+    border-color: $accent-sky;
+    background: rgba(56, 189, 248, 0.02);
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.1);
+  }
+}
+
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.valueRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sparkline {
+  opacity: 0.8;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+}
+
+.statLabel {
+  font-size: 0.625rem;
+  font-weight: 800;
+  color: $text-sub;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0 0 8px 0;
+}
+
+.footerLabel {
+  @extend .statLabel;
+  margin-top: 12px;
+  margin-bottom: 0;
+  color: #94a3b8;
+}
+
+.statValue {
+  font-size: 2.375rem;
+  font-weight: 900;
+  color: $text-main;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  margin: 0;
+}
+
+.statIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  border: 1px solid #f1f5f9;
+  color: $accent-sky;
+  transition: all 0.3s;
+}
+
+.statTrend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-top: 12px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+// ─── Semantic Colors ──────────────────────────────────────────────────────────
+.bgBlue { background: rgba(56, 189, 248, 0.1); color: #0ea5e9; }
+.bgEmerald { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.bgAmber { background: rgba(245, 158, 11, 0.1); color: #f59e0b; }
+.bgPurple { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+
+.statCard:hover .statIcon {
+  transform: scale(1.1);
+}
+
+// ─── Trend Contexts ───────────────────────────────────────────────────────────
+.textEmerald { 
+  color: #065f46 !important; 
+  background: #ecfdf5;
+  border: 1px solid rgba(16, 185, 129, 0.1);
+}
+.textAmber { 
+  color: #92400e !important; 
+  background: #fffbeb;
+  border: 1px solid rgba(245, 158, 11, 0.1);
+}
+.textBlue { color: #2563eb; }
+.textRed { color: #ef4444; }

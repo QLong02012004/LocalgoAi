@@ -1,0 +1,563 @@
+$primary: #33d7d1;
+$navy: #1e293b;
+$white: #ffffff;
+$bg-light: #f8fafc;
+$text-dark: #0f172a;
+$text-muted: #64748b;
+$border-color: #16161657;
+
+.reviewMain {
+  padding: 40px 0;
+
+  margin-top: 80px;
+}
+
+.reviewIntro {
+  text-align: center;
+  margin-bottom: 40px;
+  .reviewTitle {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: $navy;
+    margin-bottom: 8px;
+  }
+  .reviewSubtitle {
+    color: $text-muted;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+.reviewLayout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 30px;
+  margin-bottom: 60px;
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Gamification Sidebar Styles --- */
+.userBadgeSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(
+    135deg,
+    rgba($primary, 0.1) 0%,
+    rgba($primary, 0.05) 100%
+  );
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba($primary, 0.2);
+  margin-bottom: 25px;
+
+  .badgeIcon {
+    width: 45px;
+    height: 45px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary;
+    box-shadow: 0 8px 15px rgba($primary, 0.2);
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .badgeLabel {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: $primary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .levelName {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: $navy;
+    margin: 0;
+  }
+}
+
+.rewardProgress {
+  margin-bottom: 25px;
+
+  .rewardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .rewardTitle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: $navy;
+      
+      svg {
+        color: $primary;
+        width: 18px;
+        height: 18px;
+      }
+    }
+    .remaining {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: $primary;
+    }
+  }
+
+  .progressBar {
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    overflow: hidden;
+
+    .progressFill {
+      height: 100%;
+      background: linear-gradient(to right, $primary, #2dd4bf);
+      border-radius: 100px;
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  .rewardHint {
+    font-size: 0.75rem;
+    color: $text-muted;
+    line-height: 1.4;
+    font-weight: 600;
+  }
+}
+
+.divider {
+  height: 1px;
+  background: $border-color;
+  margin: 25px 0;
+}
+
+.reviewStatsCard {
+  background: $white;
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid $border-color;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 100px;
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: $navy;
+    margin-bottom: 20px;
+  }
+  .overallRating {
+    display: flex;
+    align-items: center;
+    gap:5px;
+    margin-bottom: 15px;
+    flex-wrap: nowrap; // Không cho phép xuống dòng làm lệch
+
+    .ratingValue {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: $navy;
+      line-height: 1;
+    }
+
+    // Đảm bảo component StarRating bên trong không bị scale quá đà hoặc lệch
+    & > div {
+       display: flex;
+       align-items: center;
+       margin-top: 5px; // Căn chỉnh theo baseline của con số
+    }
+  }
+}
+
+.metric {
+  margin-bottom: 15px;
+  .metricLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $navy;
+    margin-bottom: 6px;
+  }
+  .progressBg {
+    height: 5px;
+    background: #f1f5f9;
+    border-radius: 100px;
+    overflow: hidden;
+    .progressFill {
+      height: 100%;
+      background: $primary;
+      border-radius: 100px;
+    }
+  }
+}
+
+.aiSentimentBox {
+  margin-top: 30px;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 18px;
+  border: 1px dashed $primary;
+  .aiHeader {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: $primary;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .sentimentContent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    
+    &.pos { color: #10b981; }
+    &.neg { color: #f43f5e; }
+    &.neu { color: #64748b; }
+
+    svg {
+      font-size: 20px;
+    }
+  }
+}
+
+/* --- Feedback Form --- */
+.feedbackFormCard {
+  background: $white;
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid $border-color;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+  .formGroup {
+    margin-bottom: 25px;
+    h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: $navy;
+      margin-bottom: 12px;
+    }
+    .labelWithAi {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      .charCount {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: $text-muted;
+      }
+    }
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 15px;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      font-size: 0.9rem;
+      resize: none;
+      outline: none;
+      &:focus {
+        border-color: $primary;
+        background: white;
+      }
+    }
+  }
+}
+
+.smartTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  .tagBtn {
+    padding: 5px 12px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+}
+
+.uploadGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  .uploadBtn {
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #94a3b8;
+    transition: 0.3s;
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  .uploadThumb {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .btnRemoveImg {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+}
+
+.formActions {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* --- Masonry Community Section --- */
+.recentReviewsSection {
+  margin-top: 40px;
+  .sectionTitle {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: $navy;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+}
+
+.masonryGrid {
+  column-count: 4;
+  column-gap: 20px;
+  width: 100%;
+  min-height: 200px;
+  @media (max-width: 1400px) {
+    column-count: 3;
+  }
+  @media (max-width: 992px) {
+    column-count: 2;
+  }
+  @media (max-width: 576px) {
+    column-count: 1;
+  }
+}
+
+.masonryItem {
+  break-inside: avoid;
+  background: white;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  border: 2px solid transparent; // Mặc định viền trong suốt
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: $primary; // Hiện viền Cyan khi hover
+    box-shadow: 0 20px 40px rgba($primary, 0.2), 0 0 0 4px rgba($primary, 0.05); // Bóng đổ kết hợp viền mờ bên ngoài
+    z-index: 10;
+
+    .reviewImage img {
+      transform: scale(1.1);
+    }
+  }
+
+  .reviewImage {
+    width: 100%;
+    overflow: hidden; // Đảm bảo ảnh không tràn khi zoom
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 180px;
+      transition: transform 0.6s ease; // Chuyển động zoom mượt mà
+    }
+  }
+  .masonryContent {
+    padding: 15px;
+  }
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  .userAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid $primary;
+  }
+  .userInfo {
+    strong {
+      font-size: 0.85rem;
+      color: $navy;
+      display: block;
+    }
+    span {
+      font-size: 0.65rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+  }
+}
+
+.starsFixed {
+  margin-bottom: 8px;
+  transform: scale(0.7);
+  transform-origin: left;
+}
+.reviewText {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #475569;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.reviewActions {
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+  .actionBtn {
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #64748b;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      color: $primary;
+    }
+    &.active {
+      color: #f43f5e;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+  .pageBtn {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    font-weight: 800;
+    cursor: pointer;
+    &.active {
+      background: $primary;
+      color: white;
+      border-color: $primary;
+    }
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid $primary;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.emptyState {
+  text-align: center;
+  padding: 40px;
+  color: $text-muted;
+  font-weight: 700;
+  width: 100%;
+}
+
+.statusWrapper {
+  column-span: all;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}

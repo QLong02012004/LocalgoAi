@@ -1,0 +1,180 @@
+@use "./Dashboard.mobile.scss";
+
+$primary: #33d7d1;
+$navy: #1e293b;
+$bg-light: #f8fafc;
+
+.dashboardLayout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-main);
+  transition: background-color 0.3s ease;
+}
+
+.mainContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.pageContent { 
+  text-align: left;
+  padding: 40px; 
+  flex: 1;
+
+  &.weatherPage {
+    padding: 0;
+    position: relative;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), 
+                      url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1600');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 24px;
+    margin: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.topRow {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 32px; 
+  margin-bottom: 50px;
+  align-items: stretch;
+
+  > * {
+    min-width: 0; 
+    height: 520px;
+    min-height: 520px;
+    max-height: 520px;
+  }
+}
+
+.midRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 50px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 30px;
+
+  .headerTitle {
+    h2 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      span { color: $primary; font-weight: 800; }
+    }
+  }
+}
+
+.tripFilters {
+  display: flex;
+  gap: 8px;
+  background: var(--bg-card);
+  padding: 5px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+
+  .filterBtn {
+    border: none;
+    background: none;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover { color: $primary; }
+    &.active {
+      background: var(--bg-main);
+      color: $primary;
+      box-shadow: var(--shadow-main);
+    }
+  }
+}
+
+.tripGrid {
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.dashboardTabs {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 2px;
+
+  .tabItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 4px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-muted);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: var(--text-main);
+      svg { transform: translateY(-2px); }
+    }
+
+    &.active {
+      color: $primary;
+      border-bottom-color: $primary;
+      
+      svg {
+        color: $primary;
+        filter: drop-shadow(0 0 5px rgba(51, 215, 209, 0.4));
+      }
+    }
+  }
+}
+
+.tabContentArea {
+  min-height: 400px;
+  text-align: left;
+}
+
+.reviewsWrapper {
+  :global(.userReviewsContainer) {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+@include Dashboard.mobile-styles();

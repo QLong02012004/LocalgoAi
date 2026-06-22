@@ -1,0 +1,272 @@
+@use "../../components/styles/variables.scss" as vars;
+
+@mixin mobile-styles {
+  /* ====================
+     Layout Responsive
+  ==================== */
+  @media (max-width: 992px) {
+    .main {
+      padding-top: 72px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 16px;
+    }
+
+    .sectionTitle {
+      font-size: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: left;
+    }
+
+    .sectionDescription {
+      font-size: 0.95rem;
+      text-align: center;
+      margin: 0 auto 30px;
+    }
+  }
+
+  /* ====================
+     Hero Section Responsive
+  ==================== */
+  @media (max-width: 768px) {
+    .hero {
+      height: auto;
+      min-height: calc(100vh - 72px);
+      padding: 30px 0;
+    }
+
+    .heroTitle {
+      font-size: 2.2rem;
+      letter-spacing: 0.1rem;
+      br {
+        display: none;
+      }
+    }
+
+    .heroSearchWrapper {
+      border-radius: 24px;
+      padding: 20px;
+      margin: 0 10px;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    .premiumSearchWidget {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .searchDivider {
+      display: none;
+    }
+
+    .suggestionsDropdown {
+      width: 95%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+
+      &.show {
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .heroButtons {
+      flex-direction: column;
+      width: 100%;
+      gap: 12px;
+      padding: 0 20px;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+
+  /* ====================
+     Timeline Section Responsive
+  ==================== */
+  @media (max-width: 768px) {
+    .timeline {
+      padding: 30px 0;
+    }
+    .timelineGrid {
+      flex-direction: column;
+      gap: 40px;
+      min-height: auto;
+      padding-left: 30px;
+
+      &::before {
+        top: 0;
+        left: 35px;
+        width: 2px;
+        height: 100%;
+        border-top: none;
+        border-left: 2px dashed #cbd5e1;
+        border-radius: 0;
+        transform: none;
+        display: block;
+      }
+    }
+    .timelineItem {
+      flex-direction: row;
+      text-align: left;
+      gap: 20px;
+      align-items: flex-start;
+
+      &:nth-child(odd),
+      &:nth-child(even) {
+        transform: none;
+      }
+
+      .iconBox {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        background: white;
+        z-index: 2;
+      }
+
+      h3 {
+        margin: 0 0 4px;
+        font-size: 1.1rem;
+      }
+
+      p {
+        max-width: none;
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  /* ====================
+     Why Us Section Responsive
+  ==================== */
+  @media (max-width: 992px) {
+    .whyUsGrid {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .whyUs {
+      padding: 30px 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .glassCard {
+      padding: 30px 20px;
+      border-radius: 24px;
+
+      .glassIcon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  /* ====================
+     Expert Itinerary Responsive
+  ==================== */
+  @media (max-width: 992px) {
+    .expertContainer {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .sectionTitle {
+      text-align: justify;
+    }
+    .expertContent {
+      text-align: center;
+      .subHeading {
+        margin-bottom: 15px;
+      }
+      .featureList {
+        align-items: center;
+      }
+      .sectionDescription {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .expertImages {
+      height: 350px;
+    }
+  }
+
+  /* ====================
+     Testimonials Responsive
+  ==================== */
+  @media (max-width: 992px) {
+    .testimonialsGrid {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .testimonials {
+      padding: 40px 0;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .testimonialCard {
+      padding: 24px;
+
+      .reviewText {
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  /* ====================
+     CTA Section Responsive
+  ==================== */
+  @media (max-width: 768px) {
+    .ctaCard {
+      padding: 40px 24px;
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .ctaButtons {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}

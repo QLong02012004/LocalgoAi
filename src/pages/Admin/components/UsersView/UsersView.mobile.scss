@@ -1,0 +1,17 @@
+@mixin mobile-styles {
+  // Mobile Responsive for UsersView
+  @media (max-width: 1024px) {
+    .pageHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .tableContainer {
+      overflow-x: auto;
+      .table {
+        min-width: 800px;
+      }
+    }
+  }
+}

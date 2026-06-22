@@ -1,0 +1,34 @@
+@use "../../components/styles/variables" as vars;
+
+@mixin mobile-styles {
+  /* ====================
+     Auth Layout Responsive
+  ==================== */
+  @media (max-width: 992px) {
+    .authLeft {
+      display: none;
+    }
+
+    .authRight {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .authMain {
+      padding: 0;
+    }
+
+    .authContainer {
+      max-width: 100%;
+      height: 100%;
+      border-radius: 0;
+      max-height: 100vh;
+    }
+
+    .authRight {
+      padding: 30px 24px;
+      background: rgba(255, 255, 255, 0.92);
+    }
+  }
+}

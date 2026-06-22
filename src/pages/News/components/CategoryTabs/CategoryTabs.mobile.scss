@@ -1,0 +1,10 @@
+@mixin mobile-styles {
+  .tabsContainer {
+    .tabBtn {
+      @media (max-width: 576px) {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+  }
+}

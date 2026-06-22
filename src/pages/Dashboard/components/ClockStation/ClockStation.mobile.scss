@@ -1,0 +1,8 @@
+@mixin mobile-styles {
+  @media (max-width: 1200px) {
+    .clockStation {
+      flex-direction: column;
+      padding: 30px;
+    }
+  }
+}

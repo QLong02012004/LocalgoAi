@@ -1,0 +1,60 @@
+@use "./TipsTab.mobile.scss";
+
+.tipsContainer {
+  padding: 20px 0;
+  .tabTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 24px;
+  }
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.tipCard {
+  text-align: left;
+  background: white;
+  padding: 32px 24px;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  text-align: center;
+  transition: 0.3s;
+
+  &:hover {
+    border-color: #33d7d1;
+    background: #fffcf9;
+  }
+
+  .iconCircle {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #33d7d1, #3b82f6);
+    border-radius: 20px; // Bo góc kiểu "Squircle" cho hiện đại
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 10px 20px -5px rgba(51, 215, 209, 0.3);
+  }
+
+  h4 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+  }
+  p {
+    text-align: justify;
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+  }
+}
+
+@include TipsTab.mobile-styles();

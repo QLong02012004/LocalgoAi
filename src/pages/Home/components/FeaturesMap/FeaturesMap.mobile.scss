@@ -1,0 +1,34 @@
+@mixin mobile-styles {
+  .featuresContainer {
+    @media (max-width: 992px) {
+      flex-direction: column;
+      gap: 60px;
+    }
+  }
+
+  .featureContent {
+    .sectionTitle {
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+
+    .sectionDescription {
+      @media (max-width: 768px) {
+        text-align: center;
+      }
+    }
+  }
+
+  .featureChecklist {
+    li {
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+    }
+  }
+}

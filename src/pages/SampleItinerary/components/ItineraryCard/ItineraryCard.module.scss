@@ -1,0 +1,318 @@
+$primary: #00a8a2;
+$dark: #1a365d;
+$text: #2d3748;
+$lightText: #718096;
+
+.card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid #f0f0f0;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(15, 27, 53, 0.15);
+    border-color: rgba($primary, 0.2);
+
+    .imageWrapper img {
+      transform: scale(1.1);
+    }
+  }
+
+  .imageWrapper {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .overlayTags {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+
+      .priceBadge {
+        background: $primary;
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-weight: 800;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        box-shadow: 0 4px 12px rgba($primary, 0.3);
+      }
+
+      .peopleBadge {
+        background: rgba(0, 0, 0, 0.6);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        color: #fff;
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+    }
+
+    .ratingBadge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #fff;
+      color: $dark;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .header {
+      margin-bottom: 15px;
+
+      .title {
+        font-size: 18px;
+        font-weight: 800;
+        color: $dark;
+        margin: 0 0 8px 0;
+        line-height: 1.3;
+      }
+
+      .metaInfo {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        color: $lightText;
+
+        .duration, .location, .distance {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 13px;
+          font-weight: 700;
+          color: #4a5568;
+          
+          svg {
+            color: #718096;
+          }
+        }
+
+        .distance {
+          color: #0ea5e9;
+          background: rgba(14, 165, 233, 0.08);
+          padding: 2px 10px;
+          border-radius: 8px;
+          
+          svg {
+            color: #0ea5e9;
+          }
+        }
+      }
+    }
+
+    .itineraryTimeline {
+      flex: 1;
+      margin-bottom: 20px;
+
+      .timelineLabel {
+        font-size: 11px;
+        font-weight: 800;
+        color: $lightText;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+
+      .daysList {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .dayGroup {
+          .dayHeader {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+
+            .dayBadge {
+              background: rgba($primary, 0.1);
+              color: $primary;
+              padding: 2px 8px;
+              border-radius: 6px;
+              font-size: 11px;
+              font-weight: 800;
+              text-transform: uppercase;
+            }
+
+            .dayTheme {
+              font-size: 13px;
+              font-weight: 700;
+              color: $dark;
+            }
+          }
+
+          .activitiesList {
+            padding-left: 4px;
+
+            .stepItem {
+              display: flex;
+              gap: 12px;
+
+              .visualLine {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 10px;
+
+                .dot {
+                  width: 8px;
+                  height: 8px;
+                  background: #fff;
+                  border: 2px solid $primary;
+                  border-radius: 50%;
+                  flex-shrink: 0;
+                }
+
+                .line {
+                  width: 2px;
+                  background: #edf2f7;
+                  flex: 1;
+                  margin: 3px 0;
+                }
+              }
+
+              .stepInfo {
+                padding-bottom: 10px;
+                flex: 1;
+
+                .timeRow {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 2px;
+
+                  .time {
+                    font-size: 12px;
+                    font-weight: 800;
+                    color: $dark;
+                  }
+
+                  .distance {
+                    font-size: 10px;
+                    font-weight: 600;
+                    color: $lightText;
+                    background: #f7fafc;
+                    padding: 1px 6px;
+                    border-radius: 4px;
+                  }
+                }
+
+                .activity {
+                  font-size: 13px;
+                  color: $text;
+                  line-height: 1.4;
+                  font-weight: 500;
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+
+        .moreDays {
+          font-size: 12px;
+          color: $lightText;
+          font-style: italic;
+          margin-top: -10px;
+          padding-left: 10px;
+        }
+      }
+    }
+
+    .cardFooter {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+
+      .detailBtn {
+        flex: 1;
+        padding: 12px;
+        border: 2px solid $primary;
+        border-radius: 16px;
+        background: transparent;
+        color: $primary;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba($primary, 0.05);
+          transform: translateY(-2px);
+        }
+      }
+
+      .selectBtn {
+        flex: 2;
+        padding: 12px;
+        border: none;
+        border-radius: 16px;
+        background: $dark;
+        color: #fff;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: $primary;
+          box-shadow: 0 8px 20px rgba($primary, 0.3);
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@mixin mobile-styles {
+  /* ====================
+     Destination Detail Responsive
+  ==================== */
+  @media (max-width: 1024px) {
+    .destContentGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .destMain {
+      margin: 20px auto 40px;
+      padding: 30px 16px;
+    }
+  }
+}

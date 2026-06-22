@@ -1,0 +1,50 @@
+@mixin mobile-styles {
+  // Mobile Responsive for DestinationsView
+  @media (max-width: 1024px) {
+    .pageHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+
+      .pageActions {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    .statsGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .filterSection {
+      padding: 16px;
+      
+      .filterRow {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+    }
+
+    .tableContainer {
+      overflow-x: auto;
+      
+      .table {
+        min-width: 800px; // Maintain some width for readability
+      }
+    }
+
+    .pagination {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .statsGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

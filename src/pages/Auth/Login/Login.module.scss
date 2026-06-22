@@ -1,0 +1,177 @@
+@use "./Login.mobile.scss";
+@use "../../../components/styles/variables" as vars;
+
+.loginContainer {
+  width: 100%;
+
+  .header {
+    margin-bottom: 24px;
+    text-align: left;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 2px;
+      letter-spacing: -0.01em;
+      background: vars.$primary-cyan-gradient;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    p {
+      color: #64748b;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+  }
+
+  .socialButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+    width: 100%;
+
+    .googleButtonWrap {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 40px;
+      transition: all 0.3s ease;
+
+      & > div {
+        width: 100% !important;
+        iframe {
+          width: 100% !important;
+          margin: 0 auto;
+        }
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .socialBtn {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1.5px solid #f1f5f9;
+      background: white;
+      color: #1e293b;
+
+      &.facebook {
+        background: #1877f2;
+        color: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+
+        &:hover {
+          background: #166fe5;
+          box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3);
+        }
+      }
+    }
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    &::before,
+    &::after {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    span {
+      padding: 0 12px;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .passwordGroupWrap {
+      margin-bottom: 8px;
+      width: 100%;
+
+      .labelRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+        padding: 0 4px;
+        width: 100%;
+
+        label {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: vars.$text-dark;
+          margin: 0;
+        }
+
+        .forgotPass {
+          font-size: 0.75rem;
+          color: vars.$brand-cyan-dark !important;
+          text-decoration: none;
+          font-weight: 700;
+          transition: all 0.2s ease;
+
+          &:hover {
+            color: vars.$brand-cyan !important;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    /* btnSubmit cũ đã được thay thế bằng PremiumButton */
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #64748b;
+
+    button {
+      background: none;
+      border: none;
+      color: vars.$brand-cyan-dark;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0 4px;
+      font-size: inherit;
+
+      &:hover {
+        color: vars.$brand-cyan;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@include Login.mobile-styles();

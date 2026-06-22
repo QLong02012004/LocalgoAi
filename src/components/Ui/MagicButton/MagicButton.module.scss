@@ -1,0 +1,212 @@
+@use "../../../components/styles/variables.scss" as vars;
+
+.btnWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.btn {
+  --border-radius: 30px;
+  --padding: 5px;
+  --transition: 0.4s;
+
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8em 1.8em;
+  font-family: vars.$font-main;
+  font-size: 1rem;
+  font-weight: 700;
+  
+  // 1. Biến thể Primary (Cyan) - Sử dụng hệ thống biến mới
+  background: vars.$btn-primary-bg;
+  color: vars.$btn-primary-text;
+  min-height: 54px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition) cubic-bezier(0.4, 0, 0.2, 1);
+  
+  box-shadow: 
+    0 8px 20px -5px vars.$btn-primary-shadow,
+    inset 0 1px 1px rgba(255, 255, 255, 0.4);
+
+  // 2. Biến thể Sunset (CTA)
+  &.sunset {
+    background: vars.$btn-cta-bg;
+    color: vars.$btn-cta-text;
+    box-shadow: 
+      0 8px 20px -5px vars.$btn-cta-shadow,
+      inset 0 1px 1px rgba(255, 255, 255, 0.4);
+
+    &:hover {
+      box-shadow: 
+        0 15px 30px -5px vars.$btn-cta-shadow,
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  // 3. Biến thể Dark (Như ảnh mẫu)
+  &.dark {
+    background: vars.$btn-dark-bg;
+    color: vars.$btn-dark-text;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background: #000000;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      
+      .btnLetter {
+        text-shadow: 0 0 8px rgba(255, 255, 255, 1);
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: calc(0px - var(--padding));
+    left: calc(0px - var(--padding));
+    width: calc(100% + var(--padding) * 2);
+    height: calc(100% + var(--padding) * 2);
+    border-radius: calc(var(--border-radius) + var(--padding));
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    transition: all var(--transition);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%);
+    opacity: 0.5;
+    transition: opacity var(--transition);
+  }
+
+  .btnLetter {
+    position: relative;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all var(--transition);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .btnSvg {
+    height: 20px;
+    width: 20px;
+    margin-right: 0.8rem;
+    fill: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    z-index: 2;
+    transition: all var(--transition);
+  }
+
+  .txtWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 24px;
+    flex: 1;
+    z-index: 2;
+  }
+
+  .txt1 {
+    position: relative;
+    display: flex;
+    gap: 1px;
+    white-space: nowrap;
+    animation: appear-anim 1s ease-in-out forwards;
+  }
+
+  .txt2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    gap: 1px;
+    white-space: nowrap;
+    opacity: 0;
+    width: 100%;
+  }
+
+  @keyframes appear-anim {
+    0% { opacity: 0; transform: translateY(5px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    
+    // Shadow cho hover mặc định (Primary)
+    &:not(.sunset):not(.dark) {
+        box-shadow: 
+          0 15px 30px -5px vars.$btn-primary-shadow,
+          inset 0 1px 2px rgba(255, 255, 255, 0.6);
+    }
+    
+    filter: brightness(1.05);
+
+    .btnSvg {
+      transform: scale(1.1) rotate(-10deg);
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    }
+
+    .btnLetter {
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    .txt1 {
+      animation: opacity-anim 0.3s ease-in-out forwards;
+      animation-delay: 1s;
+    }
+
+    .txt2 {
+      animation: opacity-anim 0.3s ease-in-out reverse forwards;
+      animation-delay: 1s;
+    }
+
+    .btnLetter {
+      animation: focused-letter-anim 1s ease-in-out forwards;
+    }
+  }
+
+  @keyframes opacity-anim {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes focused-letter-anim {
+    0%, 100% { transform: scale(1); }
+    50% {
+      transform: scale(1.3);
+      filter: brightness(150%);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.95);
+  }
+
+  /* Delay generation */
+  @for $i from 1 through 20 {
+    .btnLetter:nth-child(#{$i}) {
+      transition-delay: #{$i * 0.05}s;
+    }
+  }
+}

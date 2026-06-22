@@ -1,0 +1,10 @@
+@mixin mobile-styles {
+  .ctaCard {
+    .ctaButtons {
+      @media (max-width: 576px) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  }
+}

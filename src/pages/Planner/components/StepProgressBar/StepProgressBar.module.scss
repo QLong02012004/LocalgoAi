@@ -1,0 +1,81 @@
+@use "../../../../components/styles/variables" as vars;
+@use "./StepProgressBar.mobile.scss";
+
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  gap: 15px;
+  width: 100%;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+
+  .circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 15px;
+    color: vars.$text-light;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: vars.$shadow-sm;
+  }
+
+  .label {
+    font-size: 13px;
+    font-weight: 800;
+    color: vars.$text-light;
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  &.active {
+    .circle {
+      background: vars.$brand-cyan;
+      color: white;
+      transform: scale(1.15);
+      box-shadow: vars.$shadow-premium-cyan;
+    }
+    .label {
+      color: vars.$brand-cyan-dark;
+    }
+  }
+
+  &.completed {
+    .circle {
+      background: white;
+      border: 2px solid vars.$brand-cyan;
+      color: vars.$brand-cyan;
+    }
+    .label {
+      color: vars.$text-dark;
+    }
+  }
+}
+
+.line {
+  flex: 0 0 240px;
+  height: 3px;
+  background: #e2e8f0;
+  margin-top: -26px; 
+  border-radius: 10px;
+
+  &.active {
+    background: vars.$brand-cyan;
+  }
+}
+
+@include StepProgressBar.mobile-styles();

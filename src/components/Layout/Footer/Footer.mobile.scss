@@ -1,0 +1,33 @@
+@use "../../styles/variables" as vars;
+
+@mixin mobile-styles {
+  /* ====================
+     Footer Grid Responsive
+  ==================== */
+  @media (max-width: 992px) {
+    .footerGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .footerGrid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer {
+      padding: 60px 0 30px;
+      margin-top: 60px;
+    }
+
+    .footerBottomContent {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footerLegal {
+      justify-content: center;
+      gap: 16px;
+    }
+  }
+}

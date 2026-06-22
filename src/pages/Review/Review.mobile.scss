@@ -1,0 +1,15 @@
+@mixin mobile-styles {
+  .reviewLayout {
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .recentReviewsSection {
+    .reviewsGrid {
+      @media (max-width: 1024px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

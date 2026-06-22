@@ -1,0 +1,38 @@
+@use "./CategoryTabs.mobile.scss";
+$primary: #00a8a2;
+
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  padding: 0 10px;
+
+  .tabBtn {
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 1px solid #edf2f7;
+    background: #fff;
+    color: #4a5568;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 15px;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+      transform: translateY(-2px);
+    }
+
+    &.active {
+      background: linear-gradient(135deg, #00ced1 0%, #008b8b 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 8px 20px rgba(0, 168, 162, 0.3);
+    }
+  }
+}
+
+@include CategoryTabs.mobile-styles();

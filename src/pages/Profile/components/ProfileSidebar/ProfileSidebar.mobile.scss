@@ -1,0 +1,15 @@
+@mixin mobile-styles {
+  .card {
+    @media (max-width: 992px) {
+      padding: 20px;
+    }
+  }
+
+  .tripList {
+    @media (max-width: 992px) {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+}

@@ -1,0 +1,153 @@
+@use "../../../components/styles/variables" as vars;
+
+.dropdownContainer {
+  position: relative;
+  width: 100%;
+  user-select: none;
+}
+
+.dropdownHeader {
+  width: 100%;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border: 1px solid #eef2f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.small {
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    .selectedContent {
+      gap: 8px;
+      .icon { font-size: 1rem; }
+      .value, .placeholder { font-size: 13px; }
+    }
+  }
+
+  &.active {
+    background: white;
+    border-color: vars.$brand-cyan;
+    box-shadow: 0 0 0 4px rgba(vars.$brand-cyan, 0.1);
+  }
+
+  &.noBorder {
+    border: none;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+
+    &:hover { border-color: transparent; }
+    &.active { box-shadow: none; }
+  }
+
+  &:hover {
+    border-color: vars.$brand-cyan;
+  }
+}
+
+.selectedContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    color: vars.$brand-cyan;
+    font-size: 1.2rem;
+  }
+
+  .value {
+    font-size: 15px;
+    font-weight: 600;
+    color: vars.$text-dark;
+  }
+
+  .placeholder {
+    font-size: 15px;
+    font-weight: 500;
+    color: vars.$text-light;
+  }
+}
+
+.arrow {
+  color: vars.$text-light;
+  transition: transform 0.3s ease;
+
+  &.rotated {
+    transform: rotate(180deg);
+    color: vars.$brand-cyan;
+  }
+}
+
+.optionsList {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #eef2f6;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.12);
+  z-index: 100;
+  padding: 8px;
+  margin: 0;
+  list-style: none;
+  animation: slideIn 0.2s ease-out;
+  max-height: 300px;
+  overflow-y: auto;
+
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #e2e8f0;
+    border-radius: 10px;
+  }
+}
+
+.optionItem {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: vars.$text-dark;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(vars.$brand-cyan, 0.05);
+    color: vars.$brand-cyan-dark;
+  }
+
+  &.selected {
+    background: rgba(vars.$brand-cyan, 0.1);
+    color: vars.$brand-cyan-dark;
+  }
+
+  .checkIcon {
+    color: vars.$brand-cyan;
+    font-size: 14px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

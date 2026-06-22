@@ -1,0 +1,192 @@
+.partnersSection {
+  padding: 80px 0;
+  background-color: #f8fafc;
+  overflow: hidden;
+  position: relative;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(51, 215, 209, 0.2), transparent);
+  }
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.titleWrapper {
+  text-align: center;
+  margin-bottom: 60px;
+
+  .subtitle {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 800;
+    color: #33d7d1;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .title {
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: -0.5px;
+  }
+}
+
+.marqueeWrapper {
+  position: relative;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee {
+  display: flex;
+  width: fit-content;
+  animation: scroll 40s linear infinite;
+  gap: 80px;
+}
+
+.partnerLogo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .logoWrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    filter: grayscale(0%) opacity(1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative; // For tooltip positioning
+
+    img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    span {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #334155;
+      letter-spacing: -0.5px;
+    }
+
+    // Tooltip styling
+    .tooltip {
+      position: absolute;
+      bottom: calc(100% + 15px);
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      padding: 12px 16px;
+      border-radius: 12px;
+      color: white;
+      width: max-content;
+      max-width: 200px;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 1000;
+      pointer-events: none;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 6px solid transparent;
+        border-top-color: rgba(15, 23, 42, 0.9);
+      }
+
+      strong {
+        display: block;
+        font-size: 0.875rem;
+        margin-bottom: 4px;
+        color: #33d7d1;
+      }
+
+      p {
+        font-size: 0.75rem;
+        margin: 0;
+        line-height: 1.4;
+        color: #e2e8f0;
+      }
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      
+      span {
+        color: #0f172a;
+      }
+
+      .tooltip {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-33.33% - 80px));
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .partnersSection {
+    padding: 60px 0;
+  }
+
+  .titleWrapper {
+    .title {
+      font-size: 1.75rem;
+    }
+  }
+
+  .marquee {
+    gap: 40px;
+  }
+
+  .partnerLogo .logoWrapper {
+    img {
+      height: 36px;
+    }
+    span {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-33.33% - 40px));
+    }
+  }
+}

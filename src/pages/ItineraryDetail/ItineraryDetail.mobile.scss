@@ -1,0 +1,7 @@
+@mixin mobile-styles {
+  .splitViewContainer {
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+  }
+}

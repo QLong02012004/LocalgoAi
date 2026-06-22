@@ -1,0 +1,285 @@
+@use "./ProfileHeader.mobile.scss";
+
+.profileHeaderWrapper {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid #ffdec2;
+  margin-bottom: 24px;
+}
+
+.coverPhoto {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+
+  .editCoverBtn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.headerContent {
+  padding: 0 40px 30px;
+  display: flex;
+  gap: 30px;
+  position: relative;
+}
+
+.avatarContainer {
+  flex-shrink: 0;
+  margin-top: -70px;
+  position: relative;
+  z-index: 5;
+}
+
+.avatarWrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 6px solid white;
+  background: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  .avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .changeAvatarBtn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 36px;
+    height: 36px;
+    background: #33d7d1;
+    color: white;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    .cameraIconWrapper {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      i{
+        font-size: 14px;
+      }
+    }
+
+    &:hover {
+      background: #00b8b8;
+      transform: scale(1.1);
+    }
+  }
+
+  .uploadOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    z-index: 2;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ph-spin {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+.mainInfo {
+  flex: 1;
+  padding-top: 20px;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.nameBlock {
+  h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0 0 4px;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .email {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+
+  button {
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    flex: 1;
+  }
+
+  .shareBtn {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    &:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+    }
+  }
+
+  .editProfileBtn {
+    background-image: linear-gradient(to top, #1e293b 0%, #33d7d1 80%, #ffffff 100%);
+    color: white;
+    border: 1px solid #1e293b;
+    border-radius: 30px;
+    height: 44px;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.5px;
+
+    &:hover {
+      box-shadow: 
+        0 4px 3px 1px #ffffff, 
+        0 6px 8px rgba(51, 215, 209, 0.3), 
+        0 -4px 4px rgba(30, 41, 59, 0.1), 
+        0 -6px 4px #ffffff, 
+        inset 0 0 3px 3px rgba(30, 41, 59, 0.1);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      box-shadow: 
+        0 4px 3px 1px #ffffff, 
+        0 6px 8px rgba(51, 215, 209, 0.3), 
+        0 -4px 4px rgba(30, 41, 59, 0.1), 
+        0 -6px 4px #ffffff, 
+        inset 0 0 5px 3px rgba(0, 0, 0, 0.2), 
+        inset 0 0 30px rgba(0, 0, 0, 0.1);
+      transform: translateY(0);
+    }
+  }
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: #f0fbfb;
+  color: #33d7d1;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(51, 215, 209, 0.2);
+
+  i {
+    font-size: 16px;
+  }
+}
+
+.statItem {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  i {
+    font-size: 16px;
+    color: #94a3b8;
+  }
+}
+
+@include ProfileHeader.mobile-styles();

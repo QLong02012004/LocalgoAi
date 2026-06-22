@@ -1,0 +1,593 @@
+.mapContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  button {
+    width: 44px;
+    height: 44px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #334155;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+
+    &:hover {
+      background: #f8fafc;
+      color: #33d7d1;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.markerWrap {
+  background: transparent;
+  border: none;
+}
+
+.markerContent {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: relative;
+  transition: all 0.3s;
+
+  &.selected {
+    z-index: 9999 !important;
+    .markerCircle {
+      transform: scale(1.1) rotate(-45deg);
+    }
+    .markerLabel {
+      color: white;
+      transform: scale(1.1);
+    }
+    &.food {
+      .markerCircle { box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.3); }
+      .markerLabel { background: #f97316; }
+    }
+    &.bed {
+      .markerCircle { box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3); }
+      .markerLabel { background: #3b82f6; }
+    }
+    &.pin {
+      .markerCircle { box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3); }
+      .markerLabel { background: #22c55e; }
+    }
+  }
+
+  &.active {
+    z-index: 10000 !important;
+    
+    .markerCircle {
+      animation: markerPulse 2s infinite;
+      box-shadow: 0 0 0 0 rgba(51, 215, 209, 0.7);
+      transform: scale(1.25);
+      border: 3px solid #fff;
+      background: #33d7d1;
+      
+      i { color: white !important; }
+    }
+
+    .markerLabel {
+      background: #33d7d1 !important;
+      color: #fff !important;
+      font-weight: 900 !important;
+      transform: scale(1.15) translateY(-2px);
+      box-shadow: 0 8px 20px rgba(51, 215, 209, 0.4);
+    }
+  }
+
+  &:hover {
+    z-index: 9999 !important;
+    .markerCircle { transform: scale(1.1); }
+    .markerLabel { transform: scale(1.05); background: white; color: #1e293b; border-color: currentColor; }
+  }
+}
+
+.activeZIndex {
+  z-index: 10000 !important;
+}
+
+.food { 
+  border-color: #f97316 !important; 
+  i { color: #f97316 !important; }
+}
+.bed { 
+  border-color: #3b82f6 !important; 
+  i { color: #3b82f6 !important; }
+}
+.pin { 
+  border-color: #22c55e !important; 
+  i { color: #22c55e !important; }
+}
+.atm {
+  border-color: #ec4899 !important;
+  i { color: #ec4899 !important; }
+}
+.medical {
+  border-color: #ef4444 !important;
+  i { color: #ef4444 !important; }
+}
+.shop {
+  border-color: #f59e0b !important;
+  i { color: #f59e0b !important; }
+}
+.cafe {
+  border-color: #7c2d12 !important;
+  i { color: #7c2d12 !important; }
+}
+.parking {
+  border-color: #64748b !important;
+  i { color: #64748b !important; }
+}
+
+.markerCircle {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0,0,0,0.05);
+  border: 3px solid #33d7d1;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+
+  i {
+    transform: none;
+    font-size: 20px;
+    color: #334155;
+  }
+}
+
+@keyframes markerPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(51, 215, 209, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(51, 215, 209, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(51, 215, 209, 0);
+  }
+}
+
+.mapLegend {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 12px 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 120px;
+}
+
+.legendTitle {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 4px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+
+  &.foodDot { background: #f97316; box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.2); }
+  &.bedDot { background: #3b82f6; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); }
+  &.pinDot { background: #22c55e; box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2); }
+  &.atmDot { background: #ec4899; box-shadow: 0 0 0 2px rgba(236, 72, 153, 0.2); }
+  &.medicalDot { background: #ef4444; box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2); }
+  &.shopDot { background: #f59e0b; box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2); }
+  &.cafeDot { background: #7c2d12; box-shadow: 0 0 0 2px rgba(124, 45, 18, 0.2); }
+  &.parkingDot { background: #64748b; box-shadow: 0 0 0 2px rgba(100, 116, 139, 0.2); }
+}
+
+.markerLabel {
+  background: white;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #1e293b;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  transition: all 0.3s;
+  pointer-events: none;
+
+  &.nameOnly {
+    font-size: 10px;
+    font-weight: 700;
+    opacity: 0.9;
+  }
+}
+
+.customPopup {
+  :global(.leaflet-popup-content-wrapper) {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  :global(.leaflet-popup-content) {
+    margin: 0;
+    width: 280px !important;
+  }
+  :global(.leaflet-popup-tip-container) {
+    display: none;
+  }
+}
+
+.popupCard {
+  .popupImg {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+  }
+
+  .popupInfo {
+    padding: 16px;
+
+    .popupHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+
+      .popupType {
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #33d7d1;
+        background: #f0fdfa;
+        padding: 2px 8px;
+        border-radius: 6px;
+      }
+
+      .popupRating {
+        font-size: 12px;
+        font-weight: 700;
+        color: #f59e0b;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+
+    .popupTitle {
+      font-size: 15px;
+      font-weight: 900;
+      color: #1e293b;
+      margin: 0 0 4px 0;
+    }
+
+    .popupAddr {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .addBtn {
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid #33d7d1;
+      background: white;
+      color: #33d7d1;
+      font-weight: 800;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background: #f0fdfa;
+        transform: translateY(-2px);
+      }
+
+      &.remove {
+        background: #fee2e2;
+        border-color: #fca5a5;
+        color: #ef4444;
+
+        &:hover {
+          background: #fecaca;
+        }
+      }
+    }
+  }
+}
+
+.mapCategoryTabs {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent;
+  pointer-events: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    top: 15px;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: auto;
+    overflow-x: auto;
+    padding: 0 16px !important;
+    justify-content: flex-start;
+  }
+}
+
+.routeBadge {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(51, 215, 209, 0.3);
+  animation: fadeInDown 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  span {
+    background: linear-gradient(90deg, #fff 0%, #33d7d1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translate(-50%, -20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.infoPanel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 360px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  max-height: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+}
+
+.closePanel {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  color: #64748b;
+  transition: all 0.3s;
+
+  &:hover {
+    color: #ef4444;
+    transform: rotate(90deg);
+  }
+}
+
+.panelImage {
+  width: 100%;
+  height: 200px;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .imageOverlay {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .panelType {
+    background: #33d7d1;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.panelBody {
+  padding: 20px;
+  overflow-y: auto;
+
+  .panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+  }
+
+  .panelTitle {
+    font-size: 20px;
+    font-weight: 900;
+    color: #1e293b;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .panelRating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #fffbeb;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #f59e0b;
+    font-size: 13px;
+  }
+
+  .panelAddress {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: #64748b;
+    font-size: 14px;
+    
+    p { margin: 0; line-height: 1.4; }
+    svg { color: #33d7d1; flex-shrink: 0; }
+  }
+
+  .panelDesc {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.panelActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+
+  button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .panelAddBtn {
+    background: #33d7d1;
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(51, 215, 209, 0.3);
+
+    &:hover {
+      background: #2abfb8;
+      transform: translateY(-2px);
+    }
+
+    &.remove {
+      background: #fee2e2;
+      color: #ef4444;
+      box-shadow: none;
+
+      &:hover {
+        background: #fecaca;
+      }
+    }
+  }
+
+  .panelDetailBtn {
+    background: white;
+    border: 1px solid #e2e8f0;
+    color: #64748b;
+
+    &:hover {
+      border-color: #33d7d1;
+      color: #33d7d1;
+      background: #f0fdfa;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .infoPanel {
+    left: 10px;
+    right: 10px;
+    width: auto;
+    bottom: 20px;
+    top: auto;
+    max-height: 50%;
+  }
+}

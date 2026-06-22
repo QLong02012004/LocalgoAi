@@ -1,0 +1,7 @@
+.protectedImg {
+  transition: opacity 0.3s ease;
+  
+  &.loading {
+    opacity: 0.6;
+  }
+}

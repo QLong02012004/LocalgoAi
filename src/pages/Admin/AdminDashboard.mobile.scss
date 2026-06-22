@@ -1,0 +1,14 @@
+@mixin mobile-styles {
+  // Mobile Responsive for AdminDashboard
+  @media (max-width: 1024px) {
+    .mainContent {
+      margin-left: 0; // Remove fixed margin for sidebar
+      padding-top: 80px; // Space for topbar if it becomes fixed/sticky
+    }
+
+    .contentArea {
+      padding: 24px;
+      gap: 24px;
+    }
+  }
+}

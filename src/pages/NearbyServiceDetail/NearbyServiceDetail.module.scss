@@ -1,0 +1,447 @@
+.landscapeContainer {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #0f172a; // Deep dark base
+}
+
+.leftVisuals {
+  flex: 0 0 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #1e293b;
+  position: relative;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rightDetails {
+  flex: 1;
+  height: 100%;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  overflow-y: auto;
+  position: relative;
+  
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 10px;
+  }
+}
+
+.detailScrollContent {
+  padding: 48px 64px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+// ─── Left Column Specifics ───────────────────────────────────────────────────
+.visualHero {
+  flex: 0 0 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.heroOverlayGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.2) 40%, transparent 100%);
+}
+
+.heroTextOverlay {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  right: 40px;
+  z-index: 10;
+  
+  .serviceName {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    margin: 12px 0 0;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .categoryBadge {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #33d7d1;
+    color: white;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    box-shadow: 0 8px 20px rgba(51, 215, 209, 0.4);
+  }
+}
+
+.backBtnFloating {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s;
+  &:hover {
+    background: white;
+    color: #0f172a;
+    transform: translateX(-5px);
+  }
+}
+
+.floatingActions {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  display: flex;
+  gap: 12px;
+  z-index: 100;
+}
+
+.actionCircle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background: white;
+    color: #ef4444;
+    transform: translateY(-3px);
+  }
+}
+
+.landscapeMapSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #0f172a;
+}
+
+.mapContainer {
+  flex: 1;
+  width: 100%;
+}
+
+.mapActionsBar {
+  padding: 24px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  
+  .distMeta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #94a3b8;
+    font-weight: 700;
+    font-size: 1rem;
+    svg { color: #33d7d1; }
+  }
+}
+
+.getDirectionsBtn {
+  padding: 14px 32px;
+  background: white;
+  color: #0f172a;
+  border-radius: 16px;
+  font-weight: 800;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: all 0.3s;
+  &:hover {
+    background: #33d7d1;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(51, 215, 209, 0.3);
+  }
+}
+
+// ─── Right Column Content ───────────────────────────────────────────────────
+.headerMetaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.ratingBox {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 24px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  
+  .ratingText {
+    display: flex;
+    flex-direction: column;
+    strong { font-size: 1.5rem; color: #0f172a; line-height: 1; }
+    span { font-size: 0.75rem; color: #64748b; font-weight: 600; }
+  }
+}
+
+.statusPill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  
+  &.statusActive {
+    background: #ecfdf5;
+    color: #059669;
+    .pulseDot { background: #10b981; }
+  }
+}
+
+.pulseDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.4;
+    animation: pulse-ring 1.5s infinite;
+  }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.33); opacity: 0.7; }
+  80%, 100% { opacity: 0; }
+}
+
+.glassCard {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.02);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 0 0 24px;
+  svg { color: #33d7d1; }
+}
+
+.descriptionText {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #334155;
+  margin-bottom: 24px;
+}
+
+.aiInsightBox {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  display: flex;
+  gap: 16px;
+  border-left: 5px solid #0ea5e9;
+  p { margin: 0; font-size: 0.9375rem; font-weight: 600; color: #0c4a6e; font-style: italic; line-height: 1.6; }
+}
+
+.infoGridLandscape {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.infoGlassItem {
+  background: white;
+  padding: 24px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s;
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+  }
+  
+  .itText {
+    label { display: block; font-size: 0.6875rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px; }
+    p { margin: 0; font-size: 1rem; font-weight: 700; color: #0f172a; }
+  }
+}
+
+.aiTipSection {
+  margin: 16px 0;
+}
+
+.aiTipCard {
+  background: linear-gradient(135deg, #fffcf0 0%, #fff7ed 100%);
+  padding: 32px;
+  border-radius: 32px;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  
+  .aiTipHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    span { font-size: 1.1rem; font-weight: 900; color: #92400e; }
+  }
+  
+  p { margin: 0; font-size: 1rem; line-height: 1.7; color: #b45309; font-weight: 600; }
+}
+
+.gallerySection {
+  .galleryScroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    &::-webkit-scrollbar { height: 4px; }
+    &::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+  }
+  
+  .galleryImgWrap {
+    flex: 0 0 280px;
+    height: 180px;
+    border-radius: 24px;
+    overflow: hidden;
+    img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; &:hover { transform: scale(1.1); } }
+  }
+}
+
+.reviewsSection {
+  .reviewsListCondensed {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .reviewItemSmall {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #f1f5f9;
+    
+    .revHeader {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      strong { font-size: 0.9375rem; color: #0f172a; }
+    }
+    
+    p { margin: 0; font-size: 0.875rem; color: #64748b; line-height: 1.5; }
+  }
+  
+  .viewMoreBtn {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+    &:hover { background: #f8fafc; color: #0f172a; border-color: #94a3b8; }
+  }
+}
+
+.bottomActions {
+  margin-top: 16px;
+}
+
+.bookingBtn {
+  width: 100%;
+  padding: 24px;
+  background: #33d7d1;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  font-size: 1.25rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  cursor: pointer;
+  box-shadow: 0 15px 40px rgba(51, 215, 209, 0.4);
+  transition: all 0.3s;
+  
+  &:hover {
+    background: #00a8a2;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(51, 215, 209, 0.5);
+  }
+}
+
+.loadingContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: #f8fafc;
+  
+  .loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid #e2e8f0;
+    border-top: 6px solid #33d7d1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+

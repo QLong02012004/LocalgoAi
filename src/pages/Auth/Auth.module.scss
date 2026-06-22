@@ -1,0 +1,165 @@
+@use "../../components/styles/variables" as vars;
+@use "./Auth.mobile.scss";
+
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.authMain {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-family: vars.$font-main;
+  background: #0f172a;
+  z-index: 9999;
+  padding: 20px;
+  overflow: hidden;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.4) 0%,
+        rgba(15, 23, 42, 0.7) 100%
+      ),
+      url("/auth_bg.png") no-repeat center center /
+        cover;
+    animation: kenBurns 30s ease-in-out infinite;
+    z-index: -1;
+  }
+}
+
+.authContainer {
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 40px;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6);
+  display: flex;
+  max-height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.authLeft,
+.authRight {
+  flex: 1;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+.authLeft {
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  
+  @media (max-width: vars.$breakpoint-lg) {
+    display: none;
+  }
+}
+
+.authRight {
+  padding: 30px 45px;
+  background: rgba(255, 255, 255, 0.95);
+  overflow-y: auto;
+  justify-content: center;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+}
+
+.leftContentBox {
+  h1.gradientText {
+    background: vars.$primary-cyan-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 15px;
+    letter-spacing: -0.03em;
+  }
+
+  p.description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    max-width: 90%;
+    text-align: left;
+  }
+}
+
+.authFeatures {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    .featureIcon {
+      width: 28px;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: vars.$brand-cyan;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+// Gradient Utility for Components
+.primaryGradientText {
+  background: vars.$primary-cyan-gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@include Auth.mobile-styles();

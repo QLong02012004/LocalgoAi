@@ -1,0 +1,194 @@
+@use "../../../../components/styles/variables.scss" as vars;
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  background: #000;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 8s linear; // Slow zoom effect
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    transparent 100%
+  ),
+  linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    transparent 30%
+  );
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 60px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+}
+
+.mainContent {
+  max-width: 600px;
+  color: white;
+  margin-bottom: 50px;
+
+  .title {
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    
+    @media (max-width: 992px) {
+      font-size: 4rem;
+    }
+  }
+
+  .locationTag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #33d7d1;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    max-width: 500px;
+  }
+
+  .seeMoreBtn {
+    padding: 16px 40px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+
+    &:hover {
+      background: white;
+      color: black;
+      border-color: white;
+    }
+  }
+}
+
+.thumbSlider {
+  position: absolute;
+  bottom: 60px;
+  right: 60px;
+  display: flex;
+  gap: 20px;
+  z-index: 20;
+
+  @media (max-width: 992px) {
+    bottom: 30px;
+    right: 20px;
+    left: 20px;
+    justify-content: center;
+  }
+}
+
+.thumbCard {
+  width: 180px;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid transparent;
+  flex-shrink: 0;
+
+  &.active {
+    border-color: #33d7d1;
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  &:hover:not(.active) {
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 1200px) {
+    width: 140px;
+    height: 200px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 150px;
+    border-radius: 12px;
+  }
+}
+
+.thumbImage {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.thumbContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  color: white;
+
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    font-size: 0.7rem;
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px;
+    h4 { font-size: 0.7rem; }
+    p { display: none; }
+  }
+}

@@ -1,0 +1,159 @@
+@use "../../../../components/styles/variables.scss" as vars;
+
+.trendingSection {
+  background: #ffffff;
+  color: #1e293b;
+  padding: 120px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+}
+
+.topGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  margin-bottom: 100px;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.infoCol {
+  p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #475569;
+    font-weight: 400;
+  }
+
+  .divider {
+    height: 2px;
+    background: linear-gradient(to right, #33d7d1, transparent);
+    margin-top: 24px;
+    width: 60%;
+  }
+}
+
+.centerHeader {
+  text-align: center;
+  margin-bottom: 80px;
+
+  .subtitle {
+    font-size: 0.9rem;
+    color: #33d7d1;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+    letter-spacing: 4px;
+    font-weight: 700;
+  }
+
+  .mainTitle {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #0f172a;
+    
+    .highlight {
+      background: vars.$primary-cyan-gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+.marqueeContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 40px 0;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+}
+
+.marqueeCard {
+  min-width: 320px;
+  height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: #f8fafc;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  .rankBadge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    background: #33d7d1;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(51, 215, 209, 0.3);
+    backdrop-filter: blur(5px);
+  }
+
+  .cardImage {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+  }
+
+  .cardOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    color: white;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .location {
+      font-size: 0.85rem;
+      color: #33d7d1;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  }
+
+  &:hover {
+    .cardImage {
+      transform: scale(1.1);
+    }
+  }
+}

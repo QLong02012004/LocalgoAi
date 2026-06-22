@@ -1,0 +1,15 @@
+@mixin mobile-styles {
+  @media (max-width: 1024px) {
+    .panelContainer {
+      left: 10px;
+      right: 10px;
+      width: auto;
+      bottom: 0;
+      top: auto;
+      height: 80%;
+      transform: translateY(100%);
+      border-radius: 32px 32px 0 0;
+      &.isOpen { transform: translateY(0); }
+    }
+  }
+}

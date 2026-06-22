@@ -1,0 +1,67 @@
+.glossyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  cursor: pointer;
+  padding: 0 25px;
+  height: 44px;
+  background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+  border-radius: 30px;
+  border: 1px solid #8F9092;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  text-shadow: 0 1px #fff;
+  gap: 8px;
+  white-space: nowrap;
+
+  &:hover {
+    box-shadow: 
+      0 4px 3px 1px #FCFCFC, 
+      0 6px 8px #D6D7D9, 
+      0 -4px 4px #CECFD1, 
+      0 -6px 4px #FEFEFE, 
+      inset 0 0 3px 3px #CECFD1;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    box-shadow: 
+      0 4px 3px 1px #FCFCFC, 
+      0 6px 8px #D6D7D9, 
+      0 -4px 4px #CECFD1, 
+      0 -6px 4px #FEFEFE, 
+      inset 0 0 5px 3px #999, 
+      inset 0 0 30px #aaa;
+    transform: translateY(1px);
+  }
+
+  // Variant for site theme
+  &.primary {
+    background-image: linear-gradient(to top, #e0fcfb 0%, #fff 80%, #ffffff 100%);
+    border-color: #33d7d1;
+    color: #0d9488;
+    text-shadow: 0 1px #fff;
+    
+    &:hover {
+      box-shadow: 
+        0 4px 3px 1px #ffffff, 
+        0 6px 12px rgba(51, 215, 209, 0.4), 
+        0 -4px 4px rgba(51, 215, 209, 0.1), 
+        0 -6px 4px #ffffff, 
+        inset 0 0 4px 4px rgba(51, 215, 209, 0.1);
+      border-color: #2dd4bf;
+    }
+
+    &:active {
+      box-shadow: 
+        0 4px 3px 1px #ffffff, 
+        0 6px 8px rgba(51, 215, 209, 0.2), 
+        inset 0 0 8px rgba(51, 215, 209, 0.3), 
+        inset 0 0 30px rgba(51, 215, 209, 0.1);
+    }
+  }
+}

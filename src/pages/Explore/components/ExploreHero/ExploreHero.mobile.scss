@@ -1,0 +1,59 @@
+@mixin mobile-styles {
+  .hero {
+    @media (max-width: 992px) {
+      padding: 100px 20px 40px;
+      
+      .bgShapes {
+        display: none; // Reduce noise on mobile
+      }
+    }
+
+    @media (max-width: 768px) {
+      padding: 60px 20px 40px;
+    }
+  }
+
+  .title {
+    @media (max-width: 768px) {
+      font-size: 2rem;
+      br { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .subtitle {
+    @media (max-width: 768px) {
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .stats {
+    @media (max-width: 768px) {
+      gap: 20px;
+      padding: 16px 24px;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+    }
+  }
+
+  .statNumber {
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  .statDivider {
+    @media (max-width: 480px) {
+      width: 40px;
+      height: 1px;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@mixin mobile-styles {
+  .header {
+    h2 {
+      @media (max-width: 576px) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+
+  .socialButtons {
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+
+  .form {
+    @media (max-width: 576px) {
+      gap: 16px;
+    }
+  }
+}

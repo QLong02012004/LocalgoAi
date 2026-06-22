@@ -1,0 +1,7 @@
+@mixin mobile-styles {
+  @media (max-width: 640px) {
+    .tipsGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

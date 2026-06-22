@@ -1,0 +1,23 @@
+@mixin mobile-styles {
+  .newsletterBg {
+    .inner {
+      h2 {
+        @media (max-width: 768px) {
+          font-size: 32px;
+        }
+      }
+    }
+
+    .form {
+      @media (max-width: 600px) {
+        flex-direction: column;
+      }
+
+      .btnSubmit {
+        @media (max-width: 600px) {
+          padding: 18px;
+        }
+      }
+    }
+  }
+}

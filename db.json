@@ -1,0 +1,1204 @@
+{
+  "profile": {
+    "name": "Hồ Thế Anh",
+    "email": "anh.ho@example.com",
+    "phone": "+84 901 234 567",
+    "address": "Quận 1, TP. Hồ Chí Minh, Việt Nam",
+    "bio": "Đam mê du lịch bụi và khám phá những vùng đất mới lạ. Luôn tìm kiếm những trải nghiệm địa phương chân thực.",
+    "avatar": "https://i.pravatar.cc/150?u=qlong",
+    "cover": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop",
+    "badge": "Thành viên Vàng",
+    "joinDate": "01/2023",
+    "location": "TP. Hồ Chí Minh, VN"
+  },
+  "users": [
+    {
+      "id": "06ba",
+      "username": "nguyễn quang long",
+      "email": "nguyenquanglong100285@gmail.com",
+      "password": "Long123123",
+      "role": "ADMIN",
+      "status": "ACTIVE",
+      "createdAt": "2026-03-28T03:43:40.064Z"
+    },
+    {
+      "id": "ivOX48lxqP0",
+      "username": "test",
+      "email": "test@gmail.com",
+      "password": "Long123456",
+      "role": "USER",
+      "status": "ACTIVE",
+      "createdAt": "2026-03-28T06:22:35.339Z"
+    },
+    {
+      "id": "YRd7pk4rKY8",
+      "username": "skjgggggg",
+      "email": "adsdd@gmai.com",
+      "password": "Long02012004",
+      "role": "USER",
+      "status": "INACTIVE",
+      "createdAt": "2026-03-28T06:41:45.262Z"
+    }
+  ],
+  "saved_trips": [
+    {
+      "id": "1",
+      "title": "Phố cổ Hội An",
+      "image": "https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&q=80&w=800",
+      "timeAgo": "Vừa xong"
+    }
+  ],
+  "travel-plans": [],
+  "hotels": [
+    {
+      "id": "AZ-1024",
+      "name": "Grand Azure Resort",
+      "location": "Đà Nẵng, Việt Nam",
+      "rating": 4.9,
+      "reviews": "2.4k",
+      "type": "RESORT",
+      "status": "HOẠT ĐỘNG",
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "AZ-2051",
+      "name": "Slate Heritage Palace",
+      "location": "Hà Nội, Việt Nam",
+      "rating": 4.7,
+      "reviews": "1.8k",
+      "type": "CỔ ĐIỂN",
+      "status": "BẢO TRÌ",
+      "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "AZ-0992",
+      "name": "Emerald Bay Suites",
+      "location": "Phú Quốc, Việt Nam",
+      "rating": 4.5,
+      "reviews": "942",
+      "type": "HIỆN ĐẠI",
+      "status": "HOẠT ĐỘNG",
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "AZ-3301",
+      "name": "The Pearl Danang",
+      "location": "Đà Nẵng, Việt Nam",
+      "rating": 4.8,
+      "reviews": "3.1k",
+      "type": "RESORT",
+      "status": "HOẠT ĐỘNG",
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "AZ-4412",
+      "name": "Topas Ecolodge",
+      "location": "Sapa, Lào Cai",
+      "rating": 4.7,
+      "reviews": "1.7k",
+      "type": "HIỆN ĐẠI",
+      "status": "HOẠT ĐỘNG",
+      "image": "https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "AZ-5523",
+      "name": "Six Senses Ninh Van Bay",
+      "location": "Nha Trang, Khánh Hòa",
+      "rating": 4.9,
+      "reviews": "1.5k",
+      "type": "RESORT",
+      "status": "BẢO TRÌ",
+      "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "6",
+      "name": "InterContinental Resort",
+      "location": "Đà Nẵng",
+      "rating": 4.9,
+      "reviews": "2.2k",
+      "type": "POPULAR",
+      "status": "HOẠT ĐỘNG",
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+      "previewVideo": ""
+    },
+    {
+      "id": "7",
+      "name": "Topas Ecolodge",
+      "location": "Sapa",
+      "rating": 4.7,
+      "reviews": "1.8k",
+      "type": "NATURE",
+      "status": "HOẠT ĐỘNG",
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+      "previewVideo": ""
+    },
+    {
+      "id": "8",
+      "name": "Six Senses Ninh Van Bay",
+      "location": "Nha Trang",
+      "rating": 4.9,
+      "reviews": "1.5k",
+      "type": "BEACH",
+      "status": "HOẠT ĐỘNG",
+      "image": "https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&q=80&w=800",
+      "previewVideo": ""
+    },
+    {
+      "id": "9",
+      "name": "Hotel de la Coupole",
+      "location": "Sapa",
+      "rating": 4.8,
+      "reviews": "2.5k",
+      "type": "CULTURE",
+      "status": "HOẠT ĐỘNG",
+      "image": "https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&q=80&w=800",
+      "previewVideo": ""
+    }
+  ],
+  "restaurants": [
+    {
+      "id": "RS-4821",
+      "name": "The Azure Kitchen",
+      "location": "Quận 1, TP. Hồ Chí Minh",
+      "rating": 4.8,
+      "reviews": "1.2k",
+      "cuisine": "VIỆT NAM",
+      "status": "ĐANG MỞ",
+      "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "RS-5502",
+      "name": "Saigon Garden Bistro",
+      "location": "Quận 3, TP. Hồ Chí Minh",
+      "rating": 4.6,
+      "reviews": "987",
+      "cuisine": "CHÂU ÂU",
+      "status": "ĐANG MỞ",
+      "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "RS-3311",
+      "name": "Hà Nội Old Quarter Pho",
+      "location": "Hoàn Kiếm, Hà Nội",
+      "rating": 4.9,
+      "reviews": "2.8k",
+      "cuisine": "VIỆT NAM",
+      "status": "TẠM ĐÓNG",
+      "image": "https://images.unsplash.com/photo-1555126634-323283e090fa?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "RS-6614",
+      "name": "Pizza 4P's Bến Thành",
+      "location": "Quận 1, TP. Hồ Chí Minh",
+      "rating": 4.8,
+      "reviews": "5.6k",
+      "cuisine": "CHÂU ÂU",
+      "status": "ĐANG MỞ",
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "RS-7725",
+      "name": "Tầm Vị Fine Dining",
+      "location": "Hoàn Kiếm, Hà Nội",
+      "rating": 4.6,
+      "reviews": "1.1k",
+      "cuisine": "VIỆT NAM",
+      "status": "ĐANG MỞ",
+      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=80&h=80&fit=crop",
+      "previewVideo": ""
+    },
+    {
+      "id": "10",
+      "name": "Nhà hàng Gạo",
+      "location": "TP HCM",
+      "rating": 4.5,
+      "reviews": "950",
+      "cuisine": "RESTAURANT",
+      "status": "ĐANG MỞ",
+      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800",
+      "previewVideo": ""
+    },
+    {
+      "id": "11",
+      "name": "Pizza 4P's Bến Thành",
+      "location": "TP HCM",
+      "rating": 4.8,
+      "reviews": "5.6k",
+      "cuisine": "RESTAURANT",
+      "status": "ĐANG MỞ",
+      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800",
+      "previewVideo": ""
+    },
+    {
+      "id": "12",
+      "name": "Tầm Vị",
+      "location": "Hà Nội",
+      "rating": 4.6,
+      "reviews": "1.1k",
+      "cuisine": "RESTAURANT",
+      "status": "ĐANG MỞ",
+      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800",
+      "previewVideo": ""
+    },
+    {
+      "id": "13",
+      "name": "Nhà hàng Biển Xanh",
+      "location": "Đà Nẵng",
+      "rating": 4.8,
+      "reviews": "1.2k",
+      "cuisine": "RESTAURANT",
+      "status": "ĐANG MỞ",
+      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800",
+      "previewVideo": ""
+    }
+  ],
+  "dashboard_stats": [
+    {
+      "id": "1",
+      "label": "TỔNG LƯỢT TRUY CẬP",
+      "value": "1.28M",
+      "trend": "+12% so với T9",
+      "trendUp": true,
+      "icon": "Eye",
+      "colorClass": "bgBlue"
+    },
+    {
+      "id": "2",
+      "label": "NGƯỜI DÙNG HOẠT ĐỘNG",
+      "value": "85,200",
+      "trend": "+8.4% so với T9",
+      "trendUp": true,
+      "icon": "Users",
+      "colorClass": "bgEmerald"
+    },
+    {
+      "id": "3",
+      "label": "CHUYẾN ĐI ĐÃ TẠO",
+      "value": "456k",
+      "trend": "+21% so với T9",
+      "trendUp": true,
+      "icon": "AirplaneTilt",
+      "colorClass": "bgOrange"
+    },
+    {
+      "id": "4",
+      "label": "ĐÁNH GIÁ MỚI",
+      "value": "12,480",
+      "trend": "+5% so với T9",
+      "trendUp": true,
+      "icon": "Star",
+      "colorClass": "bgPurple"
+    }
+  ],
+  "recent_activity": [
+    {
+      "id": "1",
+      "time": "14:20",
+      "date": "24/03/2026",
+      "user": "Nguyễn Văn An",
+      "email": "an.nguyen@email.com",
+      "action": "Tạo chuyến đi \"Hà Nội → Sapa 3N2Đ\"",
+      "status": "Hoàn tất",
+      "color": "bgEmerald",
+      "avatarId": 1
+    },
+    {
+      "id": "2",
+      "time": "13:55",
+      "date": "24/03/2026",
+      "user": "Trần Thị Mai",
+      "email": "mai.tran@email.com",
+      "action": "Cập nhật đánh giá Vinpearl Nha Trang",
+      "status": "Đang xử lý",
+      "color": "bgBlue",
+      "avatarId": 2
+    },
+    {
+      "id": "3",
+      "time": "12:10",
+      "date": "24/03/2026",
+      "user": "Lê Minh Quân",
+      "email": "quan.lm@email.com",
+      "action": "Đăng ký tài khoản mới — xác minh email",
+      "status": "Hoàn tất",
+      "color": "bgEmerald",
+      "avatarId": 3
+    },
+    {
+      "id": "4",
+      "time": "11:30",
+      "date": "24/03/2026",
+      "user": "Phạm Hoàng Nam",
+      "email": "nam.ph@email.com",
+      "action": "Hủy chuyến đi \"Khám phá Phú Quốc\"",
+      "status": "Đã hủy",
+      "color": "bgAmber",
+      "avatarId": 4
+    },
+    {
+      "id": "5",
+      "time": "10:05",
+      "date": "24/03/2026",
+      "user": "Hoàng Thu Thủy",
+      "email": "thuy.ht@email.com",
+      "action": "Đặt khách sạn Grand Azure Resort",
+      "status": "Hoàn tất",
+      "color": "bgEmerald",
+      "avatarId": 5
+    }
+  ],
+  "popular_locations": [
+    {
+      "id": "1",
+      "name": "Đà Nẵng",
+      "value": "85k",
+      "pct": 85,
+      "color": "#2563eb"
+    },
+    {
+      "id": "2",
+      "name": "Hà Nội",
+      "value": "72k",
+      "pct": 72,
+      "color": "#3b82f6"
+    },
+    {
+      "id": "3",
+      "name": "Phú Quốc",
+      "value": "64k",
+      "pct": 64,
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "4",
+      "name": "TP. Hồ Chí Minh",
+      "value": "58k",
+      "pct": 58,
+      "color": "#f97316"
+    },
+    {
+      "id": "5",
+      "name": "Nha Trang",
+      "value": "42k",
+      "pct": 42,
+      "color": "#10b981"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "name": "Hoàng Linh",
+      "role": "Travel Blogger",
+      "initial": "HL",
+      "color": "bgBlue",
+      "text": "Ứng dụng thực sự kì diệu! Chỉ mất 2 phút để lên xong toàn bộ lịch trình 5 ngày.",
+      "delay": "100"
+    },
+    {
+      "id": "2",
+      "name": "Minh Anh",
+      "role": "Doanh nhân",
+      "initial": "MA",
+      "color": "bgGreen",
+      "text": "Lộ trình được sắp xếp rất logic. Quán ăn AI gợi ý rất ngon và rẻ.",
+      "delay": "300"
+    },
+    {
+      "id": "3",
+      "name": "Tuấn Việt",
+      "role": "Sinh viên",
+      "initial": "TV",
+      "color": "bgPurple",
+      "text": "Tính năng bản đồ kéo thả hoạt động cực mượt. Có thêm cảnh báo thời tiết là điểm cộng!",
+      "delay": "500"
+    }
+  ],
+  "places": [
+    {
+      "id": "1",
+      "title": "Phố cổ Hội An",
+      "location": "Quảng Nam",
+      "rating": "4.8",
+      "reviews": "1.2k",
+      "img": "https://images.unsplash.com/photo-1555921015-5532091f6026?auto=format&fit=crop&q=80&w=800",
+      "desc": "Hội An nổi tiếng với vẻ đẹp lãng mạn, cổ kính, yên bình với những ngôi nhà cổ.",
+      "type": "pin",
+      "category": "culture",
+      "previewVideo": ""
+    },
+    {
+      "id": "2",
+      "title": "Vịnh Hạ Long",
+      "location": "Quảng Ninh",
+      "rating": "4.9",
+      "reviews": "3.5k",
+      "img": "https://images.unsplash.com/photo-1528605105345-5344ea20e269?auto=format&fit=crop&q=80&w=800",
+      "desc": "Di sản thiên nhiên thế giới với hàng nghìn hòn đảo kỳ vĩ, hang động tuyệt đẹp.",
+      "type": "pin",
+      "category": "popular",
+      "previewVideo": ""
+    },
+    {
+      "id": "3",
+      "title": "Thành phố Đà Lạt",
+      "location": "Lâm Đồng",
+      "rating": "4.7",
+      "reviews": "2.8k",
+      "img": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+      "desc": "Thành phố ngàn hoa với khí hậu mát mẻ quanh năm và nhiều cảnh điểm lãng mạn.",
+      "type": "pin",
+      "category": "nature",
+      "previewVideo": ""
+    },
+    {
+      "id": "4",
+      "title": "Cố đô Huế",
+      "location": "Thừa Thiên Huế",
+      "rating": "4.8",
+      "reviews": "2.1k",
+      "img": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+      "desc": "Quần thể di tích lịch sử với cung điện, lăng tẩm mang đậm dấu ấn triều Nguyễn.",
+      "type": "pin",
+      "category": "culture",
+      "previewVideo": ""
+    },
+    {
+      "id": "5",
+      "title": "Đảo Ngọc Phú Quốc",
+      "location": "Kiên Giang",
+      "rating": "4.9",
+      "reviews": "4.2k",
+      "img": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+      "desc": "Thiên đường nghỉ dưỡng với những bãi cát trắng mịn và làn nước trong xanh.",
+      "type": "pin",
+      "category": "beach",
+      "previewVideo": ""
+    },
+    {
+      "id": "14",
+      "title": "Bà Nà Hills",
+      "location": "Đà Nẵng",
+      "rating": "4.7",
+      "reviews": "10k",
+      "img": "https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&q=80&w=800",
+      "desc": "Đường lên tiên cảnh với Cầu Vàng nổi tiếng thế giới.",
+      "type": "pin",
+      "category": "popular",
+      "previewVideo": ""
+    },
+    {
+      "id": "15",
+      "title": "Sapa - Fansipan",
+      "location": "Lào Cai",
+      "rating": "4.8",
+      "reviews": "8.5k",
+      "img": "https://images.unsplash.com/photo-1504457047772-27fad17438e2?auto=format&fit=crop&q=80&w=800",
+      "desc": "Nóc nhà Đông Dương với biển mây bạt ngàn.",
+      "type": "pin",
+      "category": "popular",
+      "previewVideo": ""
+    },
+    {
+      "id": "16",
+      "title": "Mũi Né - Phan Thiết",
+      "location": "Bình Thuận",
+      "rating": "4.6",
+      "reviews": "5.2k",
+      "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+      "desc": "Đồi cát bay và biển xanh nắng vàng.",
+      "type": "pin",
+      "category": "beach",
+      "previewVideo": ""
+    },
+    {
+      "id": "17",
+      "title": "Chợ Bến Thành",
+      "location": "TP HCM",
+      "rating": "4.5",
+      "reviews": "15.6k",
+      "img": "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&q=80&w=800",
+      "desc": "Biểu tượng văn hóa và ẩm thực của Sài Gòn.",
+      "type": "pin",
+      "category": "popular",
+      "previewVideo": ""
+    },
+    {
+      "id": "18",
+      "title": "Bãi biển Nha Trang",
+      "location": "Khánh Hòa",
+      "rating": "4.8",
+      "reviews": "12.5k",
+      "img": "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?auto=format&fit=crop&q=80&w=800",
+      "desc": "Vịnh biển đẹp nhất thế giới với nhiều hoạt động giải trí.",
+      "type": "pin",
+      "category": "beach",
+      "previewVideo": ""
+    }
+  ],
+  "aiRecommendations": [
+    {
+      "id": 1,
+      "title": "Địa điểm HOT #1",
+      "image": "https://picsum.photos/200/120?sig=1"
+    },
+    {
+      "id": 2,
+      "title": "Địa điểm HOT #2",
+      "image": "https://picsum.photos/200/120?sig=2"
+    },
+    {
+      "id": 3,
+      "title": "Địa điểm HOT #3",
+      "image": "https://picsum.photos/200/120?sig=3"
+    },
+    {
+      "id": 4,
+      "title": "Địa điểm HOT #4",
+      "image": "https://picsum.photos/200/120?sig=4"
+    },
+    {
+      "id": 5,
+      "title": "Địa điểm HOT #5",
+      "image": "https://picsum.photos/200/120?sig=5"
+    },
+    {
+      "id": 6,
+      "title": "Địa điểm HOT #6",
+      "image": "https://picsum.photos/200/120?sig=6"
+    },
+    {
+      "id": 7,
+      "title": "Địa điểm HOT #7",
+      "image": "https://picsum.photos/200/120?sig=7"
+    },
+    {
+      "id": 8,
+      "title": "Địa điểm HOT #8",
+      "image": "https://picsum.photos/200/120?sig=8"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json",
+  "sample_itineraries": [
+    {
+      "id": "31",
+      "trip_name": "Khám phá Đà Lạt mộng mơ",
+      "duration": "5 ngày 4 đêm",
+      "price": 3500000,
+      "rating": 4.9,
+      "img": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&q=80&w=800",
+      "location": "Đà Lạt",
+      "category": "nature",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Sắc hoa thành phố",
+          "activities": [
+            { "time": "08:00", "location": "Sân bay Liên Khương", "note": "Xe đón về khách sạn" },
+            { "time": "12:00", "location": "Lẩu gà lá é Tao Ngộ", "note": "Ăn trưa đặc sản" },
+            { "time": "14:30", "location": "Vườn hoa Thành phố", "note": "Check-in hoa theo mùa" }
+          ]
+        },
+        {
+          "day": 2,
+          "date": "2024-05-02",
+          "theme": "Săn mây & Cà phê",
+          "activities": [
+            { "time": "04:30", "location": "Thảm gỗ săn mây", "note": "Cần đi sớm để kịp bình minh" },
+            { "time": "09:00", "location": "Chùa Linh Phước", "note": "Tham quan chùa ve chai" },
+            { "time": "19:00", "location": "Chợ đêm Đà Lạt", "note": "Mua quà lưu niệm, ăn đồ nướng" }
+          ]
+        },
+        {
+          "day": 3,
+          "date": "2024-05-03",
+          "theme": "Rừng thông & Hồ nước",
+          "activities": [
+            { "time": "08:30", "location": "Hồ Tuyền Lâm", "note": "Chèo thuyền Kayak" },
+            { "time": "11:00", "location": "Đường hầm đất sét", "note": "Tham quan hồ Vô Cực" }
+          ]
+        },
+        {
+          "day": 4,
+          "date": "2024-05-04",
+          "theme": "Thử thách mạo hiểm",
+          "activities": [
+            { "time": "09:00", "location": "Thác Datanla", "note": "Đi máng trượt dài nhất Đông Nam Á" },
+            { "time": "15:00", "location": "Dinh Bảo Đại", "note": "Tìm hiểu lịch sử" }
+          ]
+        },
+        {
+          "day": 5,
+          "date": "2024-05-05",
+          "theme": "Tạm biệt Đà Lạt",
+          "activities": [
+            { "time": "08:00", "location": "Quảng trường Lâm Viên", "note": "Chụp ảnh nụ hoa Atiso" },
+            { "time": "11:00", "location": "Lên xe ra sân bay", "note": "Kết thúc hành trình" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "trip_name": "Hà Giang - Vòng cung cực Bắc",
+      "duration": "5 ngày 4 đêm",
+      "price": 4200000,
+      "rating": 4.8,
+      "img": "https://images.unsplash.com/photo-1596701062351-df1f8d4543e1?q=80&w=800",
+      "location": "Hà Giang",
+      "category": "nature",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-06-01",
+          "theme": "Khởi hành từ Hà Nội",
+          "activities": [
+            { "time": "07:00", "location": "Bến xe Mỹ Đình", "note": "Lên xe limousine đi Hà Giang" },
+            { "time": "14:00", "location": "Cột mốc số 0", "note": "Check-in điểm đầu hành trình" },
+            { "time": "16:00", "location": "Cổng trời Quản Bạ", "note": "Ngắm núi đôi Cô Tiên" }
+          ]
+        },
+        {
+          "day": 2,
+          "date": "2024-06-02",
+          "theme": "Cao nguyên đá Đồng Văn",
+          "activities": [
+            { "time": "08:00", "location": "Dốc Thẩm Mã", "note": "Con đường uốn lượn biểu tượng" },
+            { "time": "11:30", "location": "Nhà của Pao", "note": "Bối cảnh phim nổi tiếng" },
+            { "time": "14:00", "location": "Dinh thự họ Vương", "note": "Kiến trúc nghệ thuật độc đáo" }
+          ]
+        },
+        {
+          "day": 3,
+          "date": "2024-06-03",
+          "theme": "Đỉnh cao Mã Pì Lèng",
+          "activities": [
+            { "time": "05:30", "location": "Đèo Mã Pì Lèng", "note": "Đón bình minh trên đỉnh đèo" },
+            { "time": "10:00", "location": "Sông Nho Quế", "note": "Đi thuyền qua hẻm Tu Sản" },
+            { "time": "19:00", "location": "Phố cổ Đồng Văn", "note": "Thưởng thức thắng cố, rượu ngô" }
+          ]
+        },
+        {
+          "day": 4,
+          "date": "2024-06-04",
+          "theme": "Điểm cực Bắc Lũng Cú",
+          "activities": [
+            { "time": "08:30", "location": "Cột cờ Lũng Cú", "note": "Chinh phục điểm cực Bắc" },
+            { "time": "14:00", "location": "Làng văn hóa Lô Lô Chải", "note": "Trải nghiệm văn hóa bản địa" }
+          ]
+        },
+        {
+          "day": 5,
+          "date": "2024-06-05",
+          "theme": "Trở về Hà Nội",
+          "activities": [
+            { "time": "08:00", "location": "Thác số 6 Hà Giang", "note": "Tắm suối thư giãn" },
+            { "time": "12:00", "location": "Ăn trưa tại TP Hà Giang", "note": "Mua đặc sản về làm quà" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "trip_name": "Phú Quốc - Đảo Ngọc thiên đường",
+      "duration": "4 ngày 3 đêm",
+      "price": 5800000,
+      "rating": 5.0,
+      "img": "https://images.unsplash.com/photo-1589394815303-9993309a9096?q=80&w=800",
+      "location": "Phú Quốc",
+      "category": "beach",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-07-10",
+          "theme": "Chào Đảo Ngọc",
+          "activities": [
+            { "time": "11:00", "location": "Sân bay Phú Quốc", "note": "Xe resort đón về check-in" },
+            { "time": "15:00", "location": "Bãi Sao", "note": "Tắm biển và chụp ảnh xích đu" },
+            { "time": "18:00", "location": "Chợ đêm Phú Quốc", "note": "Thưởng thức hải sản tươi" }
+          ]
+        },
+        {
+          "day": 2,
+          "date": "2024-07-11",
+          "theme": "Khám phá Nam Đảo",
+          "activities": [
+            { "time": "08:30", "location": "Cáp treo Hòn Thơm", "note": "Cáp treo vượt biển dài nhất thế giới" },
+            { "time": "10:00", "location": "Công viên Aquatopia", "note": "Vui chơi công viên nước" },
+            { "time": "15:30", "location": "Sunset Sanato", "note": "Ngắm hoàng hôn đẹp nhất đảo" }
+          ]
+        },
+        {
+          "day": 3,
+          "date": "2024-07-12",
+          "theme": "VinWonders & Safari",
+          "activities": [
+            { "time": "09:00", "location": "Vinpearl Safari", "note": "Tham quan vườn thú mở" },
+            { "time": "14:00", "location": "VinWonders", "note": "Thỏa sức vui chơi giải trí" },
+            { "time": "20:00", "location": "Grand World", "note": "Xem show Tinh hoa Việt Nam" }
+          ]
+        },
+        {
+          "day": 4,
+          "date": "2024-07-13",
+          "theme": "Tạm biệt Phú Quốc",
+          "activities": [
+            { "time": "08:00", "location": "Vườn tiêu Phú Quốc", "note": "Tham quan và mua sắm" },
+            { "time": "10:00", "location": "Nhà thùng nước mắm", "note": "Tìm hiểu quy trình sản xuất" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "trip_name": "Hành trình Di sản miền Trung",
+      "duration": "5 Ngày 4 Đêm",
+      "price": 1500000,
+      "rating": 4.9,
+      "img": "https://images.unsplash.com/photo-1555921015-5532091f6026?q=80&w=800",
+      "location": "Đà Nẵng",
+      "category": "culture",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá ngày 1",
+          "activities": [
+            {
+              "time": "08:00",
+              "location": "Đón khách tại sân bay Đà Nẵng. Di chuyển về khách sạn.",
+              "note": "2km từ TT"
+            },
+            {
+              "time": "10:30",
+              "location": "Khám phá Bán đảo Sơn Trà & Viếng Chùa Linh Ứng",
+              "note": "10km từ TT"
+            },
+            {
+              "time": "18:00",
+              "location": "Ăn tối hải sản & Dạo biển đêm Mỹ Khê",
+              "note": "3km từ TT"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "date": "2024-05-02",
+          "theme": "Khám phá ngày 2",
+          "activities": [
+            {
+              "time": "08:00",
+              "location": "Khởi hành đi Sun World Bà Nà Hills",
+              "note": "25km từ TT"
+            },
+            {
+              "time": "11:00",
+              "location": "Check-in Cầu Vàng (Golden Bridge)",
+              "note": "25km từ TT"
+            },
+            {
+              "time": "19:00",
+              "location": "Thưởng thức ẩm thực đường phố, xem Cầu Rồng phun lửa",
+              "note": "Trung tâm"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "date": "2024-05-03",
+          "theme": "Khám phá ngày 3",
+          "activities": [
+            {
+              "time": "09:00",
+              "location": "Tham quan danh thắng Ngũ Hành Sơn",
+              "note": "8km từ TT"
+            },
+            {
+              "time": "14:00",
+              "location": "Di chuyển về Phố cổ Hội An, tham quan nhà cổ",
+              "note": "30km từ TT"
+            },
+            {
+              "time": "19:00",
+              "location": "Đi thuyền trên sông Hoài thả đèn hoa đăng",
+              "note": "Hội An"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "date": "2024-05-04",
+          "theme": "Khám phá ngày 4",
+          "activities": [
+            {
+              "time": "08:00",
+              "location": "Khởi hành đi Cố Đô Huế qua đèo Hải Vân",
+              "note": "100km từ TT"
+            },
+            {
+              "time": "13:00",
+              "location": "Tham quan Đại Nội Huế, Chùa Thiên Mụ",
+              "note": "Cố Đô Huế"
+            },
+            {
+              "time": "19:00",
+              "location": "Nghe ca Huế trên Sông Hương & Nghỉ đêm tại Huế",
+              "note": "Sông Hương"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "date": "2024-05-05",
+          "theme": "Khám phá ngày 5",
+          "activities": [
+            {
+              "time": "08:00",
+              "location": "Tham quan Lăng Khải Định & Lăng Tự Đức",
+              "note": "Ngoại ô Huế"
+            },
+            {
+              "time": "14:00",
+              "location": "Mua sắm đặc sản chợ Đông Ba và di chuyển ra sân bay",
+              "note": "Trung tâm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "trip_name": "Khám phá Phố Cổ Hội An",
+      "duration": "1 Ngày",
+      "price": 850000,
+      "rating": 4.8,
+      "img": "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?q=80&w=800",
+      "location": "Hội An",
+      "category": "culture",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "15:00",
+              "location": "Di chuyển đi Hội An",
+              "note": "30km từ TT"
+            },
+            {
+              "time": "17:00",
+              "location": "Thăm Chùa Cầu & Nhà Cổ",
+              "note": "30.5km từ TT"
+            },
+            {
+              "time": "19:00",
+              "location": "Ăn tối & Thả đèn hoa đăng",
+              "note": "30.5km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "trip_name": "Nghỉ dưỡng biển Mỹ Khê",
+      "duration": "2 Ngày 1 Đêm",
+      "price": 2500000,
+      "rating": 4.9,
+      "img": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800",
+      "location": "Đà Nẵng",
+      "category": "beach",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "09:00",
+              "location": "Tắm biển & Chụp hình",
+              "note": "1km từ TT"
+            },
+            {
+              "time": "14:00",
+              "location": "Chơi các trò chơi nước",
+              "note": "1.2km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "trip_name": "Tour Tiết Kiệm Ngũ Hành Sơn",
+      "duration": "1 Ngày",
+      "price": 450000,
+      "rating": 4.7,
+      "img": "https://images.unsplash.com/photo-1506461883276-594a12b11cf3?q=80&w=800",
+      "location": "Đà Nẵng",
+      "category": "nature",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "08:30",
+              "location": "Thăm làng đá Non Nước",
+              "note": "12km từ TT"
+            },
+            {
+              "time": "10:00",
+              "location": "Leo núi Ngũ Hành Sơn",
+              "note": "12km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "trip_name": "Chinh phục đỉnh Bàn Cờ",
+      "duration": "Half day",
+      "price": 600000,
+      "rating": 4.6,
+      "img": "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=800",
+      "location": "Đà Nẵng",
+      "category": "adventure",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "05:00",
+              "location": "Đón bình minh đỉnh Bàn Cờ",
+              "note": "15km từ TT"
+            },
+            {
+              "time": "07:30",
+              "location": "Ăn sáng cafe view biển",
+              "note": "5km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "trip_name": "Lặn ngắm san hô Cù Lao Chàm",
+      "duration": "1 Ngày",
+      "price": 1200000,
+      "rating": 4.8,
+      "img": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=800",
+      "location": "Hội An",
+      "category": "beach",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "08:00",
+              "location": "Cano đi Cù Lao Chàm",
+              "note": "45km từ TT"
+            },
+            {
+              "time": "10:30",
+              "location": "Lặn ngắm san hô bãi Bắc",
+              "note": "46km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "trip_name": "Camping Rừng Dừa Bảy Mẫu",
+      "duration": "2 Ngày 1 Đêm",
+      "price": 950000,
+      "rating": 4.5,
+      "img": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=800",
+      "location": "Hội An",
+      "category": "nature",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "14:00",
+              "location": "Check-in lều trại",
+              "note": "35km từ TT"
+            },
+            {
+              "time": "19:00",
+              "location": "Tiệc BBQ ngoài trời",
+              "note": "35km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "trip_name": "City Tour Đà Nẵng về đêm",
+      "duration": "4 Tiếng",
+      "price": 350000,
+      "rating": 4.7,
+      "img": "https://images.unsplash.com/photo-1599708153386-efdb71593ef0?q=80&w=800",
+      "location": "Đà Nẵng",
+      "category": "culture",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "19:00",
+              "location": "Ngắm Cầu Rồng phun lửa",
+              "note": "0km từ TT"
+            },
+            {
+              "time": "21:00",
+              "location": "Dạo Chợ đêm Sơn Trà",
+              "note": "1km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "trip_name": "Yoga thiền tại rừng Sơn Trà",
+      "duration": "1 Ngày",
+      "price": 700000,
+      "rating": 4.9,
+      "img": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800",
+      "location": "Đà Nẵng",
+      "category": "nature",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "06:00",
+              "location": "Yoga đón bình minh",
+              "note": "12km từ TT"
+            },
+            {
+              "time": "09:00",
+              "location": "Thiền trà thảo mộc",
+              "note": "12km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "trip_name": "Trekking Suối Mơ - Ba Na",
+      "duration": "1 Ngày",
+      "price": 550000,
+      "rating": 4.6,
+      "img": "https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800",
+      "location": "Đà Nẵng",
+      "category": "adventure",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "07:30",
+              "location": "Leo núi lội suối",
+              "note": "25km từ TT"
+            },
+            {
+              "time": "12:00",
+              "location": "Ăn trưa picnic bên suối",
+              "note": "26km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "trip_name": "Tham quan Thánh địa Mỹ Sơn",
+      "duration": "1 Ngày",
+      "price": 1100000,
+      "rating": 4.8,
+      "img": "https://images.unsplash.com/photo-1590424600010-84518429661c?q=80&w=800",
+      "location": "Hội An",
+      "category": "culture",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "08:30",
+              "location": "Khám phá tháp cổ Chăm Pa",
+              "note": "50km từ TT"
+            },
+            {
+              "time": "11:30",
+              "location": "Thưởng thức múa Apsara",
+              "note": "50km từ TT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "trip_name": "Tiệc tối lãng mạn ven biển",
+      "duration": "3 Tiếng",
+      "price": 3200000,
+      "rating": 5,
+      "img": "https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800",
+      "location": "Đà Nẵng",
+      "category": "beach",
+      "itinerary": [
+        {
+          "day": 1,
+          "date": "2024-05-01",
+          "theme": "Khám phá khởi đầu",
+          "activities": [
+            {
+              "time": "18:00",
+              "location": "Đón hoàng hôn trên biển",
+              "note": "2km từ TT"
+            },
+            {
+              "time": "19:30",
+              "location": "Tiệc tối 5 sao private",
+              "note": "2km từ TT"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

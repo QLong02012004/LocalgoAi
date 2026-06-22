@@ -1,0 +1,122 @@
+@use "./DestHero.mobile.scss";
+
+.destHero {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  margin: 24px 0;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.heroBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(15, 23, 42, 0.4) 50%,
+    rgba(15, 23, 42, 0) 80%
+  );
+}
+
+.heroContent {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: white;
+  text-align: left;
+}
+
+.locationTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: white;
+  color: #33d7d1;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 90vw;
+}
+
+.addressText {
+  display: inline-block;
+  max-width:250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
+.heroTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.heroMeta {
+  display: flex;
+  gap: 20px;
+}
+
+.heroCategory {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 0px 8px;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.heroActions {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  gap: 12px;
+}
+
+.btnIconCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    border: 1px solid #33d7d1;
+    background: rgba(51, 215, 209, 0.2);
+    color: #33d7d1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(51, 215, 209, 0.4);
+  }
+}
+
+.activeHeart {
+  color: #ef4444;
+}
+
+@include DestHero.mobile-styles();

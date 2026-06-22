@@ -1,0 +1,129 @@
+================================================================================
+KỊCH BẢN THUYẾT TRÌNH DEMO SẢN PHẨM: LOCALGO AI (BẢN PURE TEXT)
+================================================================================
+Người trình bày: Nguyễn Quang Long
+Vai trò demo: Khách vãng lai (Guest) & Trải nghiệm tương tác tự do ban đầu
+
+--------------------------------------------------------------------------------
+PHẦN 1: MỞ ĐẦU & KHỞI ĐỘNG CẢM HỨNG (Giao diện mở cho Khách vãng lai)
+--------------------------------------------------------------------------------
+
+(Hành động: Đứng thẳng, hướng về phía thầy cô hội đồng với thái độ tự tin, tươi cười, tay chỉ lên màn hình chiếu giao diện Trang chủ của LocalGo AI)
+
+[Lời thoại - Nguyễn Quang Long]:
+"Kính thưa quý Thầy, Cô trong Hội đồng và toàn thể các bạn sinh viên,
+
+Em tên là Nguyễn Quang Long, sau đây em xin phép được tiếp nối phần trình bày của bạn lê thị cẩm ly  để  demo  sản phẩm LocalGo AI.
+
+Hiện tại, như Thầy Cô có thể quan sát trực tiếp trên màn hình, hệ thống đang hiển thị giao diện Trang chủ c. Ở giai đoạn ban đầu này, nhóm chúng em định 
+hình trải nghiệm cho Khách vãng lai theo 
+hướng cực kỳ thân thiện và dễ dàng. 
+Khách vãng lai khi mới truy cập hệ thống sẽ không gặp bất kỳ rào cản hay yêu cầu đăng nhập phức tạp nào, từ đó dễ dàng tiếp cận thông tin du lịch và tự 
+do khám phá một cách tự nhiên nhất.
+
+Ngay tại phần Banner chào mừng là thanh tìm kiếm và lên lịch trình nhanh trực quan, đi kèm các số liệu thống kê thực tế ấn tượng: hơn 100 địa điểm nổi 
+tiếng, 500 khách sạn & nhà hàng, 
+cùng hơn 50 lịch trình thông minh có sẵn.
+
+ x
+
+Ngay phía dưới 'Hành trình khám phá' là khu vực 'Gợi ý nổi bật', nơi hệ thống đề xuất các điểm đến, nhà hàng và khách sạn được cộng đồng yêu thích nhất 
+và đánh giá cao 
+Khi người dùng tương tác, các thẻ địa điểm sẽ xoay chuyển góc nhìn đa chiều vô cùng mượt mà, hiển thị đầy đủ trạng thái hoạt động theo thời gian thực 
+(ví dụ như 'Đang mở cửa'), điểm đánh giá, mô tả ngắn gọn và địa chỉ chính xác. 
+Người dùng chỉ cần một click chuột vào nút 'Xem thêm' để lập tức dẫn đến trang thông tin chi tiết đầy đủ của địa điểm đó.
+
+Ở chân trang chủ là nơi hiển thị logo các thương hiệu đối tác lớn như Tripadvisor, Booking.com, Agoda... 
+Bây giờ, em xin phép click vào mục 'Khám phá' trên thanh điều hướng để giới thiệu thêm các tính năng hữu ích khác:"
+
+
+   MỤC A: Trang Khám Phá & Trang Chi Tiết Địa Điểm (Không gian tương tác, Bản đồ số & AI Hub)
+   -----------------------------------------------------------------------------------------
+
+   "Đầu tiên là trang Khám phá. Tại trang này, mặc định hệ thống hiển thị dưới dạng danh sách điện ảnh Cinematic sống động để kích thích cảm giác 
+   khám phá của người dùng. Tuy nhiên, để có được một góc nhìn không gian địa lý trực quan và dễ dàng định vị, người dùng chỉ cần nhấp chọn nút 
+   Bản đồ ở góc trên bên phải để chuyển sang Chế độ Bản đồ số tương tác toàn diện.
+
+   Tại khu vực bản đồ này, người dùng có thể xem danh sách các địa điểm đang được quan tâm nhiều nhất cụ thể tại khu vực Đà Nẵng, Hội An và Huế.
+
+   Đặc biệt, ngay bên dưới là khu vực 'Top địa điểm Thịnh Hành' được thiết kế dưới dạng dải băng chuyền chuyển động ngang vô hạn (Infinite Marquee) 
+   cực kỳ bắt mắt. Phần này mang lại giá trị rất lớn cho người dùng thông qua 3 yếu tố cốt lõi:
+
+   - Thứ nhất, 'Tiết kiệm thời gian tìm kiếm': Người dùng chưa có kế hoạch cụ thể có thể ngay lập tức nắm bắt xu hướng du lịch hiện tại qua danh sách xếp 
+   hạng từ TOP 1 trở đi.
+
+   - Thứ hai, 'Tạo dựng lòng tin (Social Proof)': Các địa điểm như Công viên Biển Đông, Chùa Pháp Lâm, hay Cầu Nguyễn Văn Trỗi được xếp hạng thực tế dựa
+    trên tương tác thực của cộng đồng, giúp người dùng an tâm lựa chọn 
+
+    "Và ngay khi chuyển qua Chế độ Bản đồ số, người dùng có thể tương tác rất dễ dàng thông qua các công cụ hữu ích sau:
+   - Bộ lọc nhanh theo từng nhóm như: Địa điểm, Khách sạn, Nhà hàng, hay Dịch vụ.
+   - Thanh tìm kiếm thông minh kết hợp dải thẻ Hashtag trực quan như #VănHóaLịchSử, #ThiênNhiênCảnhSắc, #MónViệt giúp lọc danh mục nhanh chóng.
+   - Bản đồ tương tác giúp người dùng xác định nhanh vị trí. Các điểm dịch vụ được đánh dấu bằng các màu sắc khác nhau (như màu cam cho ăn uống, 
+   màu xanh dương cho khách sạn). Khi click vào một điểm bất kỳ, bản đồ sẽ tự động zoom và định vị chính xác vị trí thực tế của địa điểm đó.
+   
+
+
+    MỤC B: Lịch Trình Du Lịch Mẫu (Kho tài nguyên dữ liệu tối ưu sẵn)
+    -----------------------------------------------------------------
+    
+    [Lời thoại - Nguyễn Quang Long]:
+    "Tiếp theo là mục Lịch trình mẫu. Nếu người dùng muốn đi du lịch nhưng chưa biết sắp xếp thời gian thế nào cho hợp lý, họ có thể tham khảo ngay các
+     hành trình được thiết kế sẵn kết hợp với sự tối ưu từ AI.
+
+    Thầy Cô có thể quan sát thấy Banner đầu trang hiển thị các thông tin tổng quan ấn tượng: hơn 50 lịch trình có sẵn, điểm đánh giá trung bình đạt 4.9/5 
+    và thu hút hàng trăm người dùng tham khảo mỗi tuần.
+
+    Tại đây, chúng em thiết kế một thanh tìm kiếm và lọc nhanh, giúp người dùng dễ dàng chọn điểm đến, số ngày đi và số lượng thành viên đi kèm.
+
+    Phía dưới là các nút lọc chủ đề như: Nghỉ dưỡng biển, Văn hóa & Lịch sử, Thiên nhiên, Khám phá... để người dùng thu hẹp phạm vi tìm kiếm chỉ với một 
+    click chuột.
+
+    Các thẻ lịch trình mẫu phía dưới được thiết kế rất chi tiết và tiện lợi:
+    - Thay vì chỉ có tiêu đề đơn giản, mỗi thẻ lịch trình hiển thị đầy đủ chi phí dự kiến, số ngày đi, số sao đánh giá và cả lộ trình tóm tắt của Ngày thứ 
+    nhất ngay trên màn hình xem trước để người dùng tiện so sánh.
+    - Người dùng chỉ cần click vào 'xem thêm' để xem nhanh hoạt động của các ngày tiếp theo ngay trên thẻ.
+   
+   
+
+
+
+
+   MỤC C: Tin Tức & Cảm Hứng Du Lịch (Cổng thông tin văn hóa & Cẩm nang số)
+   ----------------------------------------------------------------------
+   (Hành động: Di chuyển chuột lên menu đầu trang, click chọn tab 'Tin tức'. Cuộn chuột từ từ để giới thiệu bài viết tiêu điểm, bộ lọc phân loại tin, lưới 
+   bài viết cùng cột xu hướng bên phải, sau đó rê xuống banner đăng ký nhận tin ở cuối trang)
+
+   [Lời thoại - Nguyễn Quang Long]:
+   "Song song với đó, người dùng cũng có thể dễ dàng chuyển sang phần Tin tức & Cảm hứng. Đây là nơi chia sẻ các cẩm nang, kinh nghiệm du lịch bổ ích giúp 
+   người dùng có thêm động lực xách ba lô lên và đi.
+
+   Ngay đầu trang là bài viết nổi bật về các sự kiện văn hóa lớn như 'Lịch thi đấu Lễ hội pháo hoa quốc tế Đà Nẵng DIFF 2026' để người dùng dễ dàng nắm bắt
+    thông tin nóng hổi nhất.
+
+   Ngay phía dưới là các tab phân loại tin tức theo Sự kiện, Ẩm thực, Kinh nghiệm hay Thời tiết để người dùng lọc nhanh theo nhu cầu.
+
+   
+"Thưa Thầy Cô, mọi trải nghiệm xem tin tức, tham khảo danh lam thắng cảnh hay lịch trình mẫu của Khách vãng lai đều diễn ra hoàn toàn tự do và mượt mà...
+
+...cho đến khi người dùng muốn sử dụng tính năng đặc biệt nhất của hệ thống: Đó là tự động lập lịch trình cá nhân hóa bằng Trí tuệ nhân tạo."
+
+
+" Em muốn tự lên kế hoạch đi Đà Nẵng với ngân sách là 4.000.000 VNĐ cho 1 người. Em nhập các thông tin này 
+vào thanh công cụ và nhấn nút lập lịch trình..."
+
+ hệ thống sẽ ngay lập tức hiện thông báo yêu cầu người dùng phải đăng nhập tài khoản.
+
+Ràng buộc kỹ thuật này được nhóm thiết kế hoàn toàn có chủ đích. Do việc lập lịch trình cá nhân hóa bằng AI cần lưu lại sở thích, ngân sách riêng của từng 
+người dùng để đồng bộ hóa dữ liệu lâu dài dưới cơ sở dữ liệu. Vì vậy, xác thực tài khoản là cần thiết để bảo mật thông tin và cá nhân hóa trải nghiệm cho mỗi 
+người dùng.
+
+Và sau đây, để tiếp tục khám phá sức mạnh của tính năng này dưới vai trò một người dùng đã đăng nhập, em xin phép đăng nhập một tài khoản đã được chuẩn bị sẵn..."
+
+
+================================================================================
+💡 LỜI KHUYÊN CHO QUANG LONG KHI THUYẾT TRÌNH:
+1. Tốc độ nói: Trình bày từ tốn, rõ ràng, dứt khoát. Đặc biệt nhấn mạnh ở các từ khóa như: 'Thiết kế sẵn', 'Cá nhân hóa', 'Thân thiện', 'Người dùng', 'Bảo mật'.
+2. Tương tác cơ thể: Luôn giữ eye-contact (giao tiếp bằng mắt) với thầy cô hội đồng. Phối hợp nhịp nhàng giữa lời nói và thao tác click chuột trên màn hình để 
+không 
+bị lệch nhịp.
+================================================================================

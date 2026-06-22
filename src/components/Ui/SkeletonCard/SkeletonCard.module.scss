@@ -1,0 +1,114 @@
+.skeletonCard {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  position: relative;
+  border: 1px solid #f0f0f0;
+}
+
+.imageLoader {
+  width: 100%;
+  height: 220px;
+  background: #f3f4f6;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent
+    );
+    animation: shimmer 1.5s infinite;
+  }
+}
+
+.contentLoader {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.headerRow, .footerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.typeBadge {
+  width: 100px;
+  height: 24px;
+  background: #f3f4f6;
+  border-radius: 12px;
+}
+
+.ratingBadge {
+  width: 50px;
+  height: 24px;
+  background: #f3f4f6;
+  border-radius: 12px;
+}
+
+.line1 {
+  height: 28px;
+  width: 85%;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.line2 {
+  height: 40px;
+  width: 100%;
+  background: #f3f4f6;
+  border-radius: 8px;
+}
+
+.location {
+  width: 120px;
+  height: 20px;
+  background: #f3f4f6;
+  border-radius: 6px;
+}
+
+.btn {
+  width: 90px;
+  height: 36px;
+  background: #f3f4f6;
+  border-radius: 10px;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+// Add shimmer to all sub-divs too
+.line1, .line2, .typeBadge, .ratingBadge, .location, .btn {
+    position: relative;
+    overflow: hidden;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.6),
+          transparent
+        );
+        animation: shimmer 1.5s infinite;
+    }
+}

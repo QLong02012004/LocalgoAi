@@ -1,0 +1,7 @@
+@mixin mobile-styles {
+  @media (max-width: 1024px) {
+    .stickySidebar {
+      position: static;
+    }
+  }
+}

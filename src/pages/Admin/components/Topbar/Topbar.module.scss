@@ -1,0 +1,132 @@
+@use "./Topbar.mobile.scss";
+
+.topbar {
+  height: 80px;
+  background: #f8fafc; // Cool White Background
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.viewTitle {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #1e293b; // Dark Blue Gray
+  margin: 0;
+  letter-spacing: -0.05em;
+}
+
+.searchRel {
+  position: relative;
+  width: 400px;
+
+  .searchIcon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 24px 12px 52px;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1e293b;
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: #38bdf8; // Primary Accent (Sky Blue)
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+    }
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+  }
+}
+
+.iconBtn {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  position: relative;
+  transition: all 0.2s;
+  cursor: pointer;
+  
+
+  &:hover {
+    color: #38bdf8;
+    border-color: #38bdf8;
+    background-color: white;
+  }
+
+  .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 8px;
+    height: 8px;
+    background-color: #ef4444;
+    border: 2px solid white;
+    border-radius: 50%;
+  }
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 6px 6px 14px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: #38bdf8;
+  }
+
+  .userInfo {
+    text-align: right;
+    p:first-child {
+      font-size: 0.8125rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin: 0;
+    }
+    p:last-child {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: #0ea5e9; // Smart Highlight
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 0;
+    }
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+}
+
+@include Topbar.mobile-styles();

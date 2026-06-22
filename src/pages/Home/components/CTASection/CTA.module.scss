@@ -1,0 +1,90 @@
+@use "./CTA.mobile.scss";
+@use "../../../../components/styles/variables.scss" as vars;
+
+.ctaSection {
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ctaCard {
+  // 1. Nền Cyan rực rỡ (Đồng bộ với theme chính)
+  background: vars.$primary-cyan-gradient;
+  border-radius: 32px;
+  color: white;
+  padding: 80px 60px;
+  text-align: left; 
+  position: relative;
+  overflow: hidden;
+  box-shadow: vars.$shadow-premium-cyan;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+
+  // 2. Hiệu ứng vòng tròn đồng tâm (Ripple effect) bên phải
+  &::before {
+    content: "";
+    position: absolute;
+    right: -10%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    background: 
+      radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 1%),
+      radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 11%),
+      radial-gradient(circle, rgba(255, 255, 255, 0.08) 20%, transparent 21%),
+      radial-gradient(circle, rgba(255, 255, 255, 0.06) 30%, transparent 31%),
+      radial-gradient(circle, rgba(255, 255, 255, 0.04) 40%, transparent 41%),
+      radial-gradient(circle, rgba(255, 255, 255, 0.02) 50%, transparent 51%);
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  // Thêm một lớp phủ sáng nhẹ để tạo chiều sâu
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.1;
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 500px; // Giới hạn chiều rộng để text không đè lên vòng tròn
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    font-weight: 500;
+  }
+
+  .ctaButtons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start; // Căn trái nút bấm
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@include CTA.mobile-styles();

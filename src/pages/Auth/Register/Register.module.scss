@@ -1,0 +1,264 @@
+@use "./Register.mobile.scss";
+@use "../../../components/styles/variables" as vars;
+
+.registerContainer {
+  width: 100%;
+  text-align: left;
+
+  .header {
+    margin-bottom: 12px; // Giảm từ mặc định
+
+    h2 {
+      font-size: 1.35rem; // Nhỏ lại chút
+      font-weight: 800;
+      margin-bottom: 0px;
+      letter-spacing: -0.01em;
+      background: vars.$primary-cyan-gradient;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    p {
+      color: #64748b;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+  }
+
+  .socialButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+    width: 100%;
+
+    .googleButtonWrap {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 40px;
+      transition: all 0.3s ease;
+
+      & > div {
+        width: 100% !important;
+        iframe {
+          width: 100% !important;
+          margin: 0 auto;
+        }
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .socialBtn {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 1.5px solid #f1f5f9;
+      background: white;
+      color: #1e293b;
+
+      &.facebook {
+        background: #1877f2;
+        color: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+
+        &:hover {
+          background: #166fe5;
+          box-shadow: 0 8px 25px rgba(24, 119, 242, 0.3);
+        }
+      }
+    }
+  }
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 12px; // Giảm khoảng cách
+  color: #94a3b8;
+  font-size: 0.7rem;
+  font-weight: 500;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  span {
+    padding: 0 10px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; // Giảm gap giữa các ô input
+
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-left: 4px;
+    }
+
+    .inputWrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      .icon {
+        position: absolute;
+        left: 18px;
+        color: #94a3b8;
+        font-size: 1.15rem;
+        transition: color 0.3s ease;
+      }
+
+      input {
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+          -webkit-text-fill-color: #1e293b !important;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+        width: 100%;
+        padding: 4px 16px 10px 48px;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        background: white;
+        transition: all 0.3s ease;
+        color: #1e293b;
+
+        &::placeholder {
+          color: #cbd5e1;
+          font-weight: 400;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: vars.$brand-cyan;
+          box-shadow: 0 0 15px rgba(vars.$brand-cyan, 0.08);
+
+          & + .icon {
+            color: vars.$brand-cyan;
+          }
+        }
+      }
+
+      .eye {
+        position: absolute;
+        right: 18px;
+        color: #94a3b8;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: vars.$brand-cyan;
+        }
+      }
+    }
+  }
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0;
+
+  input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #878a8e;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+
+    &:checked {
+      background: vars.$brand-cyan;
+      border-color: vars.$brand-cyan;
+
+      &::after {
+        content: "✓";
+        position: absolute;
+        color: white;
+        font-size: 12px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  label {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 500;
+    cursor: pointer;
+  }
+}
+
+/* btnSubmit cũ đã được thay thế bằng PremiumButton */
+
+.footer {
+  text-align: center;
+  margin-top: 10px; // Giảm từ 20
+  font-size: 0.85rem; // Giảm từ 0.9
+  font-weight: 500;
+  color: #64748b;
+
+  button {
+    background: none;
+    border: none;
+    color: vars.$brand-cyan-dark;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0 4px;
+    font-size: inherit;
+
+    &:hover {
+      color: vars.$brand-cyan;
+      text-decoration: underline;
+    }
+  }
+}
+  /* btnSubmit:disabled đã được xử lý trong PremiumButton */
+}
+
+@include Register.mobile-styles();

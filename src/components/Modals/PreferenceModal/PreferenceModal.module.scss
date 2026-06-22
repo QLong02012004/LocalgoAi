@@ -1,0 +1,363 @@
+@use "../../styles/variables" as vars;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100000;
+  padding: 20px;
+}
+
+.modalContent {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 32px;
+  width: 100%;
+  max-width: 620px;
+  min-height: 480px;
+  position: relative;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.header {
+  padding: 32px 32px 20px;
+  text-align: center;
+
+  h2 {
+    font-size: 28px;
+    font-weight: 900;
+    font-family: vars.$font-main;
+    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    color: vars.$text-gray;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 60px 24px;
+  position: relative;
+}
+
+.stepLine {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  height: 3px;
+  background: #f1f5f9;
+  z-index: 1;
+  border-radius: 2px;
+}
+
+.stepProgress {
+  height: 100%;
+  background: vars.$sunset-gradient;
+  background-size: 200% 100%;
+  animation: shimmerFlow 3s infinite linear;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255, 76, 148, 0.3);
+}
+
+@keyframes shimmerFlow {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.stepItem {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+
+  &.active {
+    .stepLabel {
+      color: #0f172a;
+      font-weight: 800;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  &.completed {
+    .stepLabel {
+      color: vars.$brand-cyan-dark;
+    }
+  }
+}
+
+.stepNumber {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  color: #94a3b8;
+  // Let Framer Motion handle most properties, but keep layout here
+}
+
+.stepLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  transition: all 0.3s ease;
+}
+
+.body {
+  flex: 1;
+  padding: 0 32px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Step 1: Tags Grid */
+.tagsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.tagCard {
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid transparent;
+  border-radius: 20px;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
+
+  .iconWrapper {
+    font-size: 28px;
+    color: #334155;
+    transition: all 0.4s ease;
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    color: #475569;
+    line-height: 1.2;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    background: white;
+    box-shadow: 0 15px 20px -5px rgba(0, 0, 0, 0.08);
+
+    .iconWrapper {
+      transform: scale(1.1);
+      color: vars.$brand-pink;
+    }
+  }
+
+  &.selected {
+    border-color: vars.$brand-pink;
+    background: white;
+    box-shadow: 0 10px 20px -10px rgba(255, 76, 148, 0.3);
+
+    .iconWrapper {
+      color: vars.$brand-pink;
+    }
+
+    span {
+      color: vars.$brand-pink;
+    }
+  }
+}
+
+/* Step 2 & 3: Selection Groups */
+.selectionGroup {
+  margin-bottom: 24px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      color: vars.$brand-cyan;
+    }
+  }
+
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+.optionChip {
+  padding: 10px 20px;
+  background: white;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #f1f5f9;
+
+  &:hover {
+    background: #f8fafc;
+    border-color: vars.$brand-cyan;
+    transform: translateY(-1px);
+  }
+
+  &.active {
+    background: vars.$brand-cyan;
+    color: white;
+    border-color: vars.$brand-cyan;
+    box-shadow: 0 4px 12px rgba(51, 215, 209, 0.3);
+  }
+}
+
+.summaryBox {
+  margin-top: auto;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(51, 215, 209, 0.05) 0%, rgba(255, 76, 148, 0.05) 100%);
+  border-radius: 16px;
+  font-size: 14px;
+  color: #64748b;
+  font-style: italic;
+  text-align: center;
+  border: 1px dashed rgba(51, 215, 209, 0.2);
+}
+
+.footer {
+  padding: 24px 32px;
+  background: rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btnBack {
+  background: transparent;
+  border-radius: 12px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: all 0.2s;
+
+  &:hover {
+    color: #1e293b;
+    background: rgba(0, 0, 0, 0.03);
+  }
+}
+
+.btnNext {
+  background: vars.$btn-cta-bg;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 32px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: vars.$btn-cta-shadow;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 76, 148, 0.3);
+  }
+
+  &:disabled {
+    background: #e2e8f0;
+    color: #94a3b8;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 600px) {
+  .modalContent {
+    max-height: 95vh;
+  }
+
+  .stepper {
+    margin: 0 20px 20px;
+  }
+
+  .tagsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

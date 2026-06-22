@@ -1,0 +1,29 @@
+@mixin mobile-styles {
+  .ctaWrapper {
+    .content {
+      @media (max-width: 900px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+    }
+
+    .textSide {
+      p {
+        @media (max-width: 900px) {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .ctaWrapper {
+      padding: 30px 20px;
+
+      .textSide h2 {
+        font-size: 24px;
+      }
+    }
+  }
+}

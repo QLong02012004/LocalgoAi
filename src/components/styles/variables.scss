@@ -1,0 +1,77 @@
+// ==========================================
+// TRAVELAI DESIGN SYSTEM VARIABLES
+// ==========================================
+
+// 1. Core Brand Colors (Unified)
+$brand-cyan: #33d7d1;
+$brand-cyan-dark: #00a8a2;
+$brand-pink: #ff4c94;
+$brand-orange: #ff8a3d;
+
+// 2. Semantic Mapping (Màu chủ đạo chính)
+$primary-cyan: $brand-cyan;
+$primary-cyan-dark: $brand-cyan-dark;
+$primary-sunset: $brand-pink;
+$primary-orange: $brand-orange;
+
+// 3. Premium Gradients
+$primary-cyan-gradient: linear-gradient(135deg, $brand-cyan 0%, $brand-cyan-dark 100%);
+$auth-gradient: linear-gradient(135deg, $brand-pink 0%, $brand-orange 100%);
+$sunset-gradient: $auth-gradient;
+$premium-mixed-gradient: linear-gradient(135deg, $brand-cyan 0%, $brand-pink 100%);
+
+// 4. Neutral Palette
+$text-dark: #1e293b;
+$text-gray: #64748b;
+$text-light: #94a3b8;
+$bg-main: #f8fafc;
+$bg-white: #ffffff;
+$bg-dark-card: #0f172a;
+$border-color: #e2e8f0;
+
+// 5. Glassmorphism System
+$glass-bg: rgba(255, 255, 255, 0.7);
+$glass-border: rgba(255, 255, 255, 0.5);
+$glass-cyan: rgba($brand-cyan, 0.1);
+$glass-sunset: rgba($brand-pink, 0.1);
+
+// 6. Typography
+$font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// 7. Shadows
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$shadow-premium-cyan: 0 20px 40px -10px rgba($brand-cyan, 0.3);
+$shadow-premium-sunset: 0 20px 40px -10px rgba($brand-pink, 0.3);
+
+// 8. Button Component Styles (Hệ thống nút bấm)
+$btn-primary-bg: $primary-cyan-gradient;
+$btn-primary-text: #ffffff;
+$btn-primary-shadow: rgba($brand-cyan, 0.3);
+
+$btn-secondary-bg: rgba($brand-cyan, 0.1);
+$btn-secondary-text: $brand-cyan-dark;
+$btn-secondary-border: rgba($brand-cyan, 0.2);
+
+$btn-cta-bg: $sunset-gradient;
+$btn-cta-text: #ffffff;
+$btn-cta-shadow: rgba($brand-pink, 0.3);
+
+$btn-dark-bg: #111111;
+$btn-dark-text: #ffffff;
+
+// Backward Compatibility
+$primary-blue: $brand-cyan;
+$primary-gradient: $primary-cyan-gradient;
+$auth-shadow: $shadow-premium-sunset;
+$auth-primary: $brand-pink;
+$auth-secondary: $brand-orange;
+
+// 9. Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;

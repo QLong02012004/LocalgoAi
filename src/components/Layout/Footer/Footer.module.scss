@@ -1,0 +1,246 @@
+@use "../../styles/variables" as vars;
+@use "./Footer.mobile.scss";
+
+.footer {
+  background-color: vars.$bg-white;
+  padding: 80px 0 30px;
+  border-top: 1px solid vars.$border-color;
+  margin-top: 80px;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+@include Footer.mobile-styles();
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: vars.$text-dark;
+    text-decoration: none;
+
+    .logoIcon {
+      width: 280px;
+      height: 120px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      .logoImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.footerDesc {
+  font-size: 0.95rem;
+  color: vars.$text-gray;
+  line-height: 1.6;
+  max-width: 300px;
+  text-align: left;
+}
+
+.footerSocials {
+  display: flex;
+  gap: 12px;
+
+  .socialIcon {
+    width: 36px;
+    height: 36px;
+    background-color: vars.$bg-main;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: vars.$text-gray;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: vars.$primary-blue;
+      color: white;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+.footerHeading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: vars.$text-dark;
+  margin-bottom: 8px;
+}
+
+.footerLinksList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: vars.$text-gray;
+    position: relative;
+    cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -6px;
+      width: 8px;
+      height: 2px;
+      background-color: vars.$primary-blue;
+      opacity: 0;
+      transform: translateX(-5px);
+      transition: all 0.3s ease;
+    }
+
+    // 🔥 Hover vào li
+    &:hover {
+      &::before {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      a {
+        color: vars.$primary-blue;
+        padding-left: 5px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    i {
+      color: vars.$primary-blue;
+      font-size: 1.1rem;
+    }
+  }
+}
+.footerContactList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    color: vars.$text-gray;
+    text-align: left;
+
+    .contactIcon {
+      color: vars.$primary-blue;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+
+  input {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid vars.$border-color;
+    background-color: vars.$bg-main;
+    outline: none;
+    font-size: 0.9rem;
+
+    &:focus {
+      border-color: vars.$primary-blue;
+    }
+  }
+
+  .btnSubscribe {
+    width: 45px;
+    height: 45px;
+    background-color: vars.$primary-blue;
+    border: none;
+    border-radius: 12px;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #00ced1;
+      transform: scale(1.05);
+    }
+  }
+  .footerIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 1.2rem;
+  }
+}
+
+.footerBottom {
+  padding-top: 30px;
+  border-top: 1px solid vars.$border-color;
+}
+
+.footerBottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+
+  p {
+    font-size: 0.9rem;
+    color: vars.$text-light;
+  }
+}
+
+.footerLegal {
+  display: flex;
+  gap: 24px;
+
+  a {
+    font-size: 0.9rem;
+    color: vars.$text-light;
+    text-decoration: none;
+
+    &:hover {
+      color: vars.$primary-blue;
+    }
+  }
+}

@@ -1,0 +1,193 @@
+@use "./SampleItinerary.mobile.scss";
+$primary: #00a8a2;
+$navy: #1a365d;
+$dark: #1a1a1a;
+$lightText: #718096;
+
+.pageWrapper {
+  background: #f8fafc;
+  min-height: 100vh;
+  // margin-top: 70px;
+}
+
+.mainContent {
+  padding-bottom: 80px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.itineraryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+  transition: opacity 0.3s ease;
+
+  &.gridLoading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  background: #fff;
+  border-radius: 30px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  p {
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 24px;
+  }
+
+  .resetBtn {
+    background: $primary;
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 20px rgba(0, 168, 162, 0.2);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 168, 162, 0.3);
+    }
+  }
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 80px;
+  padding: 12px;
+  background: #fff;
+  border-radius: 20px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f5f9;
+
+  .pageNavBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: 1px solid #f1f5f9;
+    background: #fff;
+    color: $dark;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover:not(:disabled) {
+      border-color: $primary;
+      color: $primary;
+      background: rgba(0, 168, 162, 0.02);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  .pageNumbers {
+    display: flex;
+    gap: 6px;
+
+    .pageBtn {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: #64748b;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        background: #f1f5f9;
+        color: $primary;
+      }
+
+      &.activePage {
+        background: $primary;
+        color: #fff;
+        box-shadow: 0 8px 16px rgba(0, 168, 162, 0.25);
+      }
+    }
+
+    .paginationDots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      color: #94a3b8;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+.errorState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+  p {
+    color: #f43f5e;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .retryBtn {
+    background: $primary;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background: #008b8b;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@include SampleItinerary.mobile-styles();
+
+@include SampleItinerary.mobile-styles();
+
+.statusWrapper {
+  grid-column: 1 / -1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}

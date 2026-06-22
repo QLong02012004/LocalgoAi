@@ -1,0 +1,429 @@
+@use "./TravelCard.mobile.scss";
+
+$primary: #33d7d1;
+$secondary: #a5f3f1; // Xanh nhạt
+$accent: #008b8b; // Xanh đậm để nhấn
+$dark: #1a1717;
+
+.card {
+  width: 100%;
+  aspect-ratio: 4 / 5.8;
+  border-radius: 28px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.04),
+    0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  z-index: 1;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+      0 40px 80px rgba(0, 0, 0, 0.16),
+      0 10px 20px rgba(51, 215, 209, 0.08);
+
+    .imageContainer {
+      img {
+        transform: scale(1.15);
+      }
+      .imageOverlay {
+        background: linear-gradient(
+          to bottom,
+          transparent 30%,
+          rgba(0, 0, 0, 0.7) 100%
+        );
+      }
+    }
+
+    .btnExplore {
+      // Handled by AnimatedButton
+    }
+  }
+
+  &.isPlayingVideo {
+    z-index: 10;
+    .cardInfo {
+      opacity: 0;
+      transform: translateY(20px);
+      visibility: hidden;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+    background: #f1f5f9; // Màu nền khi ảnh chưa tải
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+      &.hideImage {
+        opacity: 0;
+      }
+    }
+
+    .previewVideo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .imageOverlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 60%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
+      transition: background 0.4s ease;
+      pointer-events: none;
+    }
+  }
+
+  .statusBadge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+
+    .modernBadge {
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+
+      &::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      &.active,
+      &.open {
+        background: rgba(220, 252, 231, 0.9); // Pastel Green
+        color: #166534;
+        &::before {
+          background: #22c55e;
+          box-shadow: 0 0 8px #22c55e;
+        }
+      }
+      &.maintenance {
+        background: rgba(254, 243, 199, 0.9); // Pastel Orange
+        color: #92400e;
+        &::before {
+          background: #f59e0b;
+          box-shadow: 0 0 8px #f59e0b;
+        }
+      }
+      &.closed {
+        background: rgba(254, 226, 226, 0.9); // Pastel Red
+        color: #991b1b;
+        &::before {
+          background: #ef4444;
+          box-shadow: 0 0 8px #ef4444;
+        }
+      }
+    }
+  }
+
+  .hotTag {
+    position: absolute;
+    top: 55px;
+    left: 16px;
+    background: rgba(255, 65, 108, 0.7);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-size: 0.6rem;
+    font-weight: 900;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(255, 75, 43, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.05em;
+  }
+
+  .floatingPrice {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 16px 12px;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      transparent 100%
+    );
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 800;
+    z-index: 20;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    pointer-events: none; // Tránh cản trở hover card
+
+    .priceLabel {
+      font-size: 0.75rem;
+      font-weight: 600;
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+
+    .priceValue {
+      color: #33d7d1;
+      font-size: 1.1rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .topActions {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .actionBtn {
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #475569;
+
+    &:hover {
+      background: white;
+      transform: scale(1.1) rotate(5deg);
+      border-color: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    &.liked {
+      background: white;
+      color: #ff4d4d;
+      box-shadow: 0 8px 15px rgba(255, 77, 77, 0.2);
+    }
+
+    &.itineraryBtn {
+      &:hover {
+        color: #33d7d1;
+        transform: scale(1.1) rotate(-5deg);
+      }
+      &.active {
+        background: #33d7d1;
+        color: white;
+        border-color: #33d7d1;
+        box-shadow: 0 8px 15px rgba(51, 215, 209, 0.3);
+      }
+    }
+  }
+
+  .btnCloseVideo {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.3);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: white;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(1.1);
+    }
+  }
+
+  .cardInfo {
+    padding: 24px;
+    background: white;
+    transition: all 0.4s ease;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .infoHead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+
+      .ratingBadge {
+        background: #fff8eb;
+        color: #b45309;
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .starIcon {
+          color: #f59e0b;
+        }
+      }
+
+      .locationTag {
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: #33d7d1;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #f0fdfa;
+        padding: 5px 12px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        max-width: 180px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:hover {
+          background: #e6fcfb;
+          transform: translateY(-1px);
+        }
+      }
+    }
+
+    .title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #1e293b;
+      margin: 0 0 8px 0;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .shortDesc {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.6;
+      flex: 1;
+      text-align: left;
+    }
+
+    .cardFooter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 18px;
+      border-top: 1px dashed #e2e8f0;
+
+      .btnVideo {
+        background: transparent;
+        color: #33d7d1;
+        border: 1.5px solid #33d7d1;
+        padding: 8px 16px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+        &:hover {
+          background: #f0fdfa;
+          transform: translateY(-2px);
+        }
+      }
+
+      .btnExplore {
+        // Handled by AnimatedButton
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes badgeFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@include TravelCard.mobile-styles();

@@ -1,0 +1,227 @@
+$primary: #33d7d1;
+$navy: #1e293b;
+$dark: #1a1a1a;
+$lightText: #718096;
+
+.tripCard {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #f1f5f9;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba($primary, 0.2);
+  }
+}
+
+.cardHeader {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+
+  .cardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .darkOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .headerOverlays {
+    position: absolute;
+    inset: 0;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 2;
+  }
+}
+
+.statusBadge {
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  backdrop-filter: blur(8px);
+
+  &.upcoming { background: rgba($primary, 0.9); }
+  &.ongoing { background: rgba(#0ea5e9, 0.9); }
+  &.completed { background: rgba(#10b981, 0.9); }
+}
+
+.btnMenu {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover { background: rgba(255, 255, 255, 0.4); }
+}
+
+.cardBody {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tripMainInfo {
+  margin-bottom: 20px;
+  .tripTitle {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: $navy;
+    margin-bottom: 8px;
+  }
+  .metaRow {
+    display: flex;
+    gap: 15px;
+    .metaItem {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #94a3b8;
+      svg { color: $primary; }
+    }
+  }
+}
+
+.timelineSection {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+
+  .sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #64748b;
+    margin-bottom: 12px;
+    svg { color: $primary; }
+    .progressText { margin-left: auto; color: $primary; font-size: 12px; }
+  }
+
+  .progressBar {
+     width: 100%;
+     height: 6px;
+     background: #e2e8f0;
+     border-radius: 100px;
+     margin-bottom: 15px;
+     overflow: hidden;
+     .progressFill {
+        height: 100%;
+        background: $primary;
+        border-radius: 100px;
+     }
+  }
+}
+
+.checklistMini {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  .checkItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .checkboxContainer {
+      position: relative;
+      width: 16px; height: 16px;
+      .realCheckbox { position: absolute; opacity: 0; }
+      .customCheckbox {
+        position: absolute;
+        inset: 0;
+        background: white;
+        border: 2px solid #cbd5e1;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        color: transparent;
+      }
+      .realCheckbox:checked ~ .customCheckbox {
+        background: $primary; border-color: $primary; color: white;
+      }
+    }
+    .itemLabel { font-size: 12px; font-weight: 700; color: #475569; }
+    &.completed .itemLabel { color: #94a3b8; text-decoration: line-through; }
+  }
+}
+
+.cardFooter {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+
+  .btnView {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    background: $primary;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover { background: #2dd4bf; transform: translateY(-2px); }
+  }
+
+  .actionGroup {
+    display: flex;
+    gap: 8px;
+  }
+
+  .btnCircle {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    display: flex; align-items: center; justify-content: center;
+    color: #64748b;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover { background: white; color: $primary; border-color: $primary; }
+    &.danger:hover { background: #fff1f2; color: #f43f5e; border-color: #f43f5e; }
+  }
+}
+
+// Dark Mode Support
+[data-theme="dark"] {
+  .tripCard { background: var(--bg-card); border-color: rgba(255, 255, 255, 0.1); }
+  .timelineSection { background: rgba(255, 255, 255, 0.05); }
+  .cardFooter { border-color: rgba(255, 255, 255, 0.1); }
+  .btnCircle { background: rgba(255, 255, 255, 0.05); border-color: transparent; }
+  .tripTitle { color: white; }
+}

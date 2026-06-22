@@ -1,0 +1,90 @@
+@use "./AdminDashboard.mobile.scss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --brand-primary: #2563eb;
+  --brand-secondary: #3b82f6;
+  --brand-accent: #f97316;
+  
+  --bg-main: #f8fafc;
+  --bg-sidebar: #0f172a; // Deep Ocean
+  --bg-card: #ffffff;
+  
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  // Premium soft shadow (4 layers)
+  --shadow-premium: 
+    0 1px 2px rgba(0,0,0,0.02), 
+    0 4px 8px rgba(0,0,0,0.02), 
+    0 12px 24px rgba(0,0,0,0.02), 
+    0 32px 64px rgba(0,0,0,0.02);
+}
+
+.adminContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: 280px; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.collapsed {
+    margin-left: 80px;
+  }
+}
+
+.contentArea {
+  padding: 48px; // px-12 equivalent
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  }
+
+// Typography Global Overrides
+:global {
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+// Global Classes for Glassmorphism
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+.cardPremium {
+  background: var(--bg-card);
+  border-radius: 2.5rem;
+  border: 1px solid #f1f5f9;
+  box-shadow: var(--shadow-premium);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+@include AdminDashboard.mobile-styles();
+

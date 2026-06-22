@@ -1,0 +1,25 @@
+@mixin mobile-styles {
+  @media (max-width: 480px) {
+    .card {
+      aspect-ratio: 4 / 6.4;
+      border-radius: 20px;
+
+      .imageContainer {
+        height: 180px;
+      }
+
+      .cardInfo {
+        padding: 16px;
+        
+        .title { font-size: 1rem; }
+        .shortDesc { font-size: 0.75rem; margin-bottom: 15px; line-height: 1.4; }
+        
+        .cardFooter {
+          padding-top: 10px;
+          .btnExplore { padding: 8px 10px; font-size: 0.7rem; gap: 4px; }
+          .btnVideo { padding: 6px 10px; font-size: 0.65rem; }
+        }
+      }
+    }
+  }
+}

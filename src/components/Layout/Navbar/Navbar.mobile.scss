@@ -1,0 +1,294 @@
+@use "../../styles/variables" as vars;
+
+@mixin mobile-styles {
+  /* ====================
+     Navbar Layout Responsive
+  ==================== */
+  @media (max-width: 992px) {
+    .navLinks {
+      display: none;
+    }
+
+    .navActions {
+      display: none;
+    }
+  }
+
+  /* ====================
+     Mobile Menu Styles 
+  ==================== */
+  .mobileMenuBtn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: vars.$text-dark;
+    padding: 8px;
+    z-index: 99002;
+    transition: all 0.3s ease;
+
+    @media (max-width: 992px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  .menuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.4);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    z-index: 99000;
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  .mobileDrawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    z-index: 99001;
+    box-shadow: -15px 0 50px rgba(0, 0, 0, 0.15);
+    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: radial-gradient(circle at top right, rgba(0, 255, 255, 0.05), transparent 70%);
+      pointer-events: none;
+    }
+
+    &.open {
+      right: 0;
+    }
+
+    @media (max-width: 480px) {
+      width: 85%;
+    }
+  }
+
+  .mobileDrawerContent {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .drawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 16px 20px;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+    .drawerCloseBtn {
+      background: #f1f5f9;
+      border: none;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: vars.$text-dark;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      line-height: 0;
+
+      &:active {
+        transform: scale(0.9);
+        background: #e2e8f0;
+      }
+    }
+  }
+
+  .mobileNavLinks {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 24px;
+    gap: 8px;
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: vars.$text-dark;
+      text-decoration: none;
+      padding: 14px 18px;
+      border-radius: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: transparent;
+
+      svg {
+        color: vars.$text-gray;
+        transition: all 0.3s ease;
+      }
+
+      &.active {
+        background: rgba(0, 255, 255, 0.1);
+        color: #008888;
+        
+        svg {
+          color: #008888;
+          transform: scale(1.1);
+        }
+      }
+
+      &:hover:not(.active) {
+        background: #f8fafc;
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  .mobileAuthActions {
+    padding: 0 24px 30px;
+  }
+
+  .mobileAccountBox {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+    .accountLabel {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: vars.$text-gray;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .mobileMenuItem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    color: vars.$text-dark;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+
+    svg {
+      color: vars.$text-gray;
+    }
+
+    &.logout {
+      color: #ef4444;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      margin-top: 8px;
+      padding-top: 16px;
+      
+      svg { color: #ef4444; }
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  .mobileAuthBtns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobileLoginBtn {
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    background: #f8fafc;
+    border: 1px solid vars.$border-color;
+    border-radius: 16px;
+    color: vars.$text-dark;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .mobileJoinBtn {
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    background: vars.$primary-blue;
+    border-radius: 16px;
+    color: #0f172a;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 8px 16px rgba(0, 255, 255, 0.25);
+  }
+
+  .drawerFooter {
+    margin-top: auto;
+    padding: 40px 24px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.02));
+
+    .footerLabel {
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: vars.$text-gray;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+
+    .socialGrid {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+
+      a {
+        color: vars.$text-dark;
+        transition: all 0.3s ease;
+        opacity: 0.8;
+
+        &:active {
+          transform: scale(1.2);
+          color: vars.$primary-blue;
+          opacity: 1;
+        }
+      }
+    }
+
+    .footerCopy {
+      font-size: 0.7rem;
+      color: vars.$text-light;
+      font-weight: 500;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}

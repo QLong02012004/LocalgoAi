@@ -1,0 +1,145 @@
+@use "../../styles/variables.scss" as vars;
+
+.checkboxContainer {
+  display: inline-block;
+  user-select: none;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.taskCheckbox {
+  display: none;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: vars.$text-gray;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 8px;
+  border-radius: 8px;
+
+  &:hover {
+    background: rgba(255, 76, 148, 0.05);
+    color: vars.$text-dark;
+
+    .checkboxBox {
+      border-color: #ff4c94;
+      box-shadow: 0 0 0 2px rgba(255, 76, 148, 0.1);
+    }
+  }
+}
+
+.checkboxBox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  margin-right: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.checkboxFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff4c94 0%, #ff8a3d 100%);
+  transform: scale(0);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border-radius: 4px;
+  opacity: 0;
+}
+
+.checkmark {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: scale(0.3) rotate(20deg);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIcon {
+  width: 12px;
+  height: 12px;
+  fill: white;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.successRipple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 76, 148, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkboxText {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+// Khi được Tích chọn (Checked)
+.taskCheckbox:checked + .checkboxLabel {
+  .checkboxBox {
+    border-color: #ff4c94;
+    background: #ff4c94;
+    box-shadow:
+      0 4px 12px rgba(255, 76, 148, 0.3),
+      0 0 0 2px rgba(255, 76, 148, 0.2);
+  }
+
+  .checkboxFill {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .checkmark {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    animation: checkPop 0.3s ease-out 0.2s;
+  }
+
+  .successRipple {
+    animation: rippleSuccess 0.6s ease-out;
+  }
+
+  .checkboxText {
+    color: vars.$text-gray;
+    opacity: 0.8;
+  }
+}
+
+.checkboxLabel:active .checkboxBox {
+  transform: scale(0.95);
+}
+
+@keyframes checkPop {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(-5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes rippleSuccess {
+  0% { width: 0; height: 0; opacity: 0.6; }
+  70% { width: 40px; height: 40px; opacity: 0.3; }
+  100% { width: 50px; height: 50px; opacity: 0; }
+}

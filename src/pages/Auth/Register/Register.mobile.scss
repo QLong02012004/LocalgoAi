@@ -1,0 +1,24 @@
+@mixin mobile-styles {
+  .registerContainer {
+    .header {
+      h2 {
+        @media (max-width: 576px) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .socialButtons {
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+  }
+
+  .form {
+    @media (max-width: 576px) {
+      gap: 10px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@mixin mobile-styles {
+  @media (max-width: 768px) {
+    .galleryMain {
+      height: 350px;
+    }
+    .galleryThumbs img {
+      width: 100px;
+      height: 70px;
+    }
+  }
+}

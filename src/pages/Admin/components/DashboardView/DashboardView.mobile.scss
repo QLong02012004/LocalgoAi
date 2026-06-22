@@ -1,0 +1,26 @@
+@mixin mobile-styles {
+  // Mobile Responsive for DashboardView
+  @media (max-width: 1024px) {
+    .dashboardHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .statsGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .chartsGrid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .statsGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

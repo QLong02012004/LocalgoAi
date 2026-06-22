@@ -1,0 +1,12 @@
+@mixin mobile-styles {
+  @media (max-width: 500px) {
+    .chatWrapper {
+      bottom: 20px;
+      right: 20px;
+    }
+    .chatWindow {
+      width: calc(100vw - 40px);
+      height: 70vh;
+    }
+  }
+}

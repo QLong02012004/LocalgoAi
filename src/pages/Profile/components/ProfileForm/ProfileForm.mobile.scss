@@ -1,0 +1,52 @@
+@mixin mobile-styles {
+  .sectionCard {
+    @media (max-width: 768px) {
+      padding: 24px;
+      border-radius: 20px;
+    }
+  }
+
+  .cardHeader {
+    @media (max-width: 768px) {
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .cardHeaderText {
+      h3 {
+        @media (max-width: 768px) {
+          font-size: 1.05rem;
+        }
+      }
+    }
+  }
+
+  .fieldSection {
+    @media (max-width: 768px) {
+      padding: 15px;
+    }
+  }
+
+  .fieldsGrid {
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .passwordRow {
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .formFooter {
+    @media (max-width: 768px) {
+      margin-top: 24px;
+      .btnPrimary,
+      .btnSecondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,220 @@
+@use "../../../components/styles/variables" as vars;
+
+.voltageButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.voltageButton {
+  position: relative;
+  display: inline-block;
+
+  .button {
+    color: white;
+    background: vars.$primary-cyan-gradient;
+    padding: 1.2rem 3.5rem;
+    border-radius: 5rem;
+    border: none; // Remove border to let the gradient shine
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1em;
+    letter-spacing: 0.12em;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    outline: none;
+    text-transform: uppercase;
+    box-shadow: vars.$shadow-premium-cyan;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 20px 40px -10px rgba(vars.$brand-cyan, 0.5);
+      
+      & + .svg, & + .svg + .dots {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      transform: translateY(-1px) scale(0.98);
+      box-shadow: vars.$shadow-sm;
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      border-color: vars.$text-light;
+    }
+  }
+
+  .svg {
+    display: block;
+    position: absolute;
+    top: -0.75em;
+    left: -0.25em;
+    width: calc(100% + 0.5em);
+    height: calc(100% + 1.5em);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+    transition-delay: 0.1s;
+    z-index: 5;
+
+    path {
+      stroke-dasharray: 100;
+      filter: url("#glow");
+    }
+
+    .line1 {
+      stroke: #f6de8d;
+      stroke-dashoffset: 0;
+      animation: spark-1 2s linear infinite; // Faster
+    }
+
+    .line2 {
+      stroke: white;
+      stroke-dashoffset: 500;
+      animation: spark-2 2s linear infinite; // Faster
+    }
+  }
+
+  .dots {
+    opacity: 0;
+    transition: opacity 0.3s;
+    transition-delay: 0.2s; // Faster appearance
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    .dot {
+      width: 0.8rem;
+      height: 0.8rem;
+      background: white;
+      border-radius: 100%;
+      position: absolute;
+      opacity: 0;
+      box-shadow: 0 0 15px 2px white; // Stronger glow
+    }
+
+    .dot1 {
+      top: 0;
+      left: 20%;
+      animation: fly-up 2s linear infinite;
+    }
+
+    .dot2 {
+      top: 0;
+      left: 55%;
+      animation: fly-up 2s linear infinite;
+      animation-delay: 0.3s;
+    }
+
+    .dot3 {
+      top: 0;
+      left: 80%;
+      animation: fly-up 2s linear infinite;
+      animation-delay: 0.6s;
+    }
+
+    .dot4 {
+      bottom: 0;
+      left: 30%;
+      animation: fly-down 2s linear infinite;
+      animation-delay: 1.5s;
+    }
+
+    .dot5 {
+      bottom: 0;
+      left: 65%;
+      animation: fly-down 2s linear infinite;
+      animation-delay: 1s;
+    }
+
+    .dot6 {
+      top: 0;
+      left: 10%;
+      animation: fly-up 2s linear infinite;
+      animation-delay: 0.8s;
+    }
+
+    .dot7 {
+      top: 0;
+      left: 40%;
+      animation: fly-up 2s linear infinite;
+      animation-delay: 0.4s;
+    }
+
+    .dot8 {
+      top: 0;
+      left: 90%;
+      animation: fly-up 2s linear infinite;
+      animation-delay: 1.2s;
+    }
+
+    .dot9 {
+      bottom: 0;
+      left: 15%;
+      animation: fly-down 2s linear infinite;
+      animation-delay: 0.9s;
+    }
+
+    .dot10 {
+      bottom: 0;
+      left: 85%;
+      animation: fly-down 2s linear infinite;
+      animation-delay: 1.8s;
+    }
+  }
+}
+
+@keyframes spark-1 {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes spark-2 {
+  to {
+    stroke-dashoffset: -500;
+  }
+}
+
+@keyframes fly-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.2);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(-2rem) scale(0.4);
+  }
+
+  10%, 100% {
+    opacity: 0;
+    transform: translateY(-4rem) scale(0.2);
+  }
+}
+
+@keyframes fly-down {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.2);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(2rem) scale(0.4);
+  }
+
+  10%, 100% {
+    opacity: 0;
+    transform: translateY(4rem) scale(0.2);
+  }
+}

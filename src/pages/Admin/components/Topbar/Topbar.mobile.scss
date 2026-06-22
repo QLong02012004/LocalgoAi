@@ -1,0 +1,23 @@
+@mixin mobile-styles {
+  // Mobile Responsive for Topbar
+  @media (max-width: 1024px) {
+    .topbar {
+      padding: 0 20px;
+      height: 70px;
+    }
+
+    .viewTitle {
+      font-size: 1.25rem;
+    }
+
+    .searchRel {
+      display: none; // Hide search on mobile topbar to save space, maybe move to menu
+    }
+
+    .userProfile {
+      .userInfo {
+        display: none; // Hide name on small screens
+      }
+    }
+  }
+}

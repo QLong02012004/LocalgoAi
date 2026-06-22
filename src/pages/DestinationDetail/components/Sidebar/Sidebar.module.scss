@@ -1,0 +1,119 @@
+@use "./Sidebar.mobile.scss";
+
+.destRight {
+  position: relative;
+}
+
+.stickySidebar {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebarCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+.widgetMapImg {
+  height: 160px;
+  background-image: url("images/vietnam_map.png");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.giantPin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  color: #33d7d1;
+  animation: bounce 2s infinite;
+}
+
+.widgetContent {
+  padding: 24px;
+  text-align: left;
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #1e293b;
+  }
+}
+
+.widgetList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: #64748b;
+  }
+}
+
+/* AI Card */
+.actionCardWidget {
+  background: linear-gradient(135deg, #33d7d1, #2b6cb0);
+  padding: 32px 24px;
+  color: white;
+  text-align: center;
+}
+
+.btnAddTrip {
+  width: 100%;
+  background: white;
+  color: #33d7d1;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.actionFooter {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translate(-50%, -100%);
+  }
+  50% {
+    transform: translate(-50%, -110%);
+  }
+}
+
+@include Sidebar.mobile-styles();

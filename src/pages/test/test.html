@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thành viên thực hiện - Nhóm 59</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #2A3525; /* Nền xanh rêu trầm đồng bộ */
+            color: #FFFFFF;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Tiêu đề chính */
+        .slide-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .slide-title {
+            font-size: 38px;
+            font-weight: bold;
+            color: #D4AF37; /* Màu vàng kim sang trọng */
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .slide-subtitle {
+            font-size: 18px;
+            color: #C1D1B7;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Bố cục hàng ngang cho 5 thành viên */
+        .team-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            width: 95%;
+            max-width: 1300px;
+            gap: 20px;
+        }
+
+        /* Thẻ Profile cá nhân */
+        .member-card {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(193, 209, 183, 0.15);
+            border-radius: 15px;
+            padding: 30px 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Vòng tròn ảnh đại diện (Placeholder) */
+        .avatar-circle {
+            width: 90px;
+            height: 90px;
+            background-color: #384532;
+            border: 2px solid #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 35px;
+            color: #F7E7C4;
+        }
+
+        /* Thông tin chữ */
+        .member-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            min-height: 44px; /* Giữ độ cao cố định để các dòng dưới thẳng hàng */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .member-id {
+            font-size: 14px;
+            color: #C1D1B7;
+            margin-bottom: 12px;
+            font-family: 'Courier New', Courier, monospace; /* Kiểu font mã số sinh viên */
+        }
+
+        .member-role {
+            font-size: 13px;
+            font-weight: bold;
+            color: #D4AF37;
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Highlight đặc biệt cho Scrum Master */
+        .member-card.leader {
+            background-color: rgba(212, 175, 55, 0.05);
+            border: 1px solid #D4AF37;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slide-header">
+        <h1 class="slide-title">Đội ngũ phát triển</h1>
+        <div class="slide-subtitle">Dự án LocalGo AI - Nhóm 59</div>
+    </div>
+
+    <div class="team-container">
+        
+        <div class="member-card leader">
+            <div class="avatar-circle">👤</div>
+            <div class="member-name">Phạm Văn Thắng</div>
+            <div class="member-id">28211149659</div>
+            <div class="member-role">Scrum Master</div>
+        </div>
+
+        <div class="member-card">
+            <div class="avatar-circle">👤</div>
+            <div class="member-name">Đinh Văn Phước Long</div>
+            <div class="member-id">28210235656</div>
+            <div class="member-role">Team Member</div>
+        </div>
+
+        <div class="member-card">
+            <div class="avatar-circle">👤</div>
+            <div class="member-name">Lê Hoàng Bảo Long</div>
+            <div class="member-id">28211151899</div>
+            <div class="member-role">Team Member</div>
+        </div>
+
+        <div class="member-card">
+            <div class="avatar-circle">👤</div>
+            <div class="member-name">Nguyễn Quang Long</div>
+            <div class="member-id">28213128558</div>
+            <div class="member-role">Team Member</div>
+        </div>
+
+        <div class="member-card">
+            <div class="avatar-circle">👤</div>
+            <div class="member-name">Lê Thị Cẩm Ly</div>
+            <div class="member-id">28201154481</div>
+            <div class="member-role">Team Member</div>
+        </div>
+
+    </div>
+
+</body>
+</html>

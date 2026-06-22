@@ -1,0 +1,304 @@
+@use "./Testimonials.mobile.scss";
+@use "../../../../components/styles/variables.scss" as vars;
+
+.testimonials {
+  padding: 100px 0;
+  background: #f8fafc;
+}
+
+.container {
+  max-width: 1068px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 20px;
+  text-align: left;
+
+  .gradientText {
+    background: vars.$primary-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+.sectionDescription {
+  text-align: left;
+  font-size: 1rem;
+  color: vars.$text-gray;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  max-width: 597px;
+}
+
+.marqueeWrapper {
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marqueeContent {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 40px 0;
+  justify-content: center;
+}
+
+.marqueeRow {
+  width: 100%;
+  --gap: 30px;
+}
+
+.fadeLeft, .fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, white 0%, transparent 100%);
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
+
+.loadingWrapper, .noResults {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #33d7d1;
+  font-weight: 600;
+  gap: 15px;
+}
+
+.testimonialCard {
+  background: white;
+  padding: 24px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: all 0.4s ease;
+  width: 400px; // Fixed width for horizontal scrolling
+  flex-shrink: 0;
+  margin-bottom: 0; // Removed bottom margin for horizontal rows
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(51, 215, 209, 0.2);
+  }
+
+  .cardHeader {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    
+    .headerLeft {
+      display: flex;
+      justify-content: flex-start;
+      overflow: hidden;
+
+      .location {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: #64748b;
+        background: #f1f5f9;
+        padding: 2px 8px;
+        border-radius: 100px;
+        border: 1px solid #e2e8f0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        
+        svg {
+          color: #33d7d1;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  .serviceTag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    z-index: 2;
+    overflow: hidden;
+    
+    .serviceName {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #33d7d1;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+  }
+
+  .stars {
+    color: #fbbf24;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2px;
+    font-size: 0.9rem;
+  }
+
+  .cardBody {
+    position: relative;
+    padding: 0 0 24px 0;
+  }
+
+  .quoteIcon {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    opacity: 0.05;
+    color: #33d7d1;
+    z-index: 0;
+  }
+
+  .reviewText {
+    position: relative;
+    z-index: 1;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: #475569;
+    line-height: 1.7;
+    margin: 0;
+    text-align: left;
+  }
+
+  .userInfo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px; // Modern squircle
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 0.9rem;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+      &.bgBlue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+      &.bgGreen { background: linear-gradient(135deg, #10b981, #059669); }
+      &.bgPurple { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+    }
+
+    .userText {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0 0 2px 0;
+        color: #0f172a;
+      }
+
+      .role {
+        font-size: 0.8rem;
+        color: #64748b;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.pagination {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  .pageBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    color: #64748b;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover:not(:disabled) {
+      border-color: #33d7d1;
+      color: #33d7d1;
+      background: rgba(51, 215, 209, 0.05);
+    }
+
+    &.active {
+      background: #33d7d1;
+      border-color: #33d7d1;
+      color: white;
+      box-shadow: 0 4px 12px rgba(51, 215, 209, 0.2);
+    }
+
+    &.navBtn {
+      width: auto;
+      padding: 0 16px;
+      gap: 8px;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.loadingSpinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(51, 215, 209, 0.3);
+  border-radius: 50%;
+  border-top-color: #33d7d1;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@include Testimonials.mobile-styles();

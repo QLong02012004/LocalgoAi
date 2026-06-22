@@ -1,0 +1,14 @@
+@mixin mobile-styles {
+  @media (max-width: 768px) {
+    .heroTitle {
+      font-size: 2.5rem;
+    }
+    .heroContent {
+      left: 20px;
+      bottom: 20px;
+    }
+    .addressText {
+      max-width: 220px;
+    }
+  }
+}

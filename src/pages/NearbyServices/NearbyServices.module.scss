@@ -1,0 +1,393 @@
+@import "../../styles/variables.scss";
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.header {
+  padding: 16px 24px;
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .backBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e2e8f0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      background: #f1f5f9;
+      transform: translateX(-2px);
+    }
+  }
+
+  h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+  }
+
+  p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+  }
+}
+
+.headerActions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 8px 16px;
+  gap: 12px;
+  width: 300px;
+
+  @media (max-width: 768px) {
+    flex: 1;
+  }
+
+  input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    color: #1e293b;
+    width: 100%;
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+  }
+
+  svg {
+    color: #64748b;
+  }
+}
+
+.viewToggle {
+  display: flex;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: 10px;
+
+  button {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748b;
+    transition: all 0.2s;
+
+    &.active {
+      background: white;
+      color: $primary;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  }
+}
+
+.categoryFilter {
+  display: flex;
+  gap: 12px;
+  padding: 12px 24px;
+  background: white;
+  overflow-x: auto;
+  border-bottom: 1px solid #e2e8f0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+    }
+
+    &.active {
+      background: $primary;
+      color: white;
+      border-color: $primary;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+
+  &.split {
+    .listSection { width: 45%; }
+    .mapSection { width: 55%; }
+  }
+
+  &.list {
+    .listSection { width: 100%; }
+    .mapSection { display: none; }
+  }
+
+  &.map {
+    .listSection { display: none; }
+    .mapSection { width: 100%; }
+  }
+}
+
+.listSection {
+  padding: 24px;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.serviceCard {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 1px solid transparent;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    border-color: rgba($primary, 0.2);
+  }
+
+  .cardImg {
+    height: 160px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: crop;
+    }
+
+    .distBadge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(4px);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+
+  .cardInfo {
+    padding: 16px;
+  }
+
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0;
+      flex: 1;
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #f59e0b;
+    }
+  }
+
+  .address {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+
+  .cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .serviceType {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $primary;
+      background: rgba($primary, 0.1);
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .priceLevel {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+  }
+}
+
+.mapSection {
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.markerCircle {
+  width: 38px;
+  height: 38px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 3px solid #33d7d1;
+  transition: all 0.3s;
+
+  &.food { border-color: #f97316; svg { color: #f97316; } }
+  &.bed { border-color: #3b82f6; svg { color: #3b82f6; } }
+  &.atm { border-color: #ec4899; svg { color: #ec4899; } }
+  &.medical { border-color: #ef4444; svg { color: #ef4444; } }
+  &.pin { border-color: #22c55e; svg { color: #22c55e; } }
+}
+
+.markerWrap {
+  background: transparent;
+  border: none;
+}
+
+.customPopup {
+  :global(.leaflet-popup-content-wrapper) {
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  :global(.leaflet-popup-content) {
+    margin: 0;
+    width: 200px !important;
+  }
+}
+
+.popupContent {
+  padding: 12px;
+
+  h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: #0f172a;
+  }
+
+  p {
+    font-size: 12px;
+    color: #64748b;
+    margin: 0 0 12px 0;
+  }
+
+  button {
+    width: 100%;
+    padding: 8px;
+    background: $primary;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.loading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #64748b;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #94a3b8;
+  font-size: 16px;
+}

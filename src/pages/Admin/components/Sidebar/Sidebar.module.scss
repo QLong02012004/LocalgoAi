@@ -1,0 +1,275 @@
+@use "./Sidebar.mobile.scss";
+
+.sidebar {
+  width: 280px;
+  background-color: #110E24; // Deep Premium Space Violet Background
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  top: 0;
+  padding: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.collapsed {
+    width: 80px;
+
+    .sidebarLogo {
+      padding: 32px 0;
+      justify-content: center;
+    }
+
+    .backToHome {
+      margin: 0 12px 24px;
+      padding: 12px;
+      justify-content: center;
+    }
+
+    .nav {
+      padding: 0 12px;
+      align-items: center;
+    }
+
+    .sidebarItem {
+      padding: 14px;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .sidebarFooter {
+      padding: 24px 12px;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logoutBtn {
+      padding: 14px;
+      justify-content: center;
+      border: none;
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+  }
+}
+
+.sidebarLogo {
+  padding: 32px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .logoContainer {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #7C3AED, #4F46E5);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    flex-shrink: 0;
+  }
+
+  .logoText {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    h1 {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: white;
+      margin: 0;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+  }
+}
+
+.backToHome {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 16px 24px;
+  padding: 12px 20px;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: 12px;
+  color: #A78BFA;
+  text-decoration: none;
+  font-size: 0.813rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+
+  .backIcon {
+    width: 24px;
+    height: 24px;
+    background: #7C3AED;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #110E24;
+    transition: all 0.3s ease;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background: #7C3AED;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(124, 58, 237, 0.2);
+
+    .backIcon {
+      background: white;
+      color: #A78BFA;
+    }
+  }
+}
+
+.nav {
+  flex: 1;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+}
+
+.navGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.groupTitle {
+  font-size: 0.688rem;
+  font-weight: 800;
+  color: #5C5A80;
+  letter-spacing: 0.08em;
+  padding: 0 20px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebarItem {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  
+  span {
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover:not(.active) {
+    background-color: rgba(124, 58, 237, 0.04);
+    color: white;
+  }
+
+  &.active {
+    color: white;
+    background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+    
+    .rowIcon {
+      color: white;
+    }
+  }
+}
+
+.activeIndicator {
+  position: absolute;
+  left: 0;
+  top: 3    0%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background-color: white;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.sidebarFooter {
+  padding: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.2);
+  }
+}
+
+.sidebarFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.collapseBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@include Sidebar.mobile-styles();

@@ -1,0 +1,5 @@
+@mixin mobile-styles {
+  @media (max-width: 640px) {
+    .line { flex: 0 0 30px; }
+  }
+}
