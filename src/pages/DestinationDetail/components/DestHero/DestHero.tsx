@@ -17,7 +17,14 @@ const DestHero: React.FC<{ data: Destination }> = ({ data }) => {
 
   return (
     <div className={styles.destHero} data-aos="zoom-out">
-      <img src={data.heroImage} alt={data.name} className={styles.heroBgImg} />
+      <img 
+        src={data.heroImage} 
+        alt={data.name} 
+        className={styles.heroBgImg} 
+        onError={(e) => {
+          e.currentTarget.src = "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1600&q=80";
+        }}
+      />
       <div className={styles.heroOverlay} />
       <div className={styles.heroContent}>
         <div className={styles.locationTag}>

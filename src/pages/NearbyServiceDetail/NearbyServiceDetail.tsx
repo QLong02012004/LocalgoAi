@@ -7,30 +7,25 @@ import {
   Star, 
   ArrowLeft, 
   ShareNetwork, 
-  Heart,
-  NavigationArrow,
-  Info,
-  Tag,
-  CalendarCheck,
-  Robot,
-  CloudSun,
-  Car,
-  Compass,
-  Bank,
-  FirstAid,
-  Storefront,
-  Coffee,
-  Bed,
-  ForkKnife,
-  Sparkle
+  Heart, 
+  NavigationArrow, 
+  Info, 
+  Tag, 
+  CalendarCheck, 
+  Robot, 
+  Car, 
+  Compass, 
+  Bank, 
+  FirstAid, 
+  Storefront, 
+  Coffee, 
+  Bed, 
+  ForkKnife, 
+  Sparkle 
 } from "@phosphor-icons/react";
 import { getNearbyServiceById, type NearbyService } from "../../services/itineraryService";
 import styles from "./NearbyServiceDetail.module.scss";
-import { pharmacyDefault, anhmatdinh } from "../../assets/images/img";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-import { renderToString } from 'react-dom/server';
+import { pharmacyDefault, cover } from "../../assets/images/img";
 
 const getServiceIcon = (type: string) => {
   switch (type) {
@@ -114,7 +109,7 @@ const NearbyServiceDetail: React.FC = () => {
       case "CAFE": return "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=2070&auto=format&fit=crop";
       case "SHOP": return "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop";
       case "HOSPITAL": return "https://images.unsplash.com/photo-1586773860418-d319a39005c0?q=80&w=2070&auto=format&fit=crop";
-      default: return anhmatdinh;
+      default: return cover;
     }
   };
 
@@ -157,30 +152,6 @@ const NearbyServiceDetail: React.FC = () => {
     return `Hãy lưu lại địa điểm này vào danh sách yêu thích để TravelAi có thể gợi ý cho bạn những lộ trình tối ưu nhất quanh ${location}.`;
   };
 
-  const scaleCoordinate = (val: number, isLat: boolean) => {
-    if (!val) return 0;
-    let scaled = val;
-    const limit = isLat ? 90 : 180;
-    while (Math.abs(scaled) > limit) {
-      scaled /= 10;
-    }
-    return Number(scaled.toFixed(6));
-  };
-
-  const createCustomIcon = (type: string) => {
-    const colorClass = getServiceColorClass(type);
-    return L.divIcon({
-      className: styles.markerWrap,
-      html: renderToString(
-        <div className={`${styles.markerCircle} ${colorClass}`}>
-          {getServiceIcon(type)}
-        </div>
-      ),
-      iconSize: [40, 40],
-      iconAnchor: [20, 40]
-    });
-  };
-
   if (loading) {
     return (
       <div className={styles.loadingContainer}>
@@ -212,6 +183,9 @@ const NearbyServiceDetail: React.FC = () => {
             src={service.imageUrl || getDefaultImage(service.serviceType)} 
             alt={service.serviceName} 
             className={styles.heroImg} 
+            onError={(e) => {
+              e.currentTarget.src = "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80";
+            }}
           />
           <div className={styles.heroOverlayGradient}></div>
           <div className={styles.heroTextOverlay}>
@@ -231,7 +205,7 @@ const NearbyServiceDetail: React.FC = () => {
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(service.location || (service.latitude + "," + service.longitude))}&z=15&output=embed`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(service.address || (service.latitude + "," + service.longitude))}&z=15&output=embed`}
                 allowFullScreen
               ></iframe>
           </div>
@@ -241,7 +215,7 @@ const NearbyServiceDetail: React.FC = () => {
               <span>Cách bạn {service.distanceKm < 5 ? `${(service.distanceKm * 1000).toFixed(0)} m` : `${service.distanceKm.toFixed(0)} m`}</span>
             </div>
             <a 
-              href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(service.location || (service.latitude + "," + service.longitude))}`} 
+              href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(service.address || (service.latitude + "," + service.longitude))}`} 
               target="_blank" 
               rel="noreferrer"
               className={styles.getDirectionsBtn}

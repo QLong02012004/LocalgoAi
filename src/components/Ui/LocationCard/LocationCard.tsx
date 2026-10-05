@@ -7,6 +7,7 @@ import AddressDisplay from "../AddressDisplay/AddressDisplay";
 import type { HighlightItem } from "../../../services/highlightService";
 import { addFavorite, removeFavorite } from "../../../services/profileService";
 import { toast } from "react-toastify";
+import { cover } from "../../../assets/images/img";
 
 interface LocationCardProps {
   item: HighlightItem;
@@ -15,6 +16,11 @@ interface LocationCardProps {
 
 const LocationCard: React.FC<LocationCardProps> = ({ item, idx = 0 }) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [imgSrc, setImgSrc] = useState<string>(item.imageUrl || cover);
+
+  React.useEffect(() => {
+    setImgSrc(item.imageUrl || cover);
+  }, [item.imageUrl]);
 
   const renderIcon = (type: string) => {
     if (type === "bed") return <BedIcon size={16} weight="fill" />;
@@ -80,7 +86,16 @@ const LocationCard: React.FC<LocationCardProps> = ({ item, idx = 0 }) => {
       >
         <div className={styles.locationCard}>
           <div className={styles.imageContainer}>
-            <img src={item.imageUrl} alt={item.name} loading="lazy" />
+            <img 
+              src={imgSrc} 
+              alt={item.name} 
+              loading="lazy" 
+              onError={() => {
+                if (imgSrc !== cover) {
+                  setImgSrc(cover);
+                }
+              }}
+            />
             <div className={styles.imageOverlay}></div>
             
             <div className={styles.statusBadge}>

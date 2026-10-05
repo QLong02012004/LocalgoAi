@@ -11,7 +11,7 @@ const EXPERIENCES = [
     id: 1,
     title: "CẦU RỒNG",
     desc: "Biểu tượng kiêu hãnh của Đà Nẵng với kiến trúc độc bản và màn trình diễn phun lửa, phun nước đầy ấn tượng vào mỗi cuối tuần.",
-    image: "https://images.unsplash.com/photo-1559592413-7ce8509975b4?q=80&w=1600",
+    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80",
     video: dragonBridgeVideo,
     label: "BIỂU TƯỢNG ĐÀ NẴNG",
     align: "left"
@@ -20,7 +20,7 @@ const EXPERIENCES = [
     id: 2,
     title: "PHỐ CỔ HỘI AN",
     desc: "Đắm chìm trong vẻ đẹp cổ kính với những dãy nhà vàng rêu phong, đèn lồng lung linh và dòng sông Hoài thơ mộng.",
-    image: "https://images.unsplash.com/photo-1599708141690-d81b30501709?q=80&w=1600",
+    image: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1600&q=80",
     video: hoiAnVideo,
     label: "DI SẢN VĂN HÓA",
     align: "right"
@@ -29,7 +29,7 @@ const EXPERIENCES = [
     id: 3,
     title: "KINH THÀNH HUẾ",
     desc: "Kinh đô cuối cùng của các triều đại phong kiến Việt Nam, nơi lưu giữ những giá trị kiến trúc đồ sộ và tinh hoa văn hóa cố đô nghìn năm văn hiến.",
-    image: "https://images.unsplash.com/photo-1563492062331-50e58836599b?q=80&w=1600",
+    image: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1600&q=80",
     video: hueVideo,
     label: "DI SẢN CỐ ĐÔ",
     align: "left"

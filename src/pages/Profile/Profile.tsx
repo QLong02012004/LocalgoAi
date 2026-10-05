@@ -66,7 +66,14 @@ const Profile: React.FC = () => {
             {activeTab === "password" && (
               <ProfileForm title="Đổi mật khẩu" mode="password" />
             )}
+            {activeTab === "reviews" && (
+              <UserReviews />
+            )}
           </div>
+
+          <aside className={styles.sidebarWrapper} data-aos="fade-left" data-aos-delay="500">
+            <ProfileSidebar />
+          </aside>
         </div>
       </div>
     </div>

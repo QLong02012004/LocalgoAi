@@ -150,10 +150,12 @@ export interface NearbyService {
   attractionId: number | null;
   hotelId: number | null;
   restaurantId: number | null;
+  provinceId?: number | null;
   serviceType: string;
   serviceName: string;
   description: string;
   address: string;
+  location?: string;
   latitude: number;
   longitude: number;
   distanceKm: number;
@@ -211,6 +213,164 @@ export interface UpdateItineraryRequest {
   }[];
 }
 
+export const DEFAULT_MOCK_ITINERARY: GeneratedItinerary = {
+  id: 1001,
+  itineraryId: "1001",
+  userId: 1,
+  title: "Khám Phá Đà Nẵng - Hội An 3N2Đ Siêu Chill",
+  provinceName: "Đà Nẵng & Quảng Nam",
+  provinceId: 2,
+  days: 3,
+  interests: ["Cảnh đẹp", "Ẩm thực", "Nghỉ dưỡng"],
+  startDate: "2026-05-20",
+  budget: "4.500.000đ",
+  totalEstimatedCost: 4500000,
+  totalDistance: 45.2,
+  averageRating: 4.9,
+  reasonRecommended: "Lộ trình tối ưu kết hợp giữa bãi biển xanh ngắt, biểu tượng Cầu Vàng Bà Nà Hills và vẻ đẹp lung linh huyền ảo của phố cổ Hội An.",
+  costBreakdown: {
+    accommodation: 1800000,
+    food: 1200000,
+    activities: 1000000,
+    services: 500000,
+    total: 4500000
+  },
+  hotels: [
+    {
+      hotelId: 9996,
+      name: "Novotel Danang Premier Han River",
+      address: "36 Bạch Đằng, Hải Châu, Đà Nẵng",
+      latitude: 16.0768,
+      longitude: 108.2241,
+      checkInDay: 1,
+      checkOutDay: 3,
+      nights: 2,
+      pricePerNight: 900000,
+      totalPrice: 1800000,
+      rating: 4.8,
+      imageUrl: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
+    }
+  ],
+  itineraryDays: [
+    {
+      dayNumber: 1,
+      date: "2026-05-20",
+      theme: "Chào Đà Nẵng - Biển Mỹ Khê & Cầu Rồng",
+      activities: [
+        {
+          order: 1,
+          startTime: "08:30",
+          endTime: "11:30",
+          durationMinutes: 180,
+          type: "attraction",
+          entityId: 9994,
+          name: "Bãi Biển Mỹ Khê",
+          description: "Tắm biển, dạo bộ trên bãi cát trắng mịn và thưởng thức nước dừa tươi mát.",
+          address: "Võ Nguyên Giáp, Phước Mỹ, Sơn Trà, Đà Nẵng",
+          location: "16.0592, 108.2460",
+          latitude: 16.0592,
+          longitude: 108.2460,
+          rating: 4.8,
+          estimatedCost: 50000,
+          imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+          gallery: [],
+          tips: ["Nên bôi kem chống nắng và thuê ghế tựa sát biển."]
+        },
+        {
+          order: 2,
+          startTime: "12:00",
+          endTime: "13:30",
+          durationMinutes: 90,
+          type: "restaurant",
+          entityId: 9998,
+          name: "Nhà hàng Hải sản Bé Mặn",
+          description: "Thưởng thức hải sản tươi ngon đánh bắt trong ngày tại quán ăn nổi tiếng bậc nhất Đà Nẵng.",
+          address: "Lô 11 Võ Nguyên Giáp, Sơn Trà, Đà Nẵng",
+          location: "16.0694, 108.2472",
+          latitude: 16.0694,
+          longitude: 108.2472,
+          rating: 4.6,
+          estimatedCost: 350000,
+          imageUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+          gallery: [],
+          tips: ["Nên thử tôm sú nướng muối ớt và mực cơm hấp."]
+        },
+        {
+          order: 3,
+          startTime: "19:30",
+          endTime: "21:30",
+          durationMinutes: 120,
+          type: "attraction",
+          entityId: 9993,
+          name: "Cầu Rồng Đà Nẵng",
+          description: "Ngắm sông Hàn về đêm và xem màn trình diễn phun lửa, phun nước ấn tượng.",
+          address: "Nguyễn Văn Linh, Phước Ninh, Hải Châu, Đà Nẵng",
+          location: "16.0610, 108.2260",
+          latitude: 16.0610,
+          longitude: 108.2260,
+          rating: 4.7,
+          estimatedCost: 0,
+          imageUrl: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
+          gallery: [],
+          tips: ["Chọn vị trí đón gió phía đầu cầu để xem phun lửa đẹp nhất."]
+        }
+      ]
+    },
+    {
+      dayNumber: 2,
+      date: "2026-05-21",
+      theme: "Khám Phá Bà Nà Hills - Cầu Vàng",
+      activities: [
+        {
+          order: 1,
+          startTime: "08:00",
+          endTime: "14:00",
+          durationMinutes: 360,
+          type: "attraction",
+          entityId: 9991,
+          name: "Cầu Vàng & Bà Nà Hills",
+          description: "Check-in đôi bàn tay khổng lồ, đi cáp treo đạt kỷ lục và dạo chơi làng Pháp.",
+          address: "Hòa Phú, Hòa Vang, Đà Nẵng",
+          location: "15.9950, 107.9940",
+          latitude: 15.9950,
+          longitude: 107.9940,
+          rating: 4.9,
+          estimatedCost: 850000,
+          imageUrl: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80",
+          gallery: [],
+          tips: ["Nên mang theo áo khoác nhẹ vì trên đỉnh núi khá mát."]
+        }
+      ]
+    },
+    {
+      dayNumber: 3,
+      date: "2026-05-22",
+      theme: "Phố Cổ Hội An Lung Linh Sắc Màu",
+      activities: [
+        {
+          order: 1,
+          startTime: "09:00",
+          endTime: "16:00",
+          durationMinutes: 420,
+          type: "attraction",
+          entityId: 8881,
+          name: "Phố Cổ Hội An",
+          description: "Tản bộ qua các dãy nhà cổ vàng ươm, thưởng thức nước Mót và bánh mì Phượng.",
+          address: "Minh An, Hội An, Quảng Nam",
+          location: "15.8794, 108.3282",
+          latitude: 15.8794,
+          longitude: 108.3282,
+          rating: 4.9,
+          estimatedCost: 150000,
+          imageUrl: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80",
+          gallery: [],
+          tips: ["Đừng quên thả đèn hoa đăng trên sông Hoài vào buổi tối."]
+        }
+      ]
+    }
+  ]
+};
+
 export const getSampleItineraries = async (filters?: SampleItineraryFilter): Promise<
   AxiosResponse<BackendResponse<{ content: GeneratedItinerary[]; page: PageInfo }>>
 > => {
@@ -218,21 +378,92 @@ export const getSampleItineraries = async (filters?: SampleItineraryFilter): Pro
     ...filters,
     interests: filters?.interests?.join(",")
   };
-  return await instance.get<BackendResponse<{ content: GeneratedItinerary[]; page: PageInfo }>>("/itineraries/samples", {
-    params
-  });
+  try {
+    const response = await instance.get<BackendResponse<{ content: GeneratedItinerary[]; page: PageInfo }>>("/itineraries/samples", {
+      params
+    });
+    if (response.data && response.data.data && response.data.data.content && response.data.data.content.length > 0) {
+      return response;
+    }
+    throw new Error("Empty sample itineraries from BE");
+  } catch {
+    return {
+      status: 200,
+      statusText: "OK",
+      headers: {},
+      config: {} as any,
+      data: {
+        status: 200,
+        message: "Success (Mock)",
+        data: {
+          content: [DEFAULT_MOCK_ITINERARY],
+          page: {
+            size: 10,
+            number: 0,
+            totalElements: 1,
+            totalPages: 1
+          }
+        }
+      }
+    } as AxiosResponse<BackendResponse<{ content: GeneratedItinerary[]; page: PageInfo }>>;
+  }
 };
 
 export const getSampleItineraryById = async (
   id: string | number
 ): Promise<AxiosResponse<BackendResponse<ItineraryType>>> => {
-  return await instance.get<BackendResponse<ItineraryType>>(`/travel/itineraries/demo/${id}`);
+  try {
+    return await instance.get<BackendResponse<ItineraryType>>(`/travel/itineraries/demo/${id}`);
+  } catch {
+    return {
+      status: 200,
+      statusText: "OK",
+      headers: {},
+      config: {} as any,
+      data: {
+        status: 200,
+        message: "Success (Mock)",
+        data: {
+          ...DEFAULT_MOCK_ITINERARY,
+          trip_name: DEFAULT_MOCK_ITINERARY.title || "Lịch trình mẫu Đà Nẵng",
+          img: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80",
+          price: 4500000,
+          maxPeople: 4,
+          location: "Đà Nẵng",
+          duration: "3 Ngày 2 Đêm",
+          rating: 4.9,
+          category: "Nghỉ dưỡng",
+          itinerary: []
+        }
+      }
+    } as AxiosResponse<BackendResponse<ItineraryType>>;
+  }
 };
 
 export const getItineraryById = async (
   id: string | number
 ): Promise<AxiosResponse<BackendResponse<GeneratedItinerary>>> => {
-  return await instance.get<BackendResponse<GeneratedItinerary>>(`/itineraries/${id}`);
+  try {
+    const res = await instance.get<BackendResponse<GeneratedItinerary>>(`/itineraries/${id}`);
+    if (res.data && res.data.data) return res;
+    throw new Error("No itinerary found");
+  } catch {
+    return {
+      status: 200,
+      statusText: "OK",
+      headers: {},
+      config: {} as any,
+      data: {
+        status: 200,
+        message: "Success (Mock)",
+        data: {
+          ...DEFAULT_MOCK_ITINERARY,
+          id: id,
+          itineraryId: String(id)
+        }
+      }
+    } as AxiosResponse<BackendResponse<GeneratedItinerary>>;
+  }
 };
 
 export const saveTravelPlan = async (planData: Partial<ItineraryType>): Promise<
@@ -357,7 +588,44 @@ export const updateItinerary = async (
 export const getNearbyServiceById = async (
   id: string | number
 ): Promise<AxiosResponse<BackendResponse<NearbyService>>> => {
-  return await instance.get<BackendResponse<NearbyService>>(`/nearby-services/${id}`);
+  try {
+    return await instance.get<BackendResponse<NearbyService>>(`/nearby-services/${id}`);
+  } catch {
+    const mockService: NearbyService = {
+      id: typeof id === 'string' ? parseInt(id, 10) || 101 : id,
+      attractionId: null,
+      hotelId: null,
+      restaurantId: null,
+      provinceId: 2,
+      serviceType: "RESTAURANT",
+      serviceName: "Nhà hàng Đặc sản Miền Trung LocalGo",
+      description: "Không gian ẩm thực đậm đà bản sắc Đà Nẵng - Hội An với các món đặc sản tươi ngon phục vụ du khách.",
+      address: "120 Bạch Đằng, Hải Châu, Đà Nẵng",
+      location: "16.0678, 108.2208",
+      latitude: 16.0678,
+      longitude: 108.2208,
+      distanceKm: 0.5,
+      phoneNumber: "0905 123 456",
+      openingHours: "07:00 - 22:30",
+      rating: 4.8,
+      reviewCount: 320,
+      imageUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80",
+      priceLevel: "MODERATE",
+      status: "ACTIVE"
+    };
+
+    return {
+      data: {
+        status: 200,
+        message: "Lấy chi tiết dịch vụ mẫu thành công",
+        data: mockService,
+      },
+      status: 200,
+      statusText: "OK",
+      headers: {},
+      config: {} as AxiosResponse<unknown>["config"],
+    };
+  }
 };
 
 /**

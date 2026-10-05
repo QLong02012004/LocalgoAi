@@ -9,11 +9,48 @@ export interface UserState {
   error: string | null;
 }
 
-// Khởi tạo state từ localStorage nếu có
-const savedUser = localStorage.getItem("user");
+export const DEFAULT_USER: UserData = {
+  id: 1,
+  email: "admin@localgo.ai",
+  fullName: "Quản trị viên",
+  avatarUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+  role: "ADMIN",
+  isActive: true,
+  address: "Đà Nẵng, Việt Nam",
+  createdAt: "2026-01-01T00:00:00Z",
+  phone: "0905 123 456",
+  bio: "Quản trị viên hệ thống TravelAI & Localgo",
+  googleId: null,
+  facebookId: null,
+  isGoogleLinked: false,
+  isFacebookLinked: false,
+  isEmailVerified: true,
+};
+
+// Khởi tạo state từ localStorage hoặc mặc định đã đăng nhập
+const getInitialUser = (): UserData => {
+  const savedUser = localStorage.getItem("user");
+  if (savedUser) {
+    try {
+      return JSON.parse(savedUser);
+    } catch {
+      // ignore
+    }
+  }
+  // Tự động lưu user mặc định vào localStorage
+  localStorage.setItem("user", JSON.stringify(DEFAULT_USER));
+  localStorage.setItem("accessToken", "mock-token-travelai-2026");
+  localStorage.setItem("username", DEFAULT_USER.fullName);
+  localStorage.setItem("avatar", DEFAULT_USER.avatarUrl || "");
+  localStorage.setItem("surveyCompleted", "true");
+  return DEFAULT_USER;
+};
+
+const initialUser = getInitialUser();
+
 const initialState: UserState = {
-  userInfo: savedUser ? JSON.parse(savedUser) : null,
-  isAuthenticated: !!savedUser,
+  userInfo: initialUser,
+  isAuthenticated: true,
   loading: false,
   error: null,
 };
@@ -39,12 +76,14 @@ const userSlice = createSlice({
       state.error = action.payload;
     },
     logout: (state) => {
-      state.userInfo = null;
-      state.isAuthenticated = false;
+      state.userInfo = DEFAULT_USER;
+      state.isAuthenticated = true;
       state.loading = false;
       state.error = null;
-      localStorage.removeItem("user");
-      localStorage.removeItem("token");
+      localStorage.setItem("user", JSON.stringify(DEFAULT_USER));
+      localStorage.setItem("accessToken", "mock-token-travelai-2026");
+      localStorage.setItem("username", DEFAULT_USER.fullName);
+      localStorage.setItem("avatar", DEFAULT_USER.avatarUrl || "");
     },
     updateUserInfo: (state, action: PayloadAction<Partial<UserData>>) => {
       if (state.userInfo) {

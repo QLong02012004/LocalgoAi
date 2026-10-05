@@ -265,7 +265,13 @@ const UserReviews: React.FC = () => {
                     <div className={styles.imageGallery}>
                       {rev.images.map((img: string, i: number) => (
                         <div key={i} className={styles.imgWrapper}>
-                          <img src={img} alt="User review" />
+                          <img 
+                            src={img} 
+                            alt="User review" 
+                            onError={(e) => {
+                              e.currentTarget.src = "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80";
+                            }}
+                          />
                         </div>
                       ))}
                     </div>

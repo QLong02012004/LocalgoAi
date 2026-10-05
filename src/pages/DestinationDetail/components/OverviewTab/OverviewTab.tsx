@@ -4,12 +4,13 @@ import type { Destination } from "../../../../services/destinationService";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 const OverviewTab: React.FC<{ data: Destination }> = ({ data }) => {
-  const [mainImage, setMainImage] = useState(data.gallery[0]);
+  const galleryList = (data.gallery && data.gallery.length > 0) ? data.gallery : [data.heroImage];
+  const [mainImage, setMainImage] = useState(galleryList[0] || data.heroImage);
   const [startIndex, setStartIndex] = useState(0);
   const visibleCount = 4;
 
   const handleNext = () => {
-    if (startIndex + visibleCount < data.gallery.length) {
+    if (startIndex + visibleCount < galleryList.length) {
       setStartIndex(prev => prev + 1);
     }
   };
@@ -32,7 +33,7 @@ const OverviewTab: React.FC<{ data: Destination }> = ({ data }) => {
         )}
         <h2 className={styles.destSectionTitle}>Giới thiệu</h2>
         <div className={`${styles.destDescription} ${!isExpanded ? styles.collapsed : ''}`}>
-          {data.description.split("\n").map((text, index) => (
+          {(data.description || "Đang cập nhật thông tin chi tiết.").split("\n").map((text, index) => (
             <p key={index} className={styles.paragraph}>
               {text}
             </p>
@@ -51,7 +52,13 @@ const OverviewTab: React.FC<{ data: Destination }> = ({ data }) => {
         <h2 className={styles.destSectionTitle}>Hình ảnh</h2>
         <div className={styles.photoGallery}>
           <div className={styles.galleryMain}>
-            <img src={mainImage} alt="Main" />
+            <img 
+              src={mainImage || data.heroImage} 
+              alt={data.name} 
+              onError={(e) => {
+                e.currentTarget.src = "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1200&q=80";
+              }}
+            />
           </div>
           
           <div className={styles.galleryNavWrapper}>
@@ -64,13 +71,16 @@ const OverviewTab: React.FC<{ data: Destination }> = ({ data }) => {
             </button>
 
             <div className={styles.galleryThumbs}>
-              {data.gallery.slice(startIndex, startIndex + visibleCount).map((img: string, idx: number) => (
+              {galleryList.slice(startIndex, startIndex + visibleCount).map((img: string, idx: number) => (
                 <img
                   key={startIndex + idx}
                   src={img}
                   alt={`Thumb ${startIndex + idx}`}
                   className={mainImage === img ? styles.activeThumb : ""}
                   onClick={() => setMainImage(img)}
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=400&q=80";
+                  }}
                 />
               ))}
             </div>

@@ -9,28 +9,28 @@ const FEATURED_PLACES = [
     title: "TIME TO TRAVEL",
     location: "Đà Nẵng, Việt Nam",
     description: "Khám phá vẻ đẹp bất tận của thành phố đáng sống nhất Việt Nam với những bãi biển xanh ngắt và những cây cầu huyền thoại.",
-    image: "https://images.unsplash.com/photo-1559592413-7ce8509975b4?q=80&w=1600",
+    image: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: 2,
     title: "ANCIENT TOWN",
     location: "Hội An, Quảng Nam",
     description: "Lạc bước giữa những con phố cổ nhuốm màu thời gian, nơi những chiếc đèn lồng lung linh thắp sáng dòng sông Hoài thơ mộng.",
-    image: "https://images.unsplash.com/photo-1599708141690-d81b30501709?q=80&w=1600",
+    image: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: 3,
     title: "IMPERIAL CITY",
     location: "Cố đô Huế",
     description: "Trở về với lịch sử triều đình Nguyễn, khám phá những cung điện nguy nga và tinh hoa văn hóa cố đô nghìn năm văn hiến.",
-    image: "https://images.unsplash.com/photo-1563492062331-50e58836599b?q=80&w=1600",
+    image: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1600&q=80",
   },
   {
     id: 4,
     title: "MỸ SƠN HOLYLAND",
     location: "Quảng Nam, Việt Nam",
     description: "Khám phá di sản thế giới với những đền đài Chăm Pa cổ kính, minh chứng cho một nền văn minh rực rỡ trong quá khứ.",
-    image: "https://images.unsplash.com/photo-1597516843431-7e8509975b4?q=80&w=1600",
+    image: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1600&q=80",
   }
 ];
 

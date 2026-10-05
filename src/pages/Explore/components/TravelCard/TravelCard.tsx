@@ -3,6 +3,8 @@ import { Heart, Plus, Star, MapPin, Play, X } from "@phosphor-icons/react";
 import styles from "./TravelCard.module.scss";
 import AnimatedButton from "../../../../components/Ui/AnimatedButton/AnimatedButton";
 
+import { anhmatdinh } from "../../../../assets/images/img";
+
 interface Props {
   image: string;
   title: string;
@@ -39,6 +41,11 @@ const TravelCard: React.FC<Props> = React.memo(
   }) => {
     const [localLiked, setLocalLiked] = React.useState(isLiked);
     const [isHovered, setIsHovered] = React.useState(false);
+    const [imgSrc, setImgSrc] = React.useState(image || anhmatdinh);
+
+    React.useEffect(() => {
+      setImgSrc(image || anhmatdinh);
+    }, [image]);
 
     React.useEffect(() => {
       setLocalLiked(isLiked);
@@ -74,10 +81,15 @@ const TravelCard: React.FC<Props> = React.memo(
       >
         <div className={styles.imageContainer}>
           <img
-            src={image}
+            src={imgSrc}
             alt={title}
             loading="lazy"
             className={isPlaying ? styles.hideImage : ""}
+            onError={() => {
+              if (imgSrc !== anhmatdinh) {
+                setImgSrc(anhmatdinh);
+              }
+            }}
           />
 
           {previewVideo && (isPlaying || isHovered) && (

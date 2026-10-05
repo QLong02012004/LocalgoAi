@@ -9,6 +9,7 @@ import {
 } from "../../../services/destinationService";
 import { getHotelDetail } from "../../../services/hotelService";
 import { getRestaurantDetail } from "../../../services/restaurantService";
+import { getMockDestinationDetail, MOCK_NEARBY_SERVICES } from "../../../services/mockDestinationData";
 
 export const useDestinationDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -21,18 +22,21 @@ export const useDestinationDetail = () => {
     const fetchAllData = async () => {
       if (!id) return;
       
+      const isHotel = window.location.pathname.includes('/hotel/');
+      const isRestaurant = window.location.pathname.includes('/restaurant/');
+      const targetType: "hotel" | "restaurant" | "attraction" = isHotel 
+        ? "hotel" 
+        : isRestaurant 
+        ? "restaurant" 
+        : "attraction";
+
       try {
         setIsLoading(true);
-        
-        const isHotel = window.location.pathname.includes('/hotel/');
-        const isRestaurant = window.location.pathname.includes('/restaurant/');
-        const isAttraction = window.location.pathname.includes('/attraction/');
 
         let detailRes;
         if (isHotel) detailRes = await getHotelDetail(id);
         else if (isRestaurant) detailRes = await getRestaurantDetail(id);
-        else if (isAttraction) detailRes = await getAttractionDetail(id);
-        else return;
+        else detailRes = await getAttractionDetail(id);
 
         if (detailRes.data && detailRes.data.status === 200 && detailRes.data.data) {
           const mainData = detailRes.data.data;
@@ -40,23 +44,31 @@ export const useDestinationDetail = () => {
           document.title = `${mainData.name} - TravelAi`;
           
           try {
-            let targetType: "hotel" | "restaurant" | "attraction" = "attraction";
-            if (isHotel) targetType = "hotel";
-            else if (isRestaurant) targetType = "restaurant";
-            
             const nearbyRes = await getAllNearbyServices(id, targetType);
-            if (nearbyRes.status === 200 && nearbyRes.data) {
+            if (nearbyRes.status === 200 && nearbyRes.data && nearbyRes.data.length > 0) {
               const rawServices = nearbyRes.data.filter(s => s.status === 'ACTIVE');
-              // Loại bỏ trùng lặp theo ID
               const uniqueServices = rawServices.filter((v, i, a) => a.findIndex(t => t.id === v.id) === i);
-              setNearbyServices(uniqueServices);
+              setNearbyServices(uniqueServices.length > 0 ? uniqueServices : MOCK_NEARBY_SERVICES.default);
+            } else {
+              setNearbyServices(MOCK_NEARBY_SERVICES.default);
             }
           } catch (err) {
-            console.error("Lỗi khi tải dịch vụ lân cận:", err);
+            console.warn("Lỗi khi tải dịch vụ lân cận từ BE, dùng mock data:", err);
+            setNearbyServices(MOCK_NEARBY_SERVICES.default);
           }
+        } else {
+          // Fallback to rich mock data
+          const mockData = getMockDestinationDetail(id, targetType);
+          setData(mockData);
+          setNearbyServices(MOCK_NEARBY_SERVICES.default);
+          document.title = `${mockData.name} - TravelAi`;
         }
       } catch (err) {
-        console.error("Lỗi khi tải thông tin chi tiết:", err);
+        console.warn("BE offline, tải dữ liệu mẫu chi tiết địa điểm:", err);
+        const mockData = getMockDestinationDetail(id, targetType);
+        setData(mockData);
+        setNearbyServices(MOCK_NEARBY_SERVICES.default);
+        document.title = `${mockData.name} - TravelAi`;
       } finally {
         setIsLoading(false);
       }

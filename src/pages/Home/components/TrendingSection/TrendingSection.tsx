@@ -1,31 +1,88 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import styles from "./TrendingSection.module.scss";
 import { getFeaturedAttractions } from "../../../../services/highlightService";
 
 interface TrendingItem {
-  id: string;
+  id: string | number;
   name: string;
   imageUrl: string;
   location: string;
 }
 
+const DEFAULT_TRENDING_DATA: TrendingItem[] = [
+  {
+    id: 9991,
+    name: "Cầu Vàng - Bà Nà Hills",
+    imageUrl: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80",
+    location: "Bà Nà Hills, Đà Nẵng"
+  },
+  {
+    id: 8881,
+    name: "Phố Cổ Hội An",
+    imageUrl: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=800&q=80",
+    location: "Hội An, Quảng Nam"
+  },
+  {
+    id: 7771,
+    name: "Đại Nội & Kinh Thành Huế",
+    imageUrl: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=800&q=80",
+    location: "TP. Huế, Thừa Thiên Huế"
+  },
+  {
+    id: 9995,
+    name: "Bán Đảo Sơn Trà & Chùa Linh Ứng",
+    imageUrl: "https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80",
+    location: "Sơn Trà, Đà Nẵng"
+  },
+  {
+    id: 9993,
+    name: "Cầu Rồng Đà Nẵng",
+    imageUrl: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
+    location: "Hải Châu, Đà Nẵng"
+  },
+  {
+    id: 9994,
+    name: "Bãi Biển Mỹ Khê",
+    imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    location: "Sơn Trà, Đà Nẵng"
+  },
+  {
+    id: 8883,
+    name: "Rừng Dừa Bảy Mẫu",
+    imageUrl: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80",
+    location: "Cẩm Thanh, Hội An"
+  },
+  {
+    id: 7773,
+    name: "Chùa Thiên Mụ & Sông Hương",
+    imageUrl: "https://images.unsplash.com/photo-1559592490-67245a494447?auto=format&fit=crop&w=800&q=80",
+    location: "Hương Long, TP. Huế"
+  }
+];
+
 const TrendingSection: React.FC = () => {
-  const [trendingData, setTrendingData] = useState<TrendingItem[]>([]);
+  const navigate = useNavigate();
+  const [trendingData, setTrendingData] = useState<TrendingItem[]>(DEFAULT_TRENDING_DATA);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getFeaturedAttractions(20); // Lấy tối đa 20 mục để marquee phong phú
+        const response = await getFeaturedAttractions(20);
         const data = response.data?.data || [];
-        setTrendingData(data.map((item: any) => ({
-          id: item.id,
-          name: item.name,
-          imageUrl: item.imageUrl,
-          location: item.location || "Việt Nam"
-        })));
-      } catch (error) {
-        console.error("Failed to fetch trending data:", error);
+        if (data.length > 0) {
+          setTrendingData(data.map((item: any) => ({
+            id: item.id,
+            name: item.name,
+            imageUrl: item.imageUrl || "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80",
+            location: item.location || "Việt Nam"
+          })));
+        } else {
+          setTrendingData(DEFAULT_TRENDING_DATA);
+        }
+      } catch {
+        setTrendingData(DEFAULT_TRENDING_DATA);
       }
     };
     fetchData();
@@ -85,7 +142,7 @@ const TrendingSection: React.FC = () => {
                   key={`${item.id}-${index}`} 
                   className={styles.marqueeCard}
                   whileHover={{ scale: 1.05, y: -10 }}
-                  onClick={() => window.location.href = `/attraction/${item.id}`}
+                  onClick={() => navigate(`/attraction/${item.id}`)}
                 >
                   <div className={styles.rankBadge}>TOP {actualRank}</div>
                   <div className={styles.cardImage} style={{ backgroundImage: `url(${item.imageUrl})` }} />

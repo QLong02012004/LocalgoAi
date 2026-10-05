@@ -13,6 +13,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({
   const tabs = [
     { id: 'info', label: 'Thông tin cá nhân', icon: 'ph-bold ph-user' },
     { id: 'password', label: 'Đổi mật khẩu', icon: 'ph-bold ph-lock-key' },
+    { id: 'reviews', label: 'Đánh giá của tôi', icon: 'ph-bold ph-star' },
   ];
 
   return (

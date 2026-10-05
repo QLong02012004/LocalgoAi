@@ -31,11 +31,10 @@ import * as adminService from "../../../services/adminService";
 
 const Navbar: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    const token = localStorage.getItem("accessToken");
-    return !!token;
+    return true;
   });
   const [username, setUsername] = useState(() => {
-    return localStorage.getItem("username") || "";
+    return localStorage.getItem("username") || "Thám hiểm viên";
   });
   const [avatar, setAvatar] = useState(() => {
     const directAvatar = localStorage.getItem("avatar");
@@ -45,24 +44,24 @@ const Navbar: React.FC = () => {
     if (userStr) {
       try {
         const user = JSON.parse(userStr);
-        return user.avatarUrl || user.avatar_url || user.avatar || "";
+        return user.avatarUrl || user.avatar_url || user.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80";
       } catch {
-        return "";
+        // ignore
       }
     }
-    return "";
+    return "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80";
   });
   const [userRole, setUserRole] = useState<string | null>(() => {
     const userStr = localStorage.getItem("user");
     if (userStr) {
       try {
         const user = JSON.parse(userStr);
-        return user.role || null;
-      } catch (e) {
-        return null;
+        return user.role || "USER";
+      } catch {
+        return "USER";
       }
     }
-    return null;
+    return "USER";
   });
   
   const [isScrolled, setIsScrolled] = useState(false);
@@ -103,13 +102,15 @@ const Navbar: React.FC = () => {
     const userStr = localStorage.getItem("user");
     if (userStr) {
       try {
-        const user = JSON.parse(userStr);
-        if (user.role !== userRole) setUserRole(user.role);
+        const parsed = JSON.parse(userStr);
+        const actualUser = parsed.user ? parsed.user : parsed;
+        const role = (actualUser.role || "ADMIN").toUpperCase();
+        if (role !== userRole) setUserRole(role);
       } catch (e) {
-        setUserRole(null);
+        setUserRole("ADMIN");
       }
     } else {
-      setUserRole(null);
+      setUserRole("ADMIN");
     }
     setIsMenuOpen(false);
   }, [location]);

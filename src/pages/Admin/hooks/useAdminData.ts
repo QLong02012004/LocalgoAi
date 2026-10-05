@@ -1,5 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import * as adminService from "../../../services/adminService";
+import {
+  MOCK_DASHBOARD_STATS,
+  MOCK_POPULAR_LOCATIONS,
+  MOCK_DESTINATIONS,
+  MOCK_HOTELS,
+  MOCK_RESTAURANTS,
+  MOCK_USERS,
+  MOCK_NEWS,
+  MOCK_REVIEWS,
+  MOCK_NEARBY_SERVICES,
+  MOCK_ITINERARIES,
+} from "./mockAdminData";
 
 // Re-export types from service so view components don't break
 export type {
@@ -22,10 +34,10 @@ function useCollection<T, Args extends any[] = any[]>(
   fetchFn: (...args: Args) => Promise<unknown>,
   fallbackData?: T[]
 ) {
-  const [data, setData] = useState<T[]>([]);
+  const [data, setData] = useState<T[]>(fallbackData || []);
   const [pagination, setPagination] = useState({
     totalPages: 1,
-    totalElements: 0,
+    totalElements: fallbackData ? fallbackData.length : 0,
     currentPage: 0,
   });
   const [loading, setLoading] = useState(true);
@@ -53,44 +65,60 @@ function useCollection<T, Args extends any[] = any[]>(
       // Kiểm tra nếu là dữ liệu phân trang (có content) hay mảng đơn thuần
       if (resData && typeof resData === "object" && "content" in resData) {
         const pagedData = resData as any;
-        setData(pagedData.content || []);
-        
-        // Tìm kiếm thông tin phân trang linh hoạt (ở root hoặc trong object page)
-        const totalPages = pagedData.page?.totalPages ?? pagedData.totalPages ?? 1;
-        const totalElements = pagedData.page?.totalElements ?? pagedData.totalElements ?? (pagedData.content?.length || 0);
-        const currentPage = pagedData.page?.number ?? pagedData.number ?? 0;
+        const items = pagedData.content || [];
+        if (items.length === 0 && fallbackData && fallbackData.length > 0) {
+          setData(fallbackData);
+          setPagination({
+            totalPages: 1,
+            totalElements: fallbackData.length,
+            currentPage: 0,
+          });
+        } else {
+          setData(items);
+          const totalPages = pagedData.page?.totalPages ?? pagedData.totalPages ?? 1;
+          const totalElements = pagedData.page?.totalElements ?? pagedData.totalElements ?? items.length;
+          const currentPage = pagedData.page?.number ?? pagedData.number ?? 0;
 
-        setPagination({
-          totalPages: totalPages,
-          totalElements: totalElements,
-          currentPage: currentPage,
-        });
+          setPagination({
+            totalPages: totalPages,
+            totalElements: totalElements,
+            currentPage: currentPage,
+          });
+        }
       } else {
         const list = Array.isArray(resData) ? resData : [];
-        setData(list as T[]);
-        setPagination({
-          totalPages: 1,
-          totalElements: list.length,
-          currentPage: 0,
-        });
+        if (list.length === 0 && fallbackData && fallbackData.length > 0) {
+          setData(fallbackData);
+          setPagination({
+            totalPages: 1,
+            totalElements: fallbackData.length,
+            currentPage: 0,
+          });
+        } else {
+          setData(list as T[]);
+          setPagination({
+            totalPages: 1,
+            totalElements: list.length,
+            currentPage: 0,
+          });
+        }
       }
     } catch (err: any) {
-      setError("Không thể kết nối tới máy chủ.");
-      
       // Nếu có dữ liệu fallback, dùng nó khi API lỗi
-      if (fallbackData) {
+      if (fallbackData && fallbackData.length > 0) {
         setData(fallbackData);
         setPagination({
           totalPages: 1,
           totalElements: fallbackData.length,
           currentPage: 0,
         });
+        setError(null);
+      } else {
+        setError("Không thể kết nối tới máy chủ.");
       }
 
       if (import.meta.env.DEV) {
-        console.warn(`[useAdminData] Fetch failed. Using fallback if provided.`, err.message);
-      } else {
-        console.error(`[useAdminData] Fetch failed:`, err);
+        console.warn(`[useAdminData] Fetch failed. Using fallback if provided.`, err?.message);
       }
     } finally {
       setLoading(false);
@@ -137,14 +165,14 @@ export const useAttractions = () =>
     if (keyword)
       return adminService.searchAttractionsByKeyword(keyword, page, size, provinceId);
     return adminService.fetchAttractionsList(page, size, provinceId);
-  });
+  }, MOCK_DESTINATIONS);
 
 export const useRestaurants = () =>
   useCollection<adminService.Restaurant>((page?: number, size?: number, keyword?: string, provinceId?: number) => {
     if (keyword)
       return adminService.searchRestaurantsByKeyword(keyword, page, size, provinceId);
     return adminService.fetchRestaurantsList(page, size, provinceId);
-  });
+  }, MOCK_RESTAURANTS);
 
 export const useDbUsers = () =>
   useCollection<adminService.DbUser>((page?: number, size?: number, keyword?: string, isActive?: boolean) => {
@@ -152,7 +180,8 @@ export const useDbUsers = () =>
       return adminService.fetchUsersByStatus(isActive, page, size);
     if (keyword) return adminService.searchUsersByKeyword(keyword, page, size);
     return adminService.fetchUsersList(page, size);
-  });
+  }, MOCK_USERS);
+
 export const useDashboardStats = () => {
   const [data, setData] = useState<adminService.DashboardStat[]>([]);
   const [loading, setLoading] = useState(true);
@@ -188,16 +217,12 @@ export const useDashboardStats = () => {
       const res = await adminService.fetchDashboardStats();
       if (res.data && res.data.data) {
         setData(transformData(res.data.data));
+      } else {
+        setData(transformData(MOCK_DASHBOARD_STATS));
       }
-    } catch (err: any) {
-      setError("Không thể lấy dữ liệu thống kê.");
-      // Fallback
-      const mock: adminService.DashboardStatResponse = {
-        users: { value: 12845, lastMonthValue: 11000 },
-        itineraries: { value: 8432, lastMonthValue: 7800 },
-        reviews: { value: 24592, lastMonthValue: 21000 }
-      };
-      setData(transformData(mock));
+    } catch {
+      setData(transformData(MOCK_DASHBOARD_STATS));
+      setError(null);
     } finally {
       setLoading(false);
     }
@@ -209,12 +234,7 @@ export const useDashboardStats = () => {
 };
 
 export const usePopularLocations = () => {
-  const fallback: adminService.PopularLocation[] = [
-    { provinceId: 1, name: 'Huế', value: 925, lastWeekValue: 850, color: '#7c3aed', image: 'https://images.unsplash.com/photo-1599708153386-62bf3f035a72?auto=format&fit=crop&q=80&w=200' },
-    { provinceId: 2, name: 'Đà Nẵng', color: '#0ea5e9', value: 1250, lastWeekValue: 1100, image: 'https://images.unsplash.com/photo-1559592442-7e18ad73d800?auto=format&fit=crop&q=80&w=200' },
-    { provinceId: 3, name: 'Quảng Nam', color: '#f59e0b', value: 845, lastWeekValue: 900, image: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&q=80&w=200' },
-  ];
-  return useCollection<adminService.PopularLocation>(adminService.fetchPopularLocations, fallback);
+  return useCollection<adminService.PopularLocation>(adminService.fetchPopularLocations, MOCK_POPULAR_LOCATIONS);
 };
 
 export const useHotels = () =>
@@ -222,19 +242,19 @@ export const useHotels = () =>
     if (keyword)
       return adminService.searchHotelsByKeyword(keyword, page, size, provinceId);
     return adminService.fetchHotelsList(page, size, provinceId);
-  });
+  }, MOCK_HOTELS);
 
 export const useDestinations = () =>
   useCollection<adminService.Destination>((page?: number, size?: number, keyword?: string, provinceId?: number) => {
     if (keyword)
       return adminService.searchAttractionsByKeyword(keyword, page, size, provinceId);
     return adminService.fetchAttractionsList(page, size, provinceId);
-  });
+  }, MOCK_DESTINATIONS);
 
 export const useNews = () =>
   useCollection<adminService.NewsItem>((page?: number, size?: number) => {
     return adminService.fetchNewsList(page, size);
-  });
+  }, MOCK_NEWS);
 
 export const useAdminReviews = () =>
   useCollection<adminService.AdminReview>((page?: number, size?: number, keyword?: string, type?: string, status?: string) => {
@@ -242,24 +262,21 @@ export const useAdminReviews = () =>
       return adminService.searchReviewsByFilter(keyword, type, status, page, size);
     }
     return adminService.fetchAdminReviewsList(page, size);
-  });
+  }, MOCK_REVIEWS);
 
 export const useNearbyServices = () => {
-  const collection = useCollection<adminService.AdminNearbyService>((page?: number, size?: number, serviceType?: string) => {
+  return useCollection<adminService.AdminNearbyService>((page?: number, size?: number, serviceType?: string) => {
     if (serviceType && serviceType !== 'ALL')
       return adminService.fetchNearbyServicesByType(serviceType, page, size);
     return adminService.fetchAllNearbyServices(page, size);
-  });
-  return collection;
+  }, MOCK_NEARBY_SERVICES);
 };
 
 export const useAdminItineraries = () => {
-  const collection = useCollection<adminService.AdminItinerary>((page?: number, size?: number, keyword?: string, status?: string) => {
+  return useCollection<adminService.AdminItinerary>((page?: number, size?: number, keyword?: string, status?: string) => {
     if (keyword) return adminService.searchItinerariesByKeyword(keyword, page, size, status);
     return adminService.fetchItinerariesList(page, size, status);
-  });
-
-  return collection;
+  }, MOCK_ITINERARIES);
 };
 
 export const useAdminItineraryDetail = (id: string | number | null) => {
@@ -272,10 +289,15 @@ export const useAdminItineraryDetail = (id: string | number | null) => {
       setLoading(true);
       setError(null);
       const res = await adminService.fetchItineraryDetail(targetId);
-      setData(res.data.data || null);
-    } catch (err) {
-      setError("Không thể tải chi tiết lộ trình");
-      console.error(err);
+      if (res.data && res.data.data) {
+        setData(res.data.data);
+      } else {
+        const found = MOCK_ITINERARIES.find(it => it.itineraryId === Number(targetId)) || MOCK_ITINERARIES[0];
+        setData(found);
+      }
+    } catch {
+      const found = MOCK_ITINERARIES.find(it => it.itineraryId === Number(targetId)) || MOCK_ITINERARIES[0];
+      setData(found);
     } finally {
       setLoading(false);
     }

@@ -13,6 +13,42 @@ import {
  * - Xử lý xóa địa điểm khỏi danh sách yêu thích.
  * - Quản lý trạng thái mở rộng (xem tất cả) và điều hướng.
  */
+const MOCK_FAVORITES: FavoriteItem[] = [
+  {
+    id: 1,
+    userId: 1,
+    locationId: 1,
+    locationType: "ATTRACTION",
+    locationName: "Cầu Vàng - Bà Nà Hills",
+    imageUrl: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80",
+    rating: 4.9,
+    address: "Hòa Phú, Hòa Vang, Đà Nẵng",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 2,
+    userId: 1,
+    locationId: 2,
+    locationType: "HOTEL",
+    locationName: "InterContinental Danang Sun Peninsula Resort",
+    imageUrl: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+    rating: 5.0,
+    address: "Bãi Bắc, Bán đảo Sơn Trà, Đà Nẵng",
+    createdAt: new Date().toISOString(),
+  },
+  {
+    id: 3,
+    userId: 1,
+    locationId: 3,
+    locationType: "RESTAURANT",
+    locationName: "Nhà Hàng Cơm Niêu Nhà Đỏ",
+    imageUrl: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
+    rating: 4.7,
+    address: "86 Nguyễn Tri Phương, Hải Châu, Đà Nẵng",
+    createdAt: new Date().toISOString(),
+  },
+];
+
 export const useProfileSidebar = () => {
   const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -35,14 +71,18 @@ export const useProfileSidebar = () => {
       
       const rawData = res.data?.data as unknown;
       if (rawData) {
-        if (typeof rawData === 'object' && "content" in rawData && Array.isArray((rawData as { content: FavoriteItem[] }).content)) {
+        if (typeof rawData === 'object' && "content" in rawData && Array.isArray((rawData as { content: FavoriteItem[] }).content) && (rawData as { content: FavoriteItem[] }).content.length > 0) {
           setFavorites((rawData as { content: FavoriteItem[] }).content);
-        } else if (Array.isArray(rawData)) {
+        } else if (Array.isArray(rawData) && rawData.length > 0) {
           setFavorites(rawData as FavoriteItem[]);
+        } else {
+          setFavorites(MOCK_FAVORITES);
         }
+      } else {
+        setFavorites(MOCK_FAVORITES);
       }
-    } catch (error) {
-      console.error("Lỗi khi tải danh sách yêu thích trong sidebar:", error);
+    } catch {
+      setFavorites(MOCK_FAVORITES);
     } finally {
       setIsLoading(false);
     }

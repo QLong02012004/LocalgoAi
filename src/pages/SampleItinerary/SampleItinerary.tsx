@@ -115,7 +115,7 @@ const SampleItinerary: React.FC = () => {
           averageRating: 4.8,
           reasonRecommended: "Khám phá trọn vẹn nét văn hóa di sản của cố đô Huế trong 3 ngày 2 đêm.",
           startDate: [2026, 5, 20],
-          imageUrl: "https://images.unsplash.com/photo-1563492062331-50e58836599b?q=80&w=1600",
+          imageUrl: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1600&q=80",
           costBreakdown: { accommodation: 1200000, food: 1000000, activities: 800000, services: 500000, total: 3500000 },
           hotels: [
             {
@@ -130,7 +130,7 @@ const SampleItinerary: React.FC = () => {
               pricePerNight: 600000,
               totalPrice: 1200000,
               rating: 4.5,
-              imageUrl: "https://images.unsplash.com/photo-1563492062331-50e58836599b?q=80&w=1600"
+              imageUrl: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1600&q=80"
             }
           ],
           itineraryDays: [
@@ -154,7 +154,7 @@ const SampleItinerary: React.FC = () => {
                   longitude: 107.5786,
                   rating: 4.8,
                   estimatedCost: 150000,
-                  imageUrl: "https://images.unsplash.com/photo-1563492062331-50e58836599b?q=80&w=1600",
+                  imageUrl: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1600&q=80",
                   gallery: [],
                   tips: []
                 },
@@ -173,7 +173,7 @@ const SampleItinerary: React.FC = () => {
                   longitude: 107.592,
                   rating: 4.5,
                   estimatedCost: 350000,
-                  imageUrl: "https://images.unsplash.com/photo-1563492062331-50e58836599b?q=80&w=1600",
+                  imageUrl: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1600&q=80",
                   gallery: [],
                   tips: []
                 }
@@ -199,7 +199,7 @@ const SampleItinerary: React.FC = () => {
                   longitude: 107.5902,
                   rating: 4.7,
                   estimatedCost: 150000,
-                  imageUrl: "https://images.unsplash.com/photo-1563492062331-50e58836599b?q=80&w=1600",
+                  imageUrl: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1600&q=80",
                   gallery: [],
                   tips: []
                 }
@@ -222,7 +222,7 @@ const SampleItinerary: React.FC = () => {
           averageRating: 4.9,
           reasonRecommended: "Hành trình khám phá thành phố đáng sống nhất Việt Nam với các điểm check-in cực hot.",
           startDate: [2026, 5, 20],
-          imageUrl: "https://images.unsplash.com/photo-1559592413-7ce8509975b4?q=80&w=1600",
+          imageUrl: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1600&q=80",
           costBreakdown: { accommodation: 1800000, food: 1200000, activities: 1000000, services: 500000, total: 4500000 },
           hotels: [
             {
@@ -237,7 +237,7 @@ const SampleItinerary: React.FC = () => {
               pricePerNight: 900000,
               totalPrice: 1800000,
               rating: 4.8,
-              imageUrl: "https://images.unsplash.com/photo-1559592413-7ce8509975b4?q=80&w=1600"
+              imageUrl: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1600&q=80"
             }
           ],
           itineraryDays: [
@@ -261,7 +261,7 @@ const SampleItinerary: React.FC = () => {
                   longitude: 107.994,
                   rating: 4.9,
                   estimatedCost: 850000,
-                  imageUrl: "https://images.unsplash.com/photo-1559592413-7ce8509975b4?q=80&w=1600",
+                  imageUrl: "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1600&q=80",
                   gallery: [],
                   tips: []
                 }
@@ -284,7 +284,7 @@ const SampleItinerary: React.FC = () => {
           averageRating: 4.7,
           reasonRecommended: "Trải nghiệm không gian lãng mạn đèn lồng rực rỡ và các món đặc sản Hội An truyền thống cực hấp dẫn.",
           startDate: [2026, 5, 20],
-          imageUrl: "https://images.unsplash.com/photo-1599708141690-d81b30501709?q=80&w=1600",
+          imageUrl: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1600&q=80",
           costBreakdown: { accommodation: 1000000, food: 800000, activities: 600000, services: 400000, total: 2800000 },
           hotels: [
             {
@@ -299,7 +299,7 @@ const SampleItinerary: React.FC = () => {
               pricePerNight: 1000000,
               totalPrice: 1000000,
               rating: 4.6,
-              imageUrl: "https://images.unsplash.com/photo-1599708141690-d81b30501709?q=80&w=1600"
+              imageUrl: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1600&q=80"
             }
           ],
           itineraryDays: [
@@ -323,7 +323,7 @@ const SampleItinerary: React.FC = () => {
                   longitude: 108.3282,
                   rating: 4.9,
                   estimatedCost: 0,
-                  imageUrl: "https://images.unsplash.com/photo-1599708141690-d81b30501709?q=80&w=1600",
+                  imageUrl: "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1600&q=80",
                   gallery: [],
                   tips: []
                 }

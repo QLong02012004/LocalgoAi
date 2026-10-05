@@ -84,15 +84,11 @@ const Home: React.FC = () => {
           </div>
         </section>
         {/* Highlight Locations */}
-        <section className={styles.highlightLocations}>
-          <div className={styles.container}>
-            <HighlightLocations
-              titlePrimary="Gợi ý"
-              titleHighlight="nổi bật"
-              description="Khám phá những điểm đến được yêu thích nhất bởi cộng đồng."
-            />
-          </div>
-        </section>
+        <HighlightLocations
+          titlePrimary="Gợi ý"
+          titleHighlight="nổi bật"
+          description="Khám phá những điểm đến được yêu thích nhất bởi cộng đồng."
+        />
 
         {/* Testimonials Section */}
         <section className={styles.testimonials}>

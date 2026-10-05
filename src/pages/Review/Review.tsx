@@ -195,7 +195,13 @@ const Review: React.FC = () => {
                 >
                   {review.images && review.images.length > 0 && (
                     <div className={styles.reviewImage}>
-                      <img src={review.images[0]} alt="Review" />
+                      <img 
+                        src={review.images[0]} 
+                        alt="Review" 
+                        onError={(e) => {
+                          e.currentTarget.src = "https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=600&q=80";
+                        }}
+                      />
                     </div>
                   )}
                   <div className={styles.masonryContent}>
@@ -204,6 +210,9 @@ const Review: React.FC = () => {
                         src={review.avatar}
                         alt={review.userName}
                         className={styles.userAvatar}
+                        onError={(e) => {
+                          e.currentTarget.src = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80";
+                        }}
                       />
                       <div className={styles.userInfo}>
                         <strong>{review.userName}</strong>

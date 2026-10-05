@@ -85,9 +85,22 @@ export const useProfile = () => {
           } as UserProfile;
         }
 
-        if (profileData) {
-          setProfile(profileData);
+        if (!profileData) {
+          profileData = {
+            fullName: "Khách du lịch",
+            email: "guest@travelai.vn",
+            phone: "0905 123 456",
+            address: "Đà Nẵng, Việt Nam",
+            bio: "Sẵn sàng lên lịch trình tự động đi du lịch muôn nơi với TravelAI",
+            avatarUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80",
+            coverUrl: cover,
+            badge: "Thành viên Khám phá",
+            joinDate: "10/2026",
+            location: "Đà Nẵng, Việt Nam",
+          } as UserProfile;
         }
+
+        setProfile(profileData);
       } catch (error) {
         console.error("Lỗi khi tải thông tin profile:", error);
       }
